@@ -1,8 +1,14 @@
 # Boardtopia
+- Site for playing board games online!
 
 # Project in group
+- Jens Gustafsson
+- Annerle Viloan
+- Emilia Engberg
+- Rasmus Nilsson
+- Yuria Tateishi
 
-# Add ideas for future
+# Current planned ideas
 
 # MVP (Must-haves)
 - Logo
@@ -14,7 +20,7 @@
 - Landing page for each game
 - Starting games on page will include Wordgame, Tic Tac Toe and Rock paper scissors
 
-# Want to haves
+# Future ideas
 - Search, for games
 - Reviews
 - 
