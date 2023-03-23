@@ -21,6 +21,7 @@
 - Starting game on site will be a Wordgame
 
 # Future ideas
+- Edit your information
 - Search, for games
 - Reviews
 - Tic tac toe and rock paper scissors
