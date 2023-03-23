@@ -18,9 +18,9 @@
 - About us
 - Database for created accounts
 - Landing page for each game
-- Starting games on page will include Wordgame, Tic Tac Toe and Rock paper scissors
+- Starting game on site will be a Wordgame
 
 # Future ideas
 - Search, for games
 - Reviews
-- 
+- Tic tac toe and rock paper scissors
