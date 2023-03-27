@@ -31,6 +31,22 @@ function createGameBoard() {
     }
 }
 
+function checkIfGuessIsCorrect() {
+    if (currentGuess.toLowerCase() === correctWord.toLowerCase()) {
+        gameOver = true;
+        gameOverMessage.textContent = 'You Win!';
+    }
+
+    if (currentNum === NUMBER_OF_GUESSES) {
+        gameover = true;
+        if (currentGuess.toLowerCase() === correctWord.toLowerCase()) {
+            gameOverMessage.textContent = 'You Win!';
+        } else {
+            gameOverMessage.textContent = 'You Lose!';
+        }
+    }
+}
+
 
 // Add event listener
 document.addEventListener('keyup', (e) => {
@@ -45,7 +61,14 @@ document.addEventListener('keyup', (e) => {
         } else if (e.key === 'Backspace' && currentGuess.length > 0) {
             row.children[currentGuess.length - 1].textContent = '';
             currentGuess = currentGuess.slice(0, -1);
-            console.log(currentGuess);
+        }
+
+        if (e.key === 'Enter' && currentGuess.length === WORD_LENGTH) {
+            currentNum++;
+
+            checkIfGuessIsCorrect();
+
+            currentGuess = '';
         }
     }
 });
