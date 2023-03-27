@@ -19,6 +19,7 @@ function createGameBoard() {
     for (let i = 0; i < NUMBER_OF_GUESSES; i++) {
 
         const row = document.createElement('div');
+        row.dataset.row = `row${i + 1}`;
         row.classList.add('board-row');
         gameBoard.appendChild(row);
 
@@ -33,7 +34,9 @@ function createGameBoard() {
 
 // Add event listener
 document.addEventListener('keyup', (e) => {
+    const row = document.querySelector('[data-row="row1"]');
     if (regEx.test(e.key)) {
+        console.log(row);
         console.log(e.key);
     } else if (e.key === 'Enter') {
         console.log(e.key);
