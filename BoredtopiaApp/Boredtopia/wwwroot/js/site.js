@@ -24,9 +24,9 @@ function createGameBoard() {
         gameBoard.appendChild(row);
 
         for (let j = 0; j < WORD_LENGTH; j++) {
-            const wordBox = document.createElement('div');
-            wordBox.classList.add('word-box');
-            row.appendChild(wordBox);
+            const letterBox = document.createElement('div');
+            letterBox.classList.add('word-box');
+            row.appendChild(letterBox);
         }
     }
 }
