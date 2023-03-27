@@ -24,3 +24,20 @@ logo{
     height:3px;
     width: 3px; 
 }
+
+.game-board { 
+   
+}
+
+.board-row {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.word-box {
+    width: 5rem;
+    height: 5rem;
+    background-color: hotpink;
+}
