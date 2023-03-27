@@ -1,6 +1,7 @@
 ﻿using Boredtopia.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Boredtopia.Controllers
 {
@@ -28,6 +29,19 @@ namespace Boredtopia.Controllers
         {
             return View();
         }
+
+        [HttpGet("/Login")]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpGet("/Register")]
+        public IActionResult Register()
+        {
+            return View();
+        }
+    
         [HttpGet("/Profile")]
         public IActionResult Profile()
         {
