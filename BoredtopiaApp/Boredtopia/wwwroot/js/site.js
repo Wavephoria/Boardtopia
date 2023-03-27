@@ -19,13 +19,14 @@ function createGameBoard() {
     for (let i = 0; i < NUMBER_OF_GUESSES; i++) {
 
         const row = document.createElement('div');
+        row.dataset.row = `row${i + 1}`;
         row.classList.add('board-row');
         gameBoard.appendChild(row);
 
         for (let j = 0; j < WORD_LENGTH; j++) {
-            const wordBox = document.createElement('div');
-            wordBox.classList.add('word-box');
-            row.appendChild(wordBox);
+            const letterBox = document.createElement('div');
+            letterBox.classList.add('word-box');
+            row.appendChild(letterBox);
         }
     }
 }
@@ -33,8 +34,10 @@ function createGameBoard() {
 
 // Add event listener
 document.addEventListener('keyup', (e) => {
-    if (regEx.test(e.key)) {
-        console.log(e.key);
+    const row = document.querySelector('[data-row="row1"]');
+    if (regEx.test(e.key) && currentNum < WORD_LENGTH) {
+        row.children[currentNum].textContent = e.key.toUpperCase();
+        currentNum++;
     } else if (e.key === 'Enter') {
         console.log(e.key);
     } else if (e.key === 'Backspace') {
