@@ -35,7 +35,7 @@ function createGameBoard() {
 // Add event listener
 document.addEventListener('keyup', (e) => {
     const row = document.querySelector('[data-row="row1"]');
-    if (regEx.test(e.key) && currentNum < WORD_LENGTH) {
+    if (regEx.test(e.key) && currentGuess.length < WORD_LENGTH) {
         row.children[currentGuess.length].textContent = e.key.toUpperCase();
         currentGuess += e.key;
     } else if (e.key === 'Enter' && currentGuess.length === WORD_LENGTH) {
