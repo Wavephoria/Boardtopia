@@ -4,12 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Boredtopia</title>
-    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+
     <link rel="icon" href="~/image/Hotpot.png" type="image/icon type">
 
     <link rel="stylesheet" href="css/pico.min.css" asp-append-version="true">
 
-    @*   <link rel="stylesheet" href="~/Boredtopia.styles.css" asp-append-version="true" />*@
+
 </head>
 <body>
     <main class="container">
@@ -24,10 +24,22 @@
                 </ul>
 
                 <ul>
-                    <button> Theme </button>
-                   
+                    <li>
+                        <details role="list" dir="rtl">
+                            <summary aria-haspopup="listbox" role="link" class="contrast">Select Themes
+
+                            </summary>
+                            <ul role="listbox">
+                                <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+                                <li><a href="#" data-theme-switcher="light">Light</a></li>
+                                <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+                            </ul>
+                        </details>
+                    </li>
+
+
                 </ul>
-https://picocss.com/#examples
+
             </nav>
         </header>
         <nav>
@@ -38,13 +50,21 @@ https://picocss.com/#examples
                 <li><a asp-controller="Home" asp-action="Games">Games</a></li>
             </ul>
             <ul>
-                <li><a asp-controller="Home" asp-action="Profile">Profile</a>
-                </li>
-            </ul>
                 <li>
-                    <a asp-controller="Home" asp-action="About">About</a>
+                    <a asp-controller="Home" asp-action="Profile">Profile</a>
                 </li>
             </ul>
+            <li>
+                <a asp-controller="Home" asp-action="About">About</a>
+            </li>
+            </ul>
+            <nav aria-label="breadcrumb">
+                <ul>
+                    <li><a asp-controller="login" asp-action="login">Login</a></li>
+                    <li><a asp-controller="register" asp-action="register">Register</a></li>
+                   
+                </ul>
+            </nav>
         </nav>
 
 
@@ -59,6 +79,7 @@ https://picocss.com/#examples
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/theme-switcher.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
     <footer class="border-top footer text-muted">
