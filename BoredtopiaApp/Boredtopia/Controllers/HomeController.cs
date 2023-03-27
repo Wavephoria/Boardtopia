@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Boredtopia.Views.Home;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Boredtopia.Controllers
 {
@@ -37,6 +38,7 @@ namespace Boredtopia.Controllers
         {
             return View();
         }
+        [HttpPost("/Login")]
         public async Task<IActionResult> Login(LoginVM viewModel)
         {
             if (!ModelState.IsValid)
@@ -62,7 +64,7 @@ namespace Boredtopia.Controllers
         {
             return View();
         }
-        [HttpPost("register")]
+        [HttpPost("/Register")]
         public async Task<IActionResult> Register(RegisterVM viewModel)
         {
             if (!ModelState.IsValid)
@@ -80,11 +82,13 @@ namespace Boredtopia.Controllers
             // Redirect user
             return RedirectToAction(nameof(Login));
         }
-    
+        [Authorize]
         [HttpGet("/Profile")]
         public IActionResult Profile()
         {
-            return View();
+            ProfileVM viewModel = new();
+            viewModel.Name = User.Identity.Name;
+            return View(viewModel);
         }
         [HttpGet("/Privacy")]
         public IActionResult Privacy()

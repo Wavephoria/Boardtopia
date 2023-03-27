@@ -1,0 +1,25 @@
+@model ProfileVM
+<h1>My profile</h1>
+<p>Your username is: @Model.Name</p>
+<p>Your email is: @Model.Email</p>
+
+<br/>
+<br/>
+
+<details role="gameChoice">
+    <summary aria-haspopup="listbox" role="button" class="secondary">
+        Which game do you want to look at
+    </summary>
+    <ul role="listbox">
+        <li><a>Wordle</a></li>
+        <li><a>Adoptle</a></li>
+        <li><a>Musicle</a></li>
+    </ul>
+</details>
+
+<article>
+    @* @Model.GameName stats: *@
+    @* Games played: @Model.GamesPlayed *@
+    @* Personal best: @Model.PersonalBest *@
+    @* Average score: @Model.AvgScore *@
+</article>
