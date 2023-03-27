@@ -42,9 +42,11 @@ document.addEventListener('keyup', (e) => {
         } else if (e.key === 'Enter' && currentGuess.length === WORD_LENGTH) {
             currentGuess = '';
             currentNum++;
-        } else if (e.key === 'Backspace') {
-            console.log(e.key);
-            }
+        } else if (e.key === 'Backspace' && currentGuess.length > 0) {
+            row.children[currentGuess.length - 1].textContent = '';
+            currentGuess = currentGuess.slice(0, -1);
+            console.log(currentGuess);
+        }
     }
 });
 
