@@ -26,27 +26,38 @@ logo{
 }
 
 .game-board { 
-   
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    padding-top: 50px;
 }
 
 .board-row {
     display: flex;
     flex-direction: row;
-    gap: 5px;
-    margin-bottom: 5px;
+    gap: 0.3rem;
+    margin-bottom: 0.3rem;
 }
 
 .word-box {
     width: 5rem;
     height: 5rem;
-    background-color: hotpink;
+    border: 1px solid #9a9a9a;
     font-size: 2.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.game-over-message {
+    display: flex;
+    justify-content: center;
+    height: 5rem;
+    padding: 2.5rem;
+}
+
 .box {
     border: dotted;
-    padding: 1em;1
+    padding: 1em;
 }
