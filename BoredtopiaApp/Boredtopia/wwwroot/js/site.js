@@ -36,9 +36,10 @@ function createGameBoard() {
 document.addEventListener('keyup', (e) => {
     const row = document.querySelector('[data-row="row1"]');
     if (regEx.test(e.key) && currentNum < WORD_LENGTH) {
-        row.children[currentNum].textContent = e.key.toUpperCase();
-        currentNum++;
-    } else if (e.key === 'Enter') {
+        row.children[currentGuess.length].textContent = e.key.toUpperCase();
+        currentGuess += e.key;
+        console.log(currentGuess);
+    } else if (e.key === 'Enter' && currentGuess.length === WORD_LENGTH) {
         console.log(e.key);
     } else if (e.key === 'Backspace') {
         console.log(e.key);
