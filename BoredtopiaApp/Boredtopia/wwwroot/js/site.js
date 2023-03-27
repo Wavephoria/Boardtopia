@@ -8,6 +8,8 @@ const NUMBER_OF_GUESSES = 6;
 let currentGuess = '';
 let currentNum = 0;
 
+const regEx = /^[A-Za-zåäöÅÄÖ]$/;
+
 // Word during development
 const word = "REACT";
 
@@ -31,10 +33,7 @@ function createGameBoard() {
 
 // Add event listener
 document.addEventListener('keyup', (e) => {
-    if (e.keyCode >= 65 && e.keyCode <= 90 ||
-        e.keyCode === 221 ||
-        e.keyCode === 222 ||
-        e.keyCode === 192) {
+    if (regEx.test(e.key)) {
         console.log(e.key);
     }
 });
