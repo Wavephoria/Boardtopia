@@ -8,6 +8,8 @@ const NUMBER_OF_GUESSES = 6;
 let currentGuess = '';
 let currentNum = 0;
 
+const regEx = /^[A-Za-zåäöÅÄÖ]$/;
+
 // Word during development
 const word = "REACT";
 
@@ -17,6 +19,7 @@ function createGameBoard() {
     for (let i = 0; i < NUMBER_OF_GUESSES; i++) {
 
         const row = document.createElement('div');
+        row.dataset.row = `row${i + 1}`;
         row.classList.add('board-row');
         gameBoard.appendChild(row);
 
@@ -31,10 +34,16 @@ function createGameBoard() {
 
 // Add event listener
 document.addEventListener('keyup', (e) => {
-    console.log(e);
+    const row = document.querySelector('[data-row="row1"]');
+    if (regEx.test(e.key)) {
+        row.children[currentNum].textContent = e.key.toUpperCase();
+        console.log(e.key);
+    } else if (e.key === 'Enter') {
+        console.log(e.key);
+    } else if (e.key === 'Backspace') {
+        console.log(e.key);
+    }
 });
-
-
 
 
 // Init game
