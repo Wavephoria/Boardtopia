@@ -38,7 +38,6 @@ document.addEventListener('keyup', (e) => {
     if (regEx.test(e.key) && currentNum < WORD_LENGTH) {
         row.children[currentGuess.length].textContent = e.key.toUpperCase();
         currentGuess += e.key;
-        console.log(currentGuess);
     } else if (e.key === 'Enter' && currentGuess.length === WORD_LENGTH) {
         console.log(e.key);
     } else if (e.key === 'Backspace') {
