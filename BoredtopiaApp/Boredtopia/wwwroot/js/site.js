@@ -35,10 +35,12 @@ function createGameBoard() {
 document.addEventListener('keyup', (e) => {
     if (regEx.test(e.key)) {
         console.log(e.key);
+    } else if (e.key === 'Enter') {
+        console.log(e.key);
+    } else if (e.key === 'Backspace') {
+        console.log(e.key);
     }
 });
-
-
 
 
 // Init game
