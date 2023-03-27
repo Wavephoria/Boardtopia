@@ -4,18 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Boredtopia</title>
-    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
-
+    <link rel="siteCSS" href="css/site.css">
     <link rel="stylesheet" href="css/pico.min.css" asp-append-version="true">
-
-    @*   <link rel="stylesheet" href="~/Boredtopia.styles.css" asp-append-version="true" />*@
 </head>
 <body>
     <main class="container">
         <header>
             <nav>
                 <ul>
-                    <li><img src="image/Hotpot.png" alt="BoardTopia logo class= " logo" /></li>
+                    <li><img src="image/Hotpot.png" alt="BoardTopia logo class= " logo /></li>
                 </ul>
 
                 <ul>
@@ -33,14 +30,15 @@
                 <li><a asp-controller="Home" asp-action="Index">Home</a></li>
             </ul>
             <ul>
-                <li><a asp-controller="Home" asp-action="Games">Games</a></li>
+                <li><a asp-controller="Home" asp-action="Index">Games</a></li>
             </ul>
             <ul>
-                <li><a asp-controller="Home" asp-action="Profile">Profile</a>
+                <li><a asp-controller="Home" asp-action="Index">Profile</a>
                 </li>
             </ul>
+            <ul>
                 <li>
-                    <a asp-controller="Home" asp-action="About">About</a>
+                    <a asp-controller="Home" asp-action="Index">About</a>
                 </li>
             </ul>
         </nav>

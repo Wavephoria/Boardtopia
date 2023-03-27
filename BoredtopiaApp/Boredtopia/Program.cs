@@ -1,7 +1,18 @@
+using Boredtopia.Controllers;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var connectionString = builder.Configuration.GetConnectionString("MyDbConnection");
+builder.Services.AddDbContext<ApplicationContext>(a => a.UseSqlServer(connectionString));
+
+
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>()
+    .AddDefaultTokenProviders();
+builder.Services.ConfigureApplicationCookie(a => a.LoginPath = "/login");
 
 var app = builder.Build();
 
