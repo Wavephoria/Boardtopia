@@ -11,7 +11,7 @@ let currentNum = 0;
 const regEx = /^[A-Za-zåäöÅÄÖ]$/;
 
 // Word during development
-const word = "REACT";
+const correctWord = "REACT";
 
 
 // Create game board
