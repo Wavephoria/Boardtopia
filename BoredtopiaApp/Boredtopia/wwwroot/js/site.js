@@ -40,20 +40,28 @@ document.addEventListener('keyup', (e) => {
         return;
     }
 
+    const row = document.querySelector(`[data-row=row${currentNum + 1}]`);
+
     if (currentNum < NUMBER_OF_GUESSES) {
-        const row = document.querySelector(`[data-row=row${currentNum + 1}]`);
         if (regEx.test(e.key) && currentGuess.length < WORD_LENGTH) {
             row.children[currentGuess.length].textContent = e.key.toUpperCase();
             currentGuess += e.key;
-        } else if (e.key === 'Backspace' && currentGuess.length > 0) {
+        }
+
+        if (e.key === 'Backspace' && currentGuess.length > 0) {
             row.children[currentGuess.length - 1].textContent = '';
             currentGuess = currentGuess.slice(0, -1);
-        } else if (e.key === 'Enter' && currentGuess.length === WORD_LENGTH) {
+        }
+
+        if (e.key === 'Enter' && currentGuess.length === WORD_LENGTH) {
             currentNum++;
+
             if (currentGuess.toLowerCase() === correctWord.toLowerCase()) {
                 gameOver = true;
                 gameOverMessage.textContent = 'You Win!';
-            } else if (currentNum === NUMBER_OF_GUESSES) {
+            }
+
+            if (currentNum === NUMBER_OF_GUESSES) {
                 gameover = true;
                 if (currentGuess.toLowerCase() === correctWord.toLowerCase()) {
                     gameOverMessage.textContent = 'You Win!';
@@ -61,6 +69,7 @@ document.addEventListener('keyup', (e) => {
                     gameOverMessage.textContent = 'You Lose!';
                 }
             }
+
             currentGuess = '';
         }
     }
