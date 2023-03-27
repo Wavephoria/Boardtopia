@@ -1,14 +1,12 @@
 ﻿
 // Queryselectors
 const gameBoard = document.querySelector('.game-board');
-const gameOverMessage = document.querySelector('.game-over-message');
 
 // Add game variables
 const WORD_LENGTH = 5;
 const NUMBER_OF_GUESSES = 6;
 let currentGuess = '';
 let currentNum = 0;
-let gameOver = false;
 
 const regEx = /^[A-Za-zåäöÅÄÖ]$/;
 
@@ -52,19 +50,15 @@ function checkIfGuessIsCorrect() {
 
 // Add event listener
 document.addEventListener('keyup', (e) => {
-    if (gameOver) {
-        return;
-    }
-
-    const row = document.querySelector(`[data-row=row${currentNum + 1}]`);
-
     if (currentNum < NUMBER_OF_GUESSES) {
+        const row = document.querySelector(`[data-row=row${currentNum + 1}]`);
         if (regEx.test(e.key) && currentGuess.length < WORD_LENGTH) {
             row.children[currentGuess.length].textContent = e.key.toUpperCase();
             currentGuess += e.key;
-        }
-
-        if (e.key === 'Backspace' && currentGuess.length > 0) {
+        } else if (e.key === 'Enter' && currentGuess.length === WORD_LENGTH) {
+            currentGuess = '';
+            currentNum++;
+        } else if (e.key === 'Backspace' && currentGuess.length > 0) {
             row.children[currentGuess.length - 1].textContent = '';
             currentGuess = currentGuess.slice(0, -1);
         }
