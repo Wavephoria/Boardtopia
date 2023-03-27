@@ -3,7 +3,7 @@
 const gameBoard = document.querySelector('.game-board');
 
 // Add game variables
-const WORD_LENGTH = 6;
+const WORD_LENGTH = 5;
 const NUMBER_OF_GUESSES = 6;
 let currentGuess = '';
 let currentNum = 0;

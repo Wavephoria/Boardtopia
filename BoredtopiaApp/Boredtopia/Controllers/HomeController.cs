@@ -8,7 +8,7 @@ namespace Boredtopia.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private AccountServices _accountServices;
+        private readonly AccountServices _accountServices;
 
         public HomeController(ILogger<HomeController> logger, AccountServices accountServices)
         {
