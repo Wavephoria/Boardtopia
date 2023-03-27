@@ -36,8 +36,8 @@ logo{
 .board-row {
     display: flex;
     flex-direction: row;
-    gap: 5px;
-    margin-bottom: 5px;
+    gap: 0.3rem;
+    margin-bottom: 0.3rem;
 }
 
 .word-box {
@@ -48,6 +48,13 @@ logo{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.game-over-message {
+    display: flex;
+    justify-content: center;
+    height: 5rem;
+    padding: 2.5rem;
 }
 
 .box {
