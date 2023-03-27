@@ -48,5 +48,9 @@ logo{
 
 .box {
     border: dotted;
-    padding: 1em;1
+    padding: 1em;
+    
+}
+.box a:hover {
+    color: hotpink
 }

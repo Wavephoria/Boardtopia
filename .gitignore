@@ -484,3 +484,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/BoredtopiaApp/Boredtopia/wwwroot/logo1.jpg
