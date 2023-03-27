@@ -1,16 +1,18 @@
 ﻿using Boredtopia.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Boredtopia.Views.Home;
 
 namespace Boredtopia.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private AccountServices _accountServices;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, AccountServices accountServices)
         {
+            _accountServices = accountServices;
             _logger = logger;
         }
         [HttpGet("")]
@@ -35,11 +37,48 @@ namespace Boredtopia.Controllers
         {
             return View();
         }
+        public async Task<IActionResult> Login(LoginVM viewModel)
+        {
+            if (!ModelState.IsValid)
+                return View();
+        
+            if (User.Identity.IsAuthenticated)
+                return RedirectToAction(nameof(Profile));
+            // Check if credentials is valid (and set auth cookie)
+            var errorMessage = _accountServices.TryLogin(viewModel);
+            if (errorMessage != null)
+            {
+                // Show error
+                ModelState.AddModelError(string.Empty, await errorMessage);
+                return View();
+            }
+        
+        
+            return RedirectToAction(nameof(Profile));
+        }
 
         [HttpGet("/Register")]
         public IActionResult Register()
         {
             return View();
+        }
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(RegisterVM viewModel)
+        {
+            if (!ModelState.IsValid)
+                return View();
+        
+            // Try to register user
+            var errorMessage = _accountServices.TryRegister(viewModel);
+            if (errorMessage != null)
+            {
+                // Show error
+                ModelState.AddModelError(string.Empty, await errorMessage);
+                return View();
+            }
+
+            // Redirect user
+            return RedirectToAction(nameof(Login));
         }
     
         [HttpGet("/Profile")]
