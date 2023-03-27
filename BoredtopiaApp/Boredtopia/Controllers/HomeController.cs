@@ -12,26 +12,28 @@ namespace Boredtopia.Controllers
         {
             _logger = logger;
         }
-
+        [HttpGet("")]
         public IActionResult Index()
         {
             return View();
         }
 
+        [HttpGet("/Games")]
         public IActionResult Games()
         {
             return View();
         }
-
+        [HttpGet("/About")]
         public IActionResult About()
         {
             return View();
         }
-
+        [HttpGet("/Profile")]
         public IActionResult Profile()
         {
             return View();
         }
+        [HttpGet("/Privacy")]
         public IActionResult Privacy()
         {
             return View();
