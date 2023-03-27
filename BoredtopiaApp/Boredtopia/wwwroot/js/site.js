@@ -15,9 +15,15 @@ const word = "REACT";
 // Create game board
 function createGameBoard() {
     for (let i = 0; i < NUMBER_OF_GUESSES; i++) {
-        const wordBox = document.createElement('div');
-        wordBox.classList.add('word-box');
-        gameBoard.appendChild(wordBox);
+        const row = document.createElement('div');
+        row.classList.add('board-row');
+        gameBoard.appendChild(row);
+
+        for (let j = 0; j < WORD_LENGTH; j++) {
+            const wordBox = document.createElement('div');
+            wordBox.classList.add('word-box');
+            row.appendChild(wordBox);
+        }
     }
 }
 
