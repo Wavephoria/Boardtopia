@@ -31,7 +31,12 @@ function createGameBoard() {
 
 // Add event listener
 document.addEventListener('keyup', (e) => {
-    console.log(e);
+    if (e.keyCode >= 65 && e.keyCode <= 90 ||
+        e.keyCode === 221 ||
+        e.keyCode === 222 ||
+        e.keyCode === 192) {
+        console.log(e.key);
+    }
 });
 
 
