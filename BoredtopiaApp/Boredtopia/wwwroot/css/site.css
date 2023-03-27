@@ -45,3 +45,8 @@ logo{
     justify-content: center;
     align-items: center;
 }
+
+.box {
+    border: dotted;
+    padding: 1em;1
+}
