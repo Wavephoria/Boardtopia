@@ -25,3 +25,8 @@
 - Search, for games
 - Reviews
 - Tic tac toe and rock paper scissors
+
+#To do Next
+-Redirect to Profile after successful log in
+-Log out
+-more dle games
