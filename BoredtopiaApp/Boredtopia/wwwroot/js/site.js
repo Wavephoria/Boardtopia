@@ -35,9 +35,9 @@ function createGameBoard() {
 // Add event listener
 document.addEventListener('keyup', (e) => {
     const row = document.querySelector('[data-row="row1"]');
-    if (regEx.test(e.key)) {
+    if (regEx.test(e.key) && currentNum < WORD_LENGTH) {
         row.children[currentNum].textContent = e.key.toUpperCase();
-        console.log(e.key);
+        currentNum++;
     } else if (e.key === 'Enter') {
         console.log(e.key);
     } else if (e.key === 'Backspace') {
