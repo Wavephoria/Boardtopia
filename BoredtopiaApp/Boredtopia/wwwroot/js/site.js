@@ -15,6 +15,7 @@ const word = "REACT";
 // Create game board
 function createGameBoard() {
     for (let i = 0; i < NUMBER_OF_GUESSES; i++) {
+
         const row = document.createElement('div');
         row.classList.add('board-row');
         gameBoard.appendChild(row);
@@ -28,11 +29,10 @@ function createGameBoard() {
 }
 
 
-
-
-
 // Add event listener
-
+document.addEventListener('keyup', (e) => {
+    console.log(e);
+});
 
 
 
