@@ -5,6 +5,7 @@
     --letter-box-colored-font-color: #FFFFFF;
 }
 
+/* This will cause issues with responsive font sizing handled by Pico CSS.
 html {
   font-size: 14px;
 }
@@ -14,19 +15,22 @@ html {
     font-size: 16px;
   }
 }
+*/
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-html {
+/*
+  Why do we override/set these values? 
+  html {
   position: relative;
   min-height: 100%;
 }
 
 body {
   margin-bottom: 60px;
-}
+}*/
 
 logo{
     height:3px;
@@ -92,11 +96,12 @@ logo{
     color: var(--letter-box-colored-font-color);
 }
 
-.box {
-    border: dotted;
-    padding: 1em;
+.main-nav {
+    background-color: var(--card-background-color);
+    padding: 0 1.5rem;
+    box-shadow: var(--card-box-shadow);
 }
-.box a:hover {
+.main-nav a:hover {
     color: hotpink
 }
 
