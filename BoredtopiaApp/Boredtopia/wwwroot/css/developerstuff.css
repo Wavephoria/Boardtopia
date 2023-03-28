@@ -1,16 +1,9 @@
-﻿
-.grid {
-    text-align: left;
-    display:grid;
-}
-
-.image {
-    width: 1000px;
-    float:left;
-    vertical-align: middle;
+﻿.image {
+    width: 500px;
+    margin-left:50px;
 }
 
 .text {
     width: 500px;
-    float:left;
+    float:none;
 }
