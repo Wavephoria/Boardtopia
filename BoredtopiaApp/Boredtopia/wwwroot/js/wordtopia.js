@@ -14,7 +14,7 @@ let gameOver = false;
 const regEx = /^[A-Za-zåäöÅÄÖ]$/;
 
 // Word during development
-const correctWord = "REACT";
+const correctWord = "react";
 
 
 // Create game board
@@ -35,7 +35,7 @@ function createGameBoard() {
 }
 
 function checkIfGuessIsCorrect() {
-    if (currentGuess.toLowerCase() === correctWord.toLowerCase()) {
+    if (currentGuess === correctWord.toLowerCase()) {
         gameOver = true;
         gameOverMessage.textContent = 'You Win!';
         gameOverDiv.classList.remove('hidden');
@@ -43,7 +43,7 @@ function checkIfGuessIsCorrect() {
 
     if (currentNum === NUMBER_OF_GUESSES) {
         gameover = true;
-        if (currentGuess.toLowerCase() === correctWord.toLowerCase()) {
+        if (currentGuess === correctWord.toLowerCase()) {
             gameOverMessage.textContent = 'You Win!';
         } else {
             gameOverMessage.textContent = 'You Lose!';
@@ -54,9 +54,9 @@ function checkIfGuessIsCorrect() {
 
 function AddColorsToLetterBox(row) {
     for (let i = 0; i < WORD_LENGTH; i++) {
-        if (currentGuess.charAt(i).toLowerCase() === correctWord.charAt(i).toLowerCase()) {
+        if (currentGuess.charAt(i) === correctWord.charAt(i).toLowerCase()) {
             row.children[i].classList.add('letter-box__green');
-        } else if (correctWord.toLowerCase().includes(currentGuess.charAt(i).toLowerCase())) {
+        } else if (correctWord.toLowerCase().includes(currentGuess.charAt(i))) {
             row.children[i].classList.add('letter-box__yellow');
         } else {
             row.children[i].classList.add('letter-box__grey');
@@ -75,7 +75,7 @@ document.addEventListener('keyup', (e) => {
     if (currentNum < NUMBER_OF_GUESSES) {
         if (regEx.test(e.key) && currentGuess.length < WORD_LENGTH) {
             row.children[currentGuess.length].textContent = e.key.toUpperCase();
-            currentGuess += e.key;
+            currentGuess += e.key.toLowerCase();
         }
 
         if (e.key === 'Backspace' && currentGuess.length > 0) {
