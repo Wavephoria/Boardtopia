@@ -1,4 +1,5 @@
-﻿import { WORDS } from './words.js';
+﻿import { WORDS_ENGLISH } from './words-english.js';
+import { WORDS_SWEDISH } from './words-swedish.js';
 
 // QuerySelectors
 const gameBoard = document.querySelector('.game-board');
@@ -17,8 +18,8 @@ let correctWord;
 const regEx = /^[A-Za-zåäöÅÄÖ]$/;
 
 function getRandomWord() {
-    let random = Math.floor(Math.random() * WORDS.length);
-    correctWord = WORDS[random].toLowerCase();
+    let random = Math.floor(Math.random() * WORDS_SWEDISH.length);
+    correctWord = WORDS_SWEDISH[random].toLowerCase();
 }
 
 function createGameBoard() {
@@ -72,6 +73,8 @@ document.addEventListener('keyup', (e) => {
     if (gameOver) {
         return;
     }
+
+    console.log(correctWord);
 
     const row = document.querySelector(`[data-row=row${currentNum + 1}]`);
 
