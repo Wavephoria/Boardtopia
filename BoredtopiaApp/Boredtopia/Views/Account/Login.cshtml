@@ -1,7 +1,7 @@
 @model LoginVM
 
 <h3>Log In</h3>
-<form asp-controller="Home" asp-action="Login" style="width: 50%; margin-left: 25%">
+<form asp-controller="Account" asp-action="Login" style="width: 50%; margin-left: 25%">
     <label asp-for="Username"></label>
     <input asp-for="Username" />
     <span asp-validation-for="Username"></span>
@@ -10,6 +10,7 @@
     <input asp-for="Password" />
     <span asp-validation-for="Password"></span>
     <br />
+
     <input type="submit" value="Log In" />
 </form>
 <div asp-validation-summary="All"></div>

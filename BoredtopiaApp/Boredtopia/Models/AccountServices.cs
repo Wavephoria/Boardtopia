@@ -8,15 +8,19 @@ public class AccountServices
     private UserManager<ApplicationUser> userManager;
     private SignInManager<ApplicationUser> signInManager;
     private RoleManager<IdentityRole> roleManager;
+    private IHttpContextAccessor accessor;
 
     public AccountServices(
         UserManager<ApplicationUser> userManager,
         SignInManager<ApplicationUser> signInManager,
-        RoleManager<IdentityRole> roleManager)
+        RoleManager<IdentityRole> roleManager,
+        IHttpContextAccessor accessor
+        )
     {
         this.userManager = userManager;
         this.signInManager = signInManager;
         this.roleManager = roleManager;
+        this.accessor = accessor;
     }
     
     public async Task<string> TryRegister(RegisterVM viewModel)
@@ -24,6 +28,7 @@ public class AccountServices
         var user = new ApplicationUser()
         {
             UserName = viewModel.Username,
+            Email = viewModel.Email
         };
         IdentityResult result = await userManager.CreateAsync(user, viewModel.Password);
 
@@ -52,5 +57,25 @@ public class AccountServices
     {
         await signInManager.SignOutAsync();
     }
-    
+
+    private async Task<ApplicationUser?> GetUser()
+    {
+        string userId = userManager.GetUserId(accessor.HttpContext.User);
+        ApplicationUser user = await userManager.FindByIdAsync(userId);
+        return user;
+    }
+    public async Task<string?> FetchData(string choice)
+    {
+        ApplicationUser user = await GetUser();
+        if (choice.ToLower() == "email")
+            return await userManager.GetEmailAsync(user);
+        return null;
+    }
+    public async Task<string> ChangeData(ChangeVM viewModel)
+    {
+        ApplicationUser user = await GetUser();
+        user.Email = viewModel.Email;
+        await userManager.UpdateAsync(user);
+        return "Mail changed";
+    }
 }
