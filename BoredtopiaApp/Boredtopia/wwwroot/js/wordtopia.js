@@ -26,9 +26,9 @@ function getRandomWord(wordArray) {
 
 languageCheckBox.addEventListener('change', () => {
     if (languageCheckBox.checked === true) {
-        wordArray = WORDS_SWEDISH
+        wordArray = WORDS_SWEDISH;
     } else {
-        wordArray = WORDS_ENGLISH
+        wordArray = WORDS_ENGLISH;
     }
 
     playAgain();
