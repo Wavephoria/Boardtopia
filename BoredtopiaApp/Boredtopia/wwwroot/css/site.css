@@ -64,8 +64,13 @@ logo{
     justify-content: center;
     font-size: 1.5rem;  
     color: black;
-    height: 6rem;
+    height: 5rem;
     padding: 2.5rem;
+}
+
+.btn-play-again {
+    margin: 0 auto;
+    max-width: 8rem;
 }
 
 .hidden {
@@ -102,9 +107,9 @@ logo{
     align-items: center;
 }
 
-    #keyboard-cont div {
-        display: flex;
-    }
+#keyboard-cont div {
+    display: flex;
+}
 
 .second-row {
     margin: 0.5rem 0;

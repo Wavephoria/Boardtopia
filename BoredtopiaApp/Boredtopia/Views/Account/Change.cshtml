@@ -1,14 +1,28 @@
 @model ChangeVM
 <br/>
-<h4 style="margin-left: 25%">Your email is: @Model.Email</h4>
+@* <h4 style="margin-left: 25%">Your username is: @Model.Name</h4> *@
+@* <h4 style="margin-left: 25%">Your email is: @Model.Email</h4> *@
 <p style="margin-left: 25%">If you want to change it, just write the new E-mail in box below</p>
+<p style="margin-left: 25%">Changing details will log you out, just log in with new username</p>
 <form asp-controller="Account" asp-action="Change" style="width: 50%; margin-left: 25%">
 
+    <label asp-for="Name"></label>
+    <input asp-for="Name"/>
+    <span asp-validation-for="Name"></span>
+    
     <label asp-for="Email"></label>
     <input asp-for="Email"/>
     <span asp-validation-for="Email"></span>
 
+    <label asp-for="OldPassword"></label>
+    <input asp-for="OldPassword"/>
+    <span asp-validation-for="OldPassword"></span>
+
+    <label asp-for="NewPassword"></label>
+    <input asp-for="NewPassword"/>
+    <span asp-validation-for="NewPassword"></span>
+
     <br/>
-    <input type="submit" value="Change E-mail"/>
+    <input type="submit" value="Change details"/>
 </form>
 <div asp-validation-summary="All"></div>
