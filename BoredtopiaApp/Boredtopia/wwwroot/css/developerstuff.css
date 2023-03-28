@@ -1,4 +1,14 @@
-﻿/* https://alvarotrigo.com/blog/css-text-animations/
+﻿﻿.image {
+    width: 500px;
+    margin-left: 50px;
+}
+
+.text {
+    width: 500px;
+    float: none;
+}
+
+/* https://alvarotrigo.com/blog/css-text-animations/
     Water Wave Heading
 */
 .waveHeading {
