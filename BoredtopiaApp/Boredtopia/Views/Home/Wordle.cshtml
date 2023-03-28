@@ -5,10 +5,6 @@
     <button class="btn-play-again">Play again</button>
 </div>
 
-@section scripts
-{
-    <script src="~/js/wordtopia.js" asp-append-version="true"></script>
-}
 
 <div id="keyboard-cont">
     <div class="first-row">
@@ -49,3 +45,9 @@
         <button class="keyboard-button">Enter</button>
     </div>
 </div>
+
+
+@section scripts
+{
+    <script src="~/js/wordtopia.js" type="module" asp-append-version="true"></script>
+}

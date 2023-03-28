@@ -1,4 +1,6 @@
-﻿// Queryselectors
+﻿import { WORDS } from './words.js';
+
+// Queryselectors
 const gameBoard = document.querySelector('.game-board');
 const gameOverDiv = document.querySelector('.game-over-div');
 const gameOverMessage = document.querySelector('.game-over-message');
@@ -14,10 +16,7 @@ let gameOver = false;
 const regEx = /^[A-Za-zåäöÅÄÖ]$/;
 
 // Word during development
-let correctWord = "react";
-
-// SHOULD ALWAYS BE LOWERCASE!!
-correctWord = correctWord.toLowerCase();
+let correctWord = WORDS[0].toLowerCase();
 
 // Create game board
 function createGameBoard() {
@@ -44,7 +43,7 @@ function checkIfGuessIsCorrect() {
     }
 
     if (currentNum === NUMBER_OF_GUESSES) {
-        gameover = true;
+        gameOver = true;
         if (currentGuess === correctWord) {
             gameOverMessage.textContent = 'You Win!';
         } else {
