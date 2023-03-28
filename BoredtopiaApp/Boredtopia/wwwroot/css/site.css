@@ -62,6 +62,7 @@ logo{
 .game-over-message {
     display: flex;
     justify-content: center;
+    color: black;
     height: 5rem;
     padding: 2.5rem;
 }

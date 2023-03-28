@@ -1,6 +1,7 @@
 ﻿// Queryselectors
 const gameBoard = document.querySelector('.game-board');
 const gameOverMessage = document.querySelector('.game-over-message');
+const playAgainBtn = document.querySelector('.btn-play-again');
 
 // Add game variables
 const WORD_LENGTH = 5;
@@ -32,7 +33,6 @@ function createGameBoard() {
     }
 }
 
-
 function checkIfGuessIsCorrect() {
     if (currentGuess.toLowerCase() === correctWord.toLowerCase()) {
         gameOver = true;
@@ -61,7 +61,9 @@ function AddColorsToLetterBox(row) {
     }
 }
 
+function playAgain() {
 
+}
 
 // Add event listener
 document.addEventListener('keyup', (e) => {
@@ -93,6 +95,9 @@ document.addEventListener('keyup', (e) => {
     }
 });
 
+playAgainBtn.addEventListener('click', () => {
+    console.log('click');
+});
 
 // Init game
 createGameBoard();
