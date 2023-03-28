@@ -62,9 +62,14 @@ logo{
 .game-over-message {
     display: flex;
     justify-content: center;
+    font-size: 1.5rem;  
     color: black;
-    height: 5rem;
+    height: 6rem;
     padding: 2.5rem;
+}
+
+.hidden {
+    visibility: hidden;
 }
 
 .letter-box__green {
@@ -85,7 +90,6 @@ logo{
 .box {
     border: dotted;
     padding: 1em;
-    
 }
 
 .box a:hover {

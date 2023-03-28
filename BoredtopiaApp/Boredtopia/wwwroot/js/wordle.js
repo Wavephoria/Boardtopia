@@ -1,5 +1,6 @@
 ﻿// Queryselectors
 const gameBoard = document.querySelector('.game-board');
+const gameOverDiv = document.querySelector('.game-over-div');
 const gameOverMessage = document.querySelector('.game-over-message');
 const playAgainBtn = document.querySelector('.btn-play-again');
 
@@ -37,6 +38,7 @@ function checkIfGuessIsCorrect() {
     if (currentGuess.toLowerCase() === correctWord.toLowerCase()) {
         gameOver = true;
         gameOverMessage.textContent = 'You Win!';
+        gameOverDiv.classList.remove('hidden');
     }
 
     if (currentNum === NUMBER_OF_GUESSES) {
@@ -46,6 +48,7 @@ function checkIfGuessIsCorrect() {
         } else {
             gameOverMessage.textContent = 'You Lose!';
         }
+        gameOverDiv.classList.remove('hidden');
     }
 }
 
@@ -95,6 +98,7 @@ playAgainBtn.addEventListener('click', () => {
     currentNum = 0;
     gameOver = false;
     currentGuess = '';
+    gameOverDiv.classList.add('hidden');
 
     // Clear and recreate board
     gameBoard.replaceChildren();
