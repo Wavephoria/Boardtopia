@@ -26,10 +26,9 @@ public class AccountServices
             UserName = viewModel.Username,
         };
         IdentityResult result = await userManager.CreateAsync(user, viewModel.Password);
-        bool wasUserCreated = result.Succeeded;
-        
-        if (wasUserCreated)
-            return "User is created";
+
+        if (result.Succeeded)
+            return "null";
         return "Failed to create user";
     }
 
@@ -41,9 +40,15 @@ public class AccountServices
             isPersistent: false,
             lockoutOnFailure: false
         );
-        bool wasUserSignedIn = result.Succeeded;
-        if (wasUserSignedIn)
-            return "Login was successful";
+        
+        if (result.Succeeded)
+            return "null";
         return "Login failed";
     }
+
+    public async void TryLogoutAsync()
+    {
+        await signInManager.SignOutAsync();
+    }
+    
 }

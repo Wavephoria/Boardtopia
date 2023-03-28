@@ -1,4 +1,4 @@
-﻿@* @model ProfileVM *@
+﻿@model ProfileVM
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,12 +70,16 @@
             </ul>
             <nav aria-label="breadcrumb">
                 <ul>
-                    @* @if (User.Identity.IsAuthenticated) *@
-                    @* { *@
-                    @*     <li>"Logged in as @Model.Username"</li> *@
-                    @* } *@
-                    <li><a asp-controller="Home" asp-action="Login">Login</a></li>
-                    <li><a asp-controller="Home" asp-action="Register">Register</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>Logged in as @User.Identity.Name</li>
+                        <li><a asp-controller="Home" asp-action="Logout">Sign out</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="Home" asp-action="Login">Login</a></li>
+                        <li><a asp-controller="Home" asp-action="Register">Register</a></li>
+                    }
                 </ul>
             </nav>
         </nav>
@@ -90,11 +94,9 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
     <script src="~/js/theme-switcher.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
-
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - Boredtopia - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
