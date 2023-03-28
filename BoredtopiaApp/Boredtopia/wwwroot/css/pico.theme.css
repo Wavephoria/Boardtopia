@@ -1,32 +1,33 @@
 ﻿[data-theme="light"],
 :root:not([data-theme="dark"]) {
-    --primary: #00acc1;
-    --primary-hover: #0097a7;
-    --primary-focus: rgba(0, 172, 193, 0.125);
-    --primary-inverse: #FFF;
+  --primary: #00acc1;
+  --primary-hover: #0097a7;
+  --primary-focus: rgba(0, 172, 193, 0.125);
+  --primary-inverse: #fff;
 }
-
 
 @media only screen and (prefers-color-scheme: dark) {
-    :root:not([data-theme]) {
-        --primary: #00acc1;
-        --primary-hover: #00bcd4;
-        --primary-focus: rgba(0, 172, 193, 0.25);
-        --primary-inverse: #FFF;
-    }
-}
-
-[data-theme="dark"] {
+  :root:not([data-theme]) {
     --primary: #00acc1;
     --primary-hover: #00bcd4;
     --primary-focus: rgba(0, 172, 193, 0.25);
-    --primary-inverse: #FFF;
+    --primary-inverse: #fff;
+    --card-sectionning-background-color: #4b7676;
+  }
 }
 
+[data-theme="dark"] {
+  --primary: #00acc1;
+  --primary-hover: #00bcd4;
+  --primary-focus: rgba(0, 172, 193, 0.25);
+  --primary-inverse: #fff;
+  --card-sectionning-background-color: #4b7676;
+  --card-background-color: #20272d;
+}
 
 :root {
-    --form-element-active-border-color: var(--primary);
-    --form-element-focus-color: var(--primary-focus);
-    --switch-color: var(--primary-inverse);
-    --switch-checked-background-color: var(--primary);
+  --form-element-active-border-color: var(--primary);
+  --form-element-focus-color: var(--primary-focus);
+  --switch-color: var(--primary-inverse);
+  --switch-checked-background-color: var(--primary);
 }
