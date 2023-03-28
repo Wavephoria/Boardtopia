@@ -1,7 +1,7 @@
 :root {
-    --letter-box-bg-green: #059100;
-    --letter-box-bg-yellow: #c5b600;
-    --letter-box-bg-grey: #959595;
+    --letter-box-bg-green: #339730;
+    --letter-box-bg-yellow: #bfb32a;
+    --letter-box-bg-grey: #787878;
     --letter-box-colored-font-color: #FFFFFF;
 }
 
@@ -53,6 +53,7 @@ logo{
     height: 5rem;
     border: 1px solid #9a9a9a;
     font-size: 2.5rem;
+    font-weight: 600;
     display: flex;
     justify-content: center;
     align-items: center;
