@@ -1,10 +1,20 @@
+using Azure.Core;
 using Boredtopia.Controllers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("MyDbConnection");
+string connectionString;
+if (OperatingSystem.IsMacOS())
+{
+    connectionString = builder.Configuration.GetConnectionString("MyDbConnectionMac");
+}
+else
+{
+    connectionString = builder.Configuration.GetConnectionString("MyDbConnection");
+}
+
 builder.Services.AddDbContext<ApplicationContext>(a => a.UseSqlServer(connectionString));
 
 builder.Services.AddTransient<AccountServices>();

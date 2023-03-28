@@ -1,0 +1,21 @@
+﻿.articlefordevfav {
+    
+    display:flex;
+}
+
+
+
+.pictureofdevfav {
+    float:left;
+    width: 50%;
+    display:inline-block;
+    margin-right: 2rem;
+}
+
+
+
+.blockquote {
+    float: right;
+    width: 50%;
+    vertical-align: top;
+}
