@@ -15,7 +15,8 @@ const regEx = /^[A-Za-zåäöÅÄÖ]$/;
 
 // Word during development
 const correctWord = "react";
-
+// SHOULD ALWAYS BE LOWERCASE!!
+correctWord = correctWord.toLowerCase();
 
 // Create game board
 function createGameBoard() {
