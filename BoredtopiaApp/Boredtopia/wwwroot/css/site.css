@@ -63,6 +63,28 @@ logo{
     padding: 1em;
     
 }
-.box a:hover {
-    color: hotpink
+    .box a:hover {
+        color: hotpink;
+      
+        transform: scale(1.2);
+    }
+
+#index_grid :hover {
+    transform: scale(.1);
 }
+
+#index_grid {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    /* this enables horizontal scrool*/
+    scroll-behavior: smooth;
+}
+
+a {
+    flex: 0 0 calc(33% - 20px);
+    margin-right: 15px;
+    scroll-snap-align: start;
+}
+
+ 
