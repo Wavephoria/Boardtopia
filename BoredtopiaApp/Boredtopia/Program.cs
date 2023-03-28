@@ -14,6 +14,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFramework
     .AddDefaultTokenProviders();
 builder.Services.ConfigureApplicationCookie(a => a.LoginPath = "/login");
 
+builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
