@@ -93,7 +93,7 @@ namespace Boredtopia.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("Boredtopia.Controllers.User", b =>
+            modelBuilder.Entity("Boredtopia.Models.Wordle", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -101,13 +101,24 @@ namespace Boredtopia.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("WordleAverage")
+                        .HasColumnType("float");
+
+                    b.Property<int>("WordleBest")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WordlePlays")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WordleTotal")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("_wordleStats");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
