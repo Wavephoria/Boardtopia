@@ -1,13 +1,13 @@
 ﻿.articlefordevfav {
     
-    display:flex;
+   
 }
 
 
 
 .pictureofdevfav {
-    float:left;
-
+    align-content:left
+    width: 50%;
     display:inline-block;
     margin-right: 2rem;
 }
