@@ -12,7 +12,11 @@
     <link href="~/css/pico.theme.css" rel="stylesheet" asp-append-version="true" />
 
     <link href="~/css/site.css" rel="stylesheet" asp-append-version="true" />
+
+    <link href="~/css/developerstuff.css" rel="stylesheet" asp-append-version="true" />
+
     <link href="~/css/footer.css" rel="stylesheet" asp-append-version="true" />
+
 
     <script src="https://kit.fontawesome.com/c2d73dbe44.js" crossorigin="anonymous"></script>
 
@@ -80,7 +84,7 @@
         </nav>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 
-
+        <br/>
         <div role="main">
             @RenderBody()
         </div>
@@ -92,41 +96,34 @@
     <script src="~/js/theme-switcher.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
-    <footer class="border-top footer text-muted">
-        <div class="container">
+    <footer>
+        <div class="footer">
             <div class="row">
-                <div class="footer-col">
-                    <h4>Boredtopia</h4>
-                    <ul>
-                        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a asp-controller="Home" asp-action="Games">Games</a></li>
-                        <li><a asp-controller="Account" asp-action="Profile">Profile</a></li>
-                        <li><a asp-controller="Home" asp-action="About"> About </a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Community</h4>
-                    <ul>
-                        <li><a href="#">Discord</a></li>
-                        <li><a href="#">Steam</a></li>
-                      
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>follow us</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+            </div>
+
+            <div class="row">
+                <ul>
+                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li>
+                    <li><a asp-controller="Home" asp-action="Games">Games</a></li>
+                    <li><a asp-controller="Account" asp-action="Profile">Profile</a></li>
+                    <li><a asp-controller="Home" asp-action="About"> About </a></li>
+                    <li><a asp-controller="Account" asp-action="Login"> Login </a></li>
+                    <li><a asp-controller="Account" asp-action="Register"> Register </a></li>
+
+                </ul>
+            </div>
+
+            <div class="row">
+                &copy; 2023 - Boredtopia - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                <details> <summary>Guess how long it took it build this</summary><p>Less than two weeks how crazy !</p></details>
             </div>
         </div>
-        <div class="container">
-            &copy; 2023 - Boredtopia - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            <details> <summary>Guess how long it took it build this</summary><p>Less than two weeks how crazy !</p></details>
-        </div>
     </footer>
+      
 </body>
 </html>

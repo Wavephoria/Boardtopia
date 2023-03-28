@@ -1,7 +1,12 @@
 @model LoginVM
+<head>
+    <link href="~/css/register.css" rel="stylesheet" asp-append-version="true" />
+</head>
+   
+    
 
-<h3>Log In</h3>
-<form asp-controller="Account" asp-action="Login" style="width: 50%; margin-left: 25%">
+<h3 style="text-align:center">Log In</h3>
+<form asp-controller="Account" asp-action="Login" style="width: 35%; margin-left: 35%">
     <label asp-for="Username"></label>
     <input asp-for="Username" />
     <span asp-validation-for="Username"></span>
@@ -12,5 +17,18 @@
     <br />
 
     <input type="submit" value="Log In" />
+  
+    <div style="text-align:center" class="login-form-copy">or Login with</div>
+    <br />
+    <div class="social-icons">
+        <div class="social-icon instagram"><span class="fa fa-instagram"></span></div>
+        <div class="social-icon facebook"><span class="fa fa-facebook"></span></div>
+        <div class="social-icon google"><span class="fa fa-google"></span></div>
+        <div class="social-icon linkedin"><span class="fa fa-linkedin"></span></div>
+        <div class="social-icon twitter"><span class="fa fa-twitter"></span></div>
+    </div>
+    <br />
+    <div class="login-form-copy">Don't have an account?<a asp-controller="Account" asp-action="Register"> Register</a></div>
+
 </form>
 <div asp-validation-summary="All"></div>
