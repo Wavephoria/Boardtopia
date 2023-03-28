@@ -21,7 +21,6 @@ namespace Boredtopia.Controllers
         {
             return View();
         }
-
         [HttpGet("/Games")]
         public IActionResult Games()
         {
@@ -32,7 +31,6 @@ namespace Boredtopia.Controllers
         {
             return View();
         }
-
         [HttpGet("/Login")]
         public IActionResult Login()
         {
@@ -43,7 +41,6 @@ namespace Boredtopia.Controllers
         {
             if (!ModelState.IsValid)
                 return View();
-        
             if (User.Identity.IsAuthenticated)
                 return RedirectToAction(nameof(Profile));
             // Check if credentials is valid (and set auth cookie)
@@ -54,8 +51,6 @@ namespace Boredtopia.Controllers
                 ModelState.AddModelError(string.Empty, await errorMessage);
                 return View();
             }
-        
-        
             return RedirectToAction(nameof(Profile));
         }
 

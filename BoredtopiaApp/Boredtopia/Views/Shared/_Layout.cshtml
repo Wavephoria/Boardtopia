@@ -1,4 +1,4 @@
-﻿@* @model ProfileVM *@
+﻿@model ProfileVM
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +19,7 @@
 <body>
     <main class="container">
         <header>
-            <nav>
+            <nav aria-label = "logo and home">
                 <ul>
                     <li>
                         <a asp-action="Index" asp-controller="Home"><img src="image/Hotpot.png" alt="BoardTopia logo class= " logo" height="150px" width="150px" /></a>
@@ -49,7 +49,7 @@
 
             </nav>
         </header>
-        <nav class ="box">
+        <nav class ="box" aria-label="primary navigation">
             <ul>
                 <li><a asp-controller="Home" asp-action="Index">Home</a></li>
             </ul>
@@ -68,12 +68,15 @@
             </ul>
             <nav aria-label="breadcrumb">
                 <ul>
-                    @* @if (User.Identity.IsAuthenticated) *@
-                    @* { *@
-                    @*     <li>"Logged in as @Model.Username"</li> *@
-                    @* } *@
-                    <li><a asp-controller="Home" asp-action="Login">Login</a></li>
-                    <li><a asp-controller="Home" asp-action="Register">Register</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>Logged in as @User.Identity.Name</li>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="Home" asp-action="Login">Login</a></li>
+                        <li><a asp-controller="Home" asp-action="Register">Register</a></li>
+                    }
                 </ul>
             </nav>
         </nav>
@@ -94,6 +97,7 @@
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - Boredtopia - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <details> <summary>Guess how long it took it build this</summary><p>Less than two weeks how crazy !</p></details>
         </div>
     </footer>
 </body>
