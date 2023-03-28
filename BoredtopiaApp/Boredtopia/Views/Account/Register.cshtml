@@ -1,21 +1,7 @@
 @model RegisterVM
-<head>
-      <link href="~/css/register.css" rel="stylesheet" asp-append-version="true" />
 
-</head>
-
-<h3>Register</h3>
-
-
-<button class="loginBtn loginBtn--facebook">
-    Login with Facebook
-</button>
-
-<button class="loginBtn loginBtn--google">
-    Login with Google
-</button>
-
-<form asp-controller="Account" asp-action="Register" style="width: 50%; margin-left: 25%">
+<br />
+<form asp-controller="Account" asp-action="Register" style="width: 35%; margin-left: 30%">
     <label asp-for="Email"></label>
     <input asp-for="Email"/>
     <span asp-validation-for="Email"></span>
@@ -31,21 +17,7 @@
     <label asp-for="PasswordRepeat"></label>
     <input asp-for="PasswordRepeat"/>
     <span asp-validation-for="PasswordRepeat"></span>
-
-@*    beh�ver jquery*@
-    <fieldset>
-    <label for="terms">
-        <input type="checkbox" id="terms" name="terms">
-        I agree to the Terms and Conditions
-    </label>
-    </fieldset>
-        <fieldset>
-            <label for="switch">
-                <input type="checkbox" id="switch" name="switch" role="switch">
-                Send me emails about updates and newsletters from developers
-            </label>
-    </fieldset>
-    <br/>
-    <input type="submit" value="Register"/>
+    <br />
+    <input type="submit" value="Register" />
 </form>
 <div asp-validation-summary="All"></div>

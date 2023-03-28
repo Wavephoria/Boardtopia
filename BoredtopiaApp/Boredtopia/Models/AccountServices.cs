@@ -77,7 +77,7 @@ public class AccountServices
         user.Email = viewModel.Email;
         user.UserName = viewModel.Name;
         IdentityResult result = await userManager.ChangePasswordAsync(user, viewModel.OldPassword, viewModel.NewPassword);
-
+        
         if (result.Succeeded)
         {
             await userManager.UpdateAsync(user);

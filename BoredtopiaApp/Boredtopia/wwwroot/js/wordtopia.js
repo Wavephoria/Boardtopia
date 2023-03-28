@@ -1,6 +1,8 @@
-﻿import { WORDS } from './words.js';
+﻿import { WORDS_ENGLISH } from './words-english.js';
+import { WORDS_SWEDISH } from './words-swedish.js';
 
 // QuerySelectors
+const languageCheckBox = document.querySelector('.toggle-checkbox');
 const gameBoard = document.querySelector('.game-board');
 const gameOverDiv = document.querySelector('.game-over-div');
 const gameOverMessage = document.querySelector('.game-over-message');
@@ -13,13 +15,24 @@ let currentGuess = '';
 let currentNum = 0;
 let gameOver = false;
 let correctWord;
+let wordArray = WORDS_ENGLISH;
 
 const regEx = /^[A-Za-zåäöÅÄÖ]$/;
 
-function getRandomWord() {
-    let random = Math.floor(Math.random() * WORDS.length);
-    correctWord = WORDS[random].toLowerCase();
+function getRandomWord(wordArray) {
+    let random = Math.floor(Math.random() * wordArray.length);
+    correctWord = wordArray[random].toLowerCase();
 }
+
+languageCheckBox.addEventListener('change', () => {
+    if (languageCheckBox.checked === true) {
+        wordArray = WORDS_SWEDISH;
+    } else {
+        wordArray = WORDS_ENGLISH;
+    }
+
+    playAgain();
+});
 
 function createGameBoard() {
     for (let i = 0; i < NUMBER_OF_GUESSES; i++) {
@@ -67,11 +80,28 @@ function AddColorsToLetterBox(row) {
     }
 }
 
+function playAgain() {
+    currentNum = 0;
+    gameOver = false;
+    currentGuess = '';
+    gameOverDiv.classList.add('hidden');
+    getRandomWord(wordArray);
+
+    // Clear and recreate board
+    gameBoard.replaceChildren();
+    createGameBoard();
+
+    // Remove focus from button
+    playAgainBtn.blur();
+}
+
 // Event listener for keyboard event
 document.addEventListener('keyup', (e) => {
     if (gameOver) {
         return;
     }
+
+    console.log(correctWord);
 
     const row = document.querySelector(`[data-row=row${currentNum + 1}]`);
 
@@ -98,20 +128,9 @@ document.addEventListener('keyup', (e) => {
 });
 
 playAgainBtn.addEventListener('click', () => {
-    currentNum = 0;
-    gameOver = false;
-    currentGuess = '';
-    gameOverDiv.classList.add('hidden');
-    getRandomWord();
-
-    // Clear and recreate board
-    gameBoard.replaceChildren();
-    createGameBoard();
-
-    // Remove focus from button
-    playAgainBtn.blur();
+    playAgain();
 });
 
 // Init game
-getRandomWord();
+getRandomWord(wordArray);
 createGameBoard();

@@ -15,6 +15,8 @@ public class AccountController : Controller
     [HttpGet("/Login")]
     public IActionResult Login()
     {
+        if (User.Identity.IsAuthenticated)
+            return RedirectToAction(nameof(Profile));
         return View();
     }
     [HttpPost("/Login")]
@@ -73,6 +75,8 @@ public class AccountController : Controller
     [HttpGet("/Register")]
     public IActionResult Register()
     {
+        if (User.Identity.IsAuthenticated)
+            return RedirectToAction(nameof(Profile));
         return View();
     }
 
