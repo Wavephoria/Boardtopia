@@ -34,6 +34,9 @@ function createGameBoard() {
 
 
 function checkIfGuessIsCorrect() {
+
+    AddColorsToLetterBox();
+
     if (currentGuess.toLowerCase() === correctWord.toLowerCase()) {
         gameOver = true;
         gameOverMessage.textContent = 'You Win!';
@@ -48,6 +51,16 @@ function checkIfGuessIsCorrect() {
         }
     }
 }
+
+function AddColorsToLetterBox() {
+
+    for (let i = 0; i < WORD_LENGTH; i++) {
+        if (currentGuess.charAt(i).toLowerCase() === correctWord.charAt(i).toLowerCase()) {
+            console.log('success');
+        }
+    }
+}
+
 
 
 // Add event listener
