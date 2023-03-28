@@ -28,7 +28,10 @@ public class AccountServices
         IdentityResult result = await userManager.CreateAsync(user, viewModel.Password);
 
         if (result.Succeeded)
+        {
+            await signInManager.SignInAsync(user, isPersistent: false);
             return null;
+        }
         return "Failed to create user";
     }
 

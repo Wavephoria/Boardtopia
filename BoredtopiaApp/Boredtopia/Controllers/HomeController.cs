@@ -81,7 +81,7 @@ namespace Boredtopia.Controllers
                 return View();
             }
             // Redirect user
-            return RedirectToAction(nameof(Login));
+            return RedirectToAction(nameof(Profile));
         }
         [Authorize]
         [HttpGet("/Profile")]
