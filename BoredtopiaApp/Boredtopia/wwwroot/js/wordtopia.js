@@ -1,24 +1,26 @@
 ﻿import { WORDS } from './words.js';
 
-// Queryselectors
+// QuerySelectors
 const gameBoard = document.querySelector('.game-board');
 const gameOverDiv = document.querySelector('.game-over-div');
 const gameOverMessage = document.querySelector('.game-over-message');
 const playAgainBtn = document.querySelector('.btn-play-again');
 
-// Add game variables
+// Game variables
 const WORD_LENGTH = 5;
 const NUMBER_OF_GUESSES = 6;
 let currentGuess = '';
 let currentNum = 0;
 let gameOver = false;
+let correctWord;
 
 const regEx = /^[A-Za-zåäöÅÄÖ]$/;
 
-// Word during development
-let correctWord = WORDS[0].toLowerCase();
+function getRandomWord() {
+    let random = Math.floor(Math.random() * WORDS.length);
+    correctWord = WORDS[random].toLowerCase();
+}
 
-// Create game board
 function createGameBoard() {
     for (let i = 0; i < NUMBER_OF_GUESSES; i++) {
 
@@ -65,7 +67,7 @@ function AddColorsToLetterBox(row) {
     }
 }
 
-// Add event listener
+// Event listener for keyboard event
 document.addEventListener('keyup', (e) => {
     if (gameOver) {
         return;
@@ -100,6 +102,7 @@ playAgainBtn.addEventListener('click', () => {
     gameOver = false;
     currentGuess = '';
     gameOverDiv.classList.add('hidden');
+    getRandomWord();
 
     // Clear and recreate board
     gameBoard.replaceChildren();
@@ -110,4 +113,5 @@ playAgainBtn.addEventListener('click', () => {
 });
 
 // Init game
+getRandomWord();
 createGameBoard();
