@@ -1,3 +1,4 @@
+using Boredtopia.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -8,5 +9,5 @@ public class ApplicationContext : IdentityDbContext<ApplicationUser, IdentityRol
 {
     public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options){}
 
-    private DbSet<User> Users { get; set; }
+    private DbSet<Wordle> _wordleStats { get; set; }
 }

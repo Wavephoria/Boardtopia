@@ -24,13 +24,10 @@ public class AccountController : Controller
     {
         if (!ModelState.IsValid)
             return View();
-        // if (User.Identity.IsAuthenticated)
-        //     return RedirectToAction(nameof(Profile));
-        // Check if credentials is valid (and set auth cookie)
+        
         var errorMessage = await _accountServices.TryLogin(viewModel);
         if (errorMessage != null)
         {
-            // Show error
             ModelState.AddModelError(string.Empty, errorMessage);
             return View();
         }
@@ -56,12 +53,9 @@ public class AccountController : Controller
         var errorMessage = await _accountServices.ChangeData(viewModel);
         if (errorMessage != null)
         {
-            // Show error
             ModelState.AddModelError(string.Empty, errorMessage);
             return View();
         }
-
-        // Redirect user
         return RedirectToAction(nameof(Logout));
     }
 
@@ -85,17 +79,14 @@ public class AccountController : Controller
     {
         if (!ModelState.IsValid)
             return View();
-
-        // Try to register user
+        
         var errorMessage = await _accountServices.TryRegister(viewModel);
         if (errorMessage != null)
         {
-            // Show error
             ModelState.AddModelError(string.Empty, errorMessage);
             return View();
         }
-
-        // Redirect user
+        
         return RedirectToAction(nameof(Profile));
     }
 

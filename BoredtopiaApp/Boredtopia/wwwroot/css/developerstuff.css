@@ -1,4 +1,4 @@
-﻿﻿.image {
+.image {
     width: 500px;
     margin-left: 50px;
 }
@@ -39,4 +39,6 @@
     50% {
         clip-path: polygon( 0% 60%, 15% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100% );
     }
+
+    ======= float:none; >>>>>>> 58b4c485df2d1bc5848f2fd0baf2ab7b0c448703
 }
