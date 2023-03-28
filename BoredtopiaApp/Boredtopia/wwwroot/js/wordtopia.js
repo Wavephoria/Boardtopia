@@ -14,12 +14,13 @@ let currentGuess = '';
 let currentNum = 0;
 let gameOver = false;
 let correctWord;
+let wordArray = WORDS_ENGLISH;
 
 const regEx = /^[A-Za-zåäöÅÄÖ]$/;
 
-function getRandomWord() {
-    let random = Math.floor(Math.random() * WORDS_SWEDISH.length);
-    correctWord = WORDS_SWEDISH[random].toLowerCase();
+function getRandomWord(wordArray) {
+    let random = Math.floor(Math.random() * wordArray.length);
+    correctWord = wordArray[random].toLowerCase();
 }
 
 function createGameBoard() {
@@ -105,7 +106,7 @@ playAgainBtn.addEventListener('click', () => {
     gameOver = false;
     currentGuess = '';
     gameOverDiv.classList.add('hidden');
-    getRandomWord();
+    getRandomWord(wordArray);
 
     // Clear and recreate board
     gameBoard.replaceChildren();
@@ -116,5 +117,5 @@ playAgainBtn.addEventListener('click', () => {
 });
 
 // Init game
-getRandomWord();
+getRandomWord(wordArray);
 createGameBoard();
