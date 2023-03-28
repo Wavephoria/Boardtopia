@@ -61,10 +61,6 @@ function AddColorsToLetterBox(row) {
     }
 }
 
-function playAgain() {
-
-}
-
 // Add event listener
 document.addEventListener('keyup', (e) => {
     if (gameOver) {
@@ -96,7 +92,16 @@ document.addEventListener('keyup', (e) => {
 });
 
 playAgainBtn.addEventListener('click', () => {
-    console.log('click');
+    currentNum = 0;
+    gameOver = false;
+    currentGuess = '';
+
+    // Clear and recreate board
+    gameBoard.replaceChildren();
+    createGameBoard();
+
+    // Remove focus from button
+    playAgainBtn.blur();
 });
 
 // Init game
