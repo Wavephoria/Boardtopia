@@ -2,6 +2,7 @@
 import { WORDS_SWEDISH } from './words-swedish.js';
 
 // QuerySelectors
+const languageCheckBox = document.querySelector('.toggle-checkbox');
 const gameBoard = document.querySelector('.game-board');
 const gameOverDiv = document.querySelector('.game-over-div');
 const gameOverMessage = document.querySelector('.game-over-message');
@@ -22,6 +23,16 @@ function getRandomWord(wordArray) {
     let random = Math.floor(Math.random() * wordArray.length);
     correctWord = wordArray[random].toLowerCase();
 }
+
+languageCheckBox.addEventListener('change', () => {
+    if (languageCheckBox.checked === true) {
+        wordArray = WORDS_SWEDISH
+    } else {
+        wordArray = WORDS_ENGLISH
+    }
+
+    playAgain();
+});
 
 function createGameBoard() {
     for (let i = 0; i < NUMBER_OF_GUESSES; i++) {
@@ -69,6 +80,21 @@ function AddColorsToLetterBox(row) {
     }
 }
 
+function playAgain() {
+    currentNum = 0;
+    gameOver = false;
+    currentGuess = '';
+    gameOverDiv.classList.add('hidden');
+    getRandomWord(wordArray);
+
+    // Clear and recreate board
+    gameBoard.replaceChildren();
+    createGameBoard();
+
+    // Remove focus from button
+    playAgainBtn.blur();
+}
+
 // Event listener for keyboard event
 document.addEventListener('keyup', (e) => {
     if (gameOver) {
@@ -102,18 +128,7 @@ document.addEventListener('keyup', (e) => {
 });
 
 playAgainBtn.addEventListener('click', () => {
-    currentNum = 0;
-    gameOver = false;
-    currentGuess = '';
-    gameOverDiv.classList.add('hidden');
-    getRandomWord(wordArray);
-
-    // Clear and recreate board
-    gameBoard.replaceChildren();
-    createGameBoard();
-
-    // Remove focus from button
-    playAgainBtn.blur();
+    playAgain();
 });
 
 // Init game
