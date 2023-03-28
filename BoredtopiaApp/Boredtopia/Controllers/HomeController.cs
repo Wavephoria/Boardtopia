@@ -54,6 +54,13 @@ namespace Boredtopia.Controllers
             return RedirectToAction(nameof(Profile));
         }
 
+        [HttpGet("/Logout")]
+        public IActionResult Logout()
+        {
+            _accountServices.TryLogoutAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
         [HttpGet("/Register")]
         public IActionResult Register()
         {
@@ -73,7 +80,6 @@ namespace Boredtopia.Controllers
                 ModelState.AddModelError(string.Empty, await errorMessage);
                 return View();
             }
-
             // Redirect user
             return RedirectToAction(nameof(Login));
         }

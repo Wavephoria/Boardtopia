@@ -45,4 +45,10 @@ public class AccountServices
             return "null";
         return "Login failed";
     }
+
+    public async void TryLogoutAsync()
+    {
+        await signInManager.SignOutAsync();
+    }
+    
 }
