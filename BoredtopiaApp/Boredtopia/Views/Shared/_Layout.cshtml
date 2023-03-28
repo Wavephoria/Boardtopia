@@ -60,7 +60,7 @@
                 <li><a asp-controller="Home" asp-action="Games">Games</a></li>
             </ul>
             <ul>
-                <li><a asp-controller="Home" asp-action="Profile">Profile</a></li>
+                <li><a asp-controller="Account" asp-action="Profile">Profile</a></li>
             </ul>
             <ul>
             <li><a asp-controller="Home" asp-action="About"> About </a></li>
@@ -70,12 +70,12 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>Logged in as @User.Identity.Name</li>
-                        <li><a asp-controller="Home" asp-action="Logout">Sign out</a></li>
+                        <li><a asp-controller="Account" asp-action="Logout">Sign out</a></li>
                     }
                     else
                     {
-                        <li><a asp-controller="Home" asp-action="Login">Login</a></li>
-                        <li><a asp-controller="Home" asp-action="Register">Register</a></li>
+                        <li><a asp-controller="Account" asp-action="Login">Login</a></li>
+                        <li><a asp-controller="Account" asp-action="Register">Register</a></li>
                     }
                 </ul>
             </nav>
