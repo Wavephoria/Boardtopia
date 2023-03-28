@@ -41,14 +41,14 @@ namespace Boredtopia.Controllers
         {
             if (!ModelState.IsValid)
                 return View();
-            if (User.Identity.IsAuthenticated)
-                return RedirectToAction(nameof(Profile));
+            // if (User.Identity.IsAuthenticated)
+            //     return RedirectToAction(nameof(Profile));
             // Check if credentials is valid (and set auth cookie)
-            var errorMessage = _accountServices.TryLogin(viewModel);
+            var errorMessage = await _accountServices.TryLogin(viewModel);
             if (errorMessage != null)
             {
                 // Show error
-                ModelState.AddModelError(string.Empty, await errorMessage);
+                ModelState.AddModelError(string.Empty, errorMessage);
                 return View();
             }
             return RedirectToAction(nameof(Profile));
@@ -73,11 +73,11 @@ namespace Boredtopia.Controllers
                 return View();
         
             // Try to register user
-            var errorMessage = _accountServices.TryRegister(viewModel);
+            var errorMessage = await _accountServices.TryRegister(viewModel);
             if (errorMessage != null)
             {
                 // Show error
-                ModelState.AddModelError(string.Empty, await errorMessage);
+                ModelState.AddModelError(string.Empty, errorMessage);
                 return View();
             }
             // Redirect user
