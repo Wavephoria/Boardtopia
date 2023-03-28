@@ -1,3 +1,10 @@
+:root {
+    --letter-box-bg-green: #059100;
+    --letter-box-bg-yellow: #c5b600;
+    --letter-box-bg-grey: #959595;
+    --letter-box-colored-font-color: #FFFFFF;
+}
+
 html {
   font-size: 14px;
 }
@@ -41,7 +48,7 @@ logo{
     margin-bottom: 0.3rem;
 }
 
-.word-box {
+.letter-box {
     width: 5rem;
     height: 5rem;
     border: 1px solid #9a9a9a;
@@ -58,11 +65,27 @@ logo{
     padding: 2.5rem;
 }
 
+.letter-box__green {
+    background-color: var(--letter-box-bg-green);
+    color: var(--letter-box-colored-font-color);
+}
+
+.letter-box__yellow {
+    background-color: var(--letter-box-bg-yellow);
+    color: var(--letter-box-colored-font-color);
+}
+
+.letter-box__grey {
+    background-color: var(--letter-box-bg-grey);
+    color: var(--letter-box-colored-font-color);
+}
+
 .box {
     border: dotted;
     padding: 1em;
     
 }
+
 .box a:hover {
     color: hotpink
 }
