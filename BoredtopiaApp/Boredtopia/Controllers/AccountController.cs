@@ -45,7 +45,7 @@ public class AccountController : Controller
     }
 
     [HttpPost("/Change")]
-    public async Task<IActionResult> Change(ProfileVM viewModel)
+    public async Task<IActionResult> Change(ChangeVM viewModel)
     {
         if (!ModelState.IsValid)
             return View();

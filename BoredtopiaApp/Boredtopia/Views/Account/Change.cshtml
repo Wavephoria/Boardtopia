@@ -1,12 +1,14 @@
 @model ChangeVM
-
-@* <h3>Your email is: @Model.Email</h3> *@
+<br/>
+<h4 style="margin-left: 25%">Your email is: @Model.Email</h4>
+<p style="margin-left: 25%">If you want to change it, just write the new E-mail in box below</p>
 <form asp-controller="Account" asp-action="Change" style="width: 50%; margin-left: 25%">
+
     <label asp-for="Email"></label>
-    <input asp-for="Email" />
+    <input asp-for="Email"/>
     <span asp-validation-for="Email"></span>
-    
-    <br />
-    <input type="submit" value="Log In" />
+
+    <br/>
+    <input type="submit" value="Change E-mail"/>
 </form>
 <div asp-validation-summary="All"></div>

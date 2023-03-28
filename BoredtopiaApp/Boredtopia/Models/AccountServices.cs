@@ -71,10 +71,11 @@ public class AccountServices
             return await userManager.GetEmailAsync(user);
         return null;
     }
-    public async Task<string> ChangeData(ProfileVM viewModel)
+    public async Task<string> ChangeData(ChangeVM viewModel)
     {
         ApplicationUser user = await GetUser();
         user.Email = viewModel.Email;
+        await userManager.UpdateAsync(user);
         return "Mail changed";
     }
 }

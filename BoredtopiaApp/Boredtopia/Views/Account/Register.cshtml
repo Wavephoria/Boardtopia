@@ -31,6 +31,19 @@
     <label asp-for="PasswordRepeat"></label>
     <input asp-for="PasswordRepeat"/>
     <span asp-validation-for="PasswordRepeat"></span>
+
+@*    behöver jquery*@
+    <fieldset>
+        <label for="terms">
+            <input type="checkbox" id="terms" name="terms">
+            I agree to the Terms and Conditions
+        </label>
+        <fieldset>
+            <label for="switch">
+                <input type="checkbox" id="switch" name="switch" role="switch">
+                Send me emails about updates and newsletters from developers
+            </label>
+    </fieldset>
     <br/>
     <input type="submit" value="Register"/>
 </form>
