@@ -1,21 +1,16 @@
-﻿.articlefordevfav {
-    
-   
+﻿
+.grid {
+    text-align: left;
+    display:grid;
 }
 
-
-
-.pictureofdevfav {
-    align-content:left
-    width: 50%;
-    display:inline-block;
-    margin-right: 2rem;
+.image {
+    width: 1000px;
+    float:left;
+    vertical-align: middle;
 }
 
-
-
-.blockquote {
-    float: right;
-    width: 50%;
-    vertical-align: top;
+.text {
+    width: 500px;
+    float:left;
 }
