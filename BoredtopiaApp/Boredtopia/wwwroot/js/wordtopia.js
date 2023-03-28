@@ -14,7 +14,8 @@ let gameOver = false;
 const regEx = /^[A-Za-zåäöÅÄÖ]$/;
 
 // Word during development
-const correctWord = "react";
+let correctWord = "react";
+
 // SHOULD ALWAYS BE LOWERCASE!!
 correctWord = correctWord.toLowerCase();
 
@@ -36,7 +37,7 @@ function createGameBoard() {
 }
 
 function checkIfGuessIsCorrect() {
-    if (currentGuess === correctWord.toLowerCase()) {
+    if (currentGuess === correctWord) {
         gameOver = true;
         gameOverMessage.textContent = 'You Win!';
         gameOverDiv.classList.remove('hidden');
@@ -44,7 +45,7 @@ function checkIfGuessIsCorrect() {
 
     if (currentNum === NUMBER_OF_GUESSES) {
         gameover = true;
-        if (currentGuess === correctWord.toLowerCase()) {
+        if (currentGuess === correctWord) {
             gameOverMessage.textContent = 'You Win!';
         } else {
             gameOverMessage.textContent = 'You Lose!';
@@ -55,9 +56,9 @@ function checkIfGuessIsCorrect() {
 
 function AddColorsToLetterBox(row) {
     for (let i = 0; i < WORD_LENGTH; i++) {
-        if (currentGuess.charAt(i) === correctWord.charAt(i).toLowerCase()) {
+        if (currentGuess.charAt(i) === correctWord.charAt(i)) {
             row.children[i].classList.add('letter-box__green');
-        } else if (correctWord.toLowerCase().includes(currentGuess.charAt(i))) {
+        } else if (correctWord.includes(currentGuess.charAt(i))) {
             row.children[i].classList.add('letter-box__yellow');
         } else {
             row.children[i].classList.add('letter-box__grey');
