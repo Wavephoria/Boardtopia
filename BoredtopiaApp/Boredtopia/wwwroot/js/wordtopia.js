@@ -49,7 +49,7 @@ function checkIfGuessIsCorrect() {
         if (currentGuess === correctWord) {
             gameOverMessage.textContent = 'You Win!';
         } else {
-            gameOverMessage.textContent = 'You Lose!';
+            gameOverMessage.textContent = `You Lose! The correct word was ${correctWord}`;
         }
         gameOverDiv.classList.remove('hidden');
     }
