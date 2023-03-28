@@ -28,7 +28,10 @@ public class AccountServices
         IdentityResult result = await userManager.CreateAsync(user, viewModel.Password);
 
         if (result.Succeeded)
-            return "null";
+        {
+            await signInManager.SignInAsync(user, isPersistent: false);
+            return null;
+        }
         return "Failed to create user";
     }
 
@@ -42,10 +45,9 @@ public class AccountServices
         );
         
         if (result.Succeeded)
-            return "null";
+            return null;
         return "Login failed";
     }
-
     public async void TryLogoutAsync()
     {
         await signInManager.SignOutAsync();
