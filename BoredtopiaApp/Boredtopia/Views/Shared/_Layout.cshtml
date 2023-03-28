@@ -1,4 +1,4 @@
-﻿@* @model ProfileVM *@
+﻿@model ProfileVM
 
 <!DOCTYPE html>
 <html lang="en">
@@ -68,12 +68,15 @@
             </ul>
             <nav aria-label="breadcrumb">
                 <ul>
-                    @* @if (User.Identity.IsAuthenticated) *@
-                    @* { *@
-                    @*     <li>"Logged in as @Model.Username"</li> *@
-                    @* } *@
-                    <li><a asp-controller="Home" asp-action="Login">Login</a></li>
-                    <li><a asp-controller="Home" asp-action="Register">Register</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>Logged in as @User.Identity.Name</li>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="Home" asp-action="Login">Login</a></li>
+                        <li><a asp-controller="Home" asp-action="Register">Register</a></li>
+                    }
                 </ul>
             </nav>
         </nav>
