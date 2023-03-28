@@ -40,6 +40,7 @@ public class AccountController : Controller
     public async Task<IActionResult> Change()
     {
         ChangeVM viewModel = new();
+        viewModel.Name = User.Identity.Name;
         viewModel.Email = await _accountServices.FetchData("email");
         return View(viewModel);
     }
@@ -51,7 +52,7 @@ public class AccountController : Controller
             return View();
 
         var errorMessage = await _accountServices.ChangeData(viewModel);
-        if (errorMessage == null)
+        if (errorMessage != null)
         {
             // Show error
             ModelState.AddModelError(string.Empty, errorMessage);
@@ -59,7 +60,7 @@ public class AccountController : Controller
         }
 
         // Redirect user
-        return RedirectToAction(nameof(Profile));
+        return RedirectToAction(nameof(Logout));
     }
 
     [HttpGet("/Logout")]

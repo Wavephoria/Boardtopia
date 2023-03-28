@@ -75,7 +75,12 @@ public class AccountServices
     {
         ApplicationUser user = await GetUser();
         user.Email = viewModel.Email;
-        await userManager.UpdateAsync(user);
-        return "Mail changed";
+        user.UserName = viewModel.Name;
+        await userManager.ChangePasswordAsync(user, viewModel.OldPassword, viewModel.NewPassword);
+        IdentityResult result = await userManager.UpdateAsync(user);
+        
+        if (result.Succeeded)
+            return null;
+        return "Failed to change details";
     }
 }
