@@ -47,5 +47,13 @@ namespace Boredtopia.Controllers
         { 
             return View(); 
         }
+
+        [HttpGet("/RockPaperScissors")]
+        public IActionResult RockPaperScissors()
+        {
+            return View();
+        }
+
+
     }
 }
