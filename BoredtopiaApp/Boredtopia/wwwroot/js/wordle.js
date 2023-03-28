@@ -1,6 +1,7 @@
 ﻿// Queryselectors
 const gameBoard = document.querySelector('.game-board');
 const gameOverMessage = document.querySelector('.game-over-message');
+const playAgainBtn = document.querySelector('.btn-play-again');
 
 // Add game variables
 const WORD_LENGTH = 5;
@@ -26,12 +27,11 @@ function createGameBoard() {
 
         for (let j = 0; j < WORD_LENGTH; j++) {
             const letterBox = document.createElement('div');
-            letterBox.classList.add('word-box');
+            letterBox.classList.add('letter-box');
             row.appendChild(letterBox);
         }
     }
 }
-
 
 function checkIfGuessIsCorrect() {
     if (currentGuess.toLowerCase() === correctWord.toLowerCase()) {
@@ -49,6 +49,17 @@ function checkIfGuessIsCorrect() {
     }
 }
 
+function AddColorsToLetterBox(row) {
+    for (let i = 0; i < WORD_LENGTH; i++) {
+        if (currentGuess.charAt(i).toLowerCase() === correctWord.charAt(i).toLowerCase()) {
+            row.children[i].classList.add('letter-box__green');
+        } else if (correctWord.toLowerCase().includes(currentGuess.charAt(i).toLowerCase())) {
+            row.children[i].classList.add('letter-box__yellow');
+        } else {
+            row.children[i].classList.add('letter-box__grey');
+        }
+    }
+}
 
 // Add event listener
 document.addEventListener('keyup', (e) => {
@@ -72,6 +83,7 @@ document.addEventListener('keyup', (e) => {
         if (e.key === 'Enter' && currentGuess.length === WORD_LENGTH) {
             currentNum++;
 
+            AddColorsToLetterBox(row);
             checkIfGuessIsCorrect();
 
             currentGuess = '';
@@ -79,6 +91,18 @@ document.addEventListener('keyup', (e) => {
     }
 });
 
+playAgainBtn.addEventListener('click', () => {
+    currentNum = 0;
+    gameOver = false;
+    currentGuess = '';
+
+    // Clear and recreate board
+    gameBoard.replaceChildren();
+    createGameBoard();
+
+    // Remove focus from button
+    playAgainBtn.blur();
+});
 
 // Init game
 createGameBoard();

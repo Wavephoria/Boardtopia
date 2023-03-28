@@ -1,3 +1,10 @@
+:root {
+    --letter-box-bg-green: #339730;
+    --letter-box-bg-yellow: #bfb32a;
+    --letter-box-bg-grey: #787878;
+    --letter-box-colored-font-color: #FFFFFF;
+}
+
 html {
   font-size: 14px;
 }
@@ -41,11 +48,12 @@ logo{
     margin-bottom: 0.3rem;
 }
 
-.word-box {
+.letter-box {
     width: 5rem;
     height: 5rem;
     border: 1px solid #9a9a9a;
     font-size: 2.5rem;
+    font-weight: 600;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,8 +62,24 @@ logo{
 .game-over-message {
     display: flex;
     justify-content: center;
+    color: black;
     height: 5rem;
     padding: 2.5rem;
+}
+
+.letter-box__green {
+    background-color: var(--letter-box-bg-green);
+    color: var(--letter-box-colored-font-color);
+}
+
+.letter-box__yellow {
+    background-color: var(--letter-box-bg-yellow);
+    color: var(--letter-box-colored-font-color);
+}
+
+.letter-box__grey {
+    background-color: var(--letter-box-bg-grey);
+    color: var(--letter-box-colored-font-color);
 }
 
 .box {
@@ -63,28 +87,6 @@ logo{
     padding: 1em;
     
 }
-    .box a:hover {
-        color: hotpink;
-      
-        transform: scale(1.2);
-    }
-
-#index_grid :hover {
-    transform: scale(.1);
+.box a:hover {
+    color: hotpink
 }
-
-#index_grid {
-    display: flex;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    /* this enables horizontal scrool*/
-    scroll-behavior: smooth;
-}
-
-a {
-    flex: 0 0 calc(33% - 20px);
-    margin-right: 15px;
-    scroll-snap-align: start;
-}
-
- 
