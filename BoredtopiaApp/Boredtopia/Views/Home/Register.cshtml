@@ -1,6 +1,20 @@
 @model RegisterVM
+<head>
+      <link href="~/css/register.css" rel="stylesheet" asp-append-version="true" />
+
+</head>
 
 <h3>Register</h3>
+
+
+<button class="loginBtn loginBtn--facebook">
+    Login with Facebook
+</button>
+
+<button class="loginBtn loginBtn--google">
+    Login with Google
+</button>
+
 <form asp-controller="Home" asp-action="Register" style="width: 50%; margin-left: 25%">
     <label asp-for="Email"></label>
     <input asp-for="Email"/>
