@@ -1,3 +1,10 @@
+:root {
+    --letter-box-bg-green: #339730;
+    --letter-box-bg-yellow: #bfb32a;
+    --letter-box-bg-grey: #787878;
+    --letter-box-colored-font-color: #FFFFFF;
+}
+
 html {
   font-size: 14px;
 }
@@ -41,11 +48,12 @@ logo{
     margin-bottom: 0.3rem;
 }
 
-.word-box {
+.letter-box {
     width: 5rem;
     height: 5rem;
     border: 1px solid #9a9a9a;
     font-size: 2.5rem;
+    font-weight: 600;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,15 +62,64 @@ logo{
 .game-over-message {
     display: flex;
     justify-content: center;
+    font-size: 1.5rem;  
+    color: black;
     height: 5rem;
     padding: 2.5rem;
+}
+
+.btn-play-again {
+    margin: 0 auto;
+    max-width: 8rem;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.letter-box__green {
+    background-color: var(--letter-box-bg-green);
+    color: var(--letter-box-colored-font-color);
+}
+
+.letter-box__yellow {
+    background-color: var(--letter-box-bg-yellow);
+    color: var(--letter-box-colored-font-color);
+}
+
+.letter-box__grey {
+    background-color: var(--letter-box-bg-grey);
+    color: var(--letter-box-colored-font-color);
 }
 
 .box {
     border: dotted;
     padding: 1em;
-    
 }
 .box a:hover {
     color: hotpink
+}
+
+#keyboard-cont {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#keyboard-cont div {
+    display: flex;
+}
+
+.second-row {
+    margin: 0.5rem 0;
+}
+
+.keyboard-button {
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.5rem;
+    margin: 0 2px;
+    cursor: pointer;
+    text-transform: uppercase;
 }

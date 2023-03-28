@@ -1,6 +1,7 @@
 ﻿using Boredtopia.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Security.Claims;
 using Boredtopia.Views.Home;
 using Microsoft.AspNetCore.Authorization;
 
@@ -9,11 +10,9 @@ namespace Boredtopia.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly AccountServices _accountServices;
-
+        
         public HomeController(ILogger<HomeController> logger, AccountServices accountServices)
         {
-            _accountServices = accountServices;
             _logger = logger;
         }
         [HttpGet("")]
@@ -30,66 +29,6 @@ namespace Boredtopia.Controllers
         public IActionResult About()
         {
             return View();
-        }
-        [HttpGet("/Login")]
-        public IActionResult Login()
-        {
-            return View();
-        }
-        [HttpPost("/Login")]
-        public async Task<IActionResult> Login(LoginVM viewModel)
-        {
-            if (!ModelState.IsValid)
-                return View();
-            // if (User.Identity.IsAuthenticated)
-            //     return RedirectToAction(nameof(Profile));
-            // Check if credentials is valid (and set auth cookie)
-            var errorMessage = await _accountServices.TryLogin(viewModel);
-            if (errorMessage != null)
-            {
-                // Show error
-                ModelState.AddModelError(string.Empty, errorMessage);
-                return View();
-            }
-            return RedirectToAction(nameof(Profile));
-        }
-
-        [HttpGet("/Logout")]
-        public IActionResult Logout()
-        {
-            _accountServices.TryLogoutAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        [HttpGet("/Register")]
-        public IActionResult Register()
-        {
-            return View();
-        }
-        [HttpPost("/Register")]
-        public async Task<IActionResult> Register(RegisterVM viewModel)
-        {
-            if (!ModelState.IsValid)
-                return View();
-        
-            // Try to register user
-            var errorMessage = await _accountServices.TryRegister(viewModel);
-            if (errorMessage != null)
-            {
-                // Show error
-                ModelState.AddModelError(string.Empty, errorMessage);
-                return View();
-            }
-            // Redirect user
-            return RedirectToAction(nameof(Profile));
-        }
-        [Authorize]
-        [HttpGet("/Profile")]
-        public IActionResult Profile()
-        {
-            ProfileVM viewModel = new();
-            viewModel.Name = User.Identity.Name;
-            return View(viewModel);
         }
         [HttpGet("/Privacy")]
         public IActionResult Privacy()
