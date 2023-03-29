@@ -150,20 +150,20 @@ logo{
     position: relative;
 }
 
-    .switch-button:before {
-        content: "English";
-        position: absolute;
-        color: #FFFFFF;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        width: 120px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 3;
-        pointer-events: none;
-    }
+.switch-button:before {
+    content: "English";
+    position: absolute;
+    color: #FFFFFF;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    pointer-events: none;
+}
 
 .switch-button-checkbox {
     cursor: pointer;
