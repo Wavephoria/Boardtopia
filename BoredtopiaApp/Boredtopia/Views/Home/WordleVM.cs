@@ -2,5 +2,6 @@
 {
     public class WordleVM
     {
+        public int GuessedCorrectAtNumber { get; set; }
     }
 }

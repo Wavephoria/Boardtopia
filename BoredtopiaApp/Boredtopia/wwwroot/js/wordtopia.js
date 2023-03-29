@@ -12,7 +12,7 @@ const playAgainBtn = document.querySelector('.btn-play-again');
 const WORD_LENGTH = 5;
 const NUMBER_OF_GUESSES = 6;
 let currentGuess = '';
-let currentNum = 0;
+let currentGuessNumber = 0;
 let gameOver = false;
 let correctWord;
 let wordArray = WORDS_ENGLISH;
@@ -51,7 +51,7 @@ function createGameBoard() {
 }
 
 function checkIfGuessIsCorrect() {
-    if (currentGuess === correctWord || currentNum === NUMBER_OF_GUESSES) {
+    if (currentGuess === correctWord || currentGuessNumber === NUMBER_OF_GUESSES) {
         gameOver = true;
         sendData();
     }
@@ -61,7 +61,7 @@ function checkIfGuessIsCorrect() {
         gameOverDiv.classList.remove('hidden');
     }
 
-    if (currentNum === NUMBER_OF_GUESSES) {
+    if (currentGuessNumber === NUMBER_OF_GUESSES) {
         if (currentGuess === correctWord) {
             gameOverMessage.textContent = 'You Win!';
         } else {
@@ -84,7 +84,7 @@ function AddColorsToLetterBox(row) {
 }
 
 function playAgain() {
-    currentNum = 0;
+    currentGuessNumber = 0;
     gameOver = false;
     currentGuess = '';
     gameOverDiv.classList.add('hidden');
@@ -106,9 +106,9 @@ document.addEventListener('keyup', (e) => {
 
     console.log(correctWord);
 
-    const row = document.querySelector(`[data-row=row${currentNum + 1}]`);
+    const row = document.querySelector(`[data-row=row${currentGuessNumber + 1}]`);
 
-    if (currentNum < NUMBER_OF_GUESSES) {
+    if (currentGuessNumber < NUMBER_OF_GUESSES) {
         if (regEx.test(e.key) && currentGuess.length < WORD_LENGTH) {
             row.children[currentGuess.length].textContent = e.key.toUpperCase();
             currentGuess += e.key.toLowerCase();
@@ -120,7 +120,7 @@ document.addEventListener('keyup', (e) => {
         }
 
         if (e.key === 'Enter' && currentGuess.length === WORD_LENGTH) {
-            currentNum++;
+            currentGuessNumber++;
 
             AddColorsToLetterBox(row);
             checkIfGuessIsCorrect();
@@ -145,7 +145,8 @@ async function sendData() {
             headers: {
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify(currentNum)
+            body: JSON.stringify(currentGuessNumber)
         }
-    );
+    ).then(response => response.json())
+    .then(o => console.log(o));
 };
