@@ -105,7 +105,7 @@ public class AccountController : Controller
     public IActionResult Wordle([FromBody] int guessedCorrectAtNumber)
     {
         string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        //_accountServices.UpdateWordle(guessedCorrectAtNumber, userId);
-        return Ok(guessedCorrectAtNumber);
+        _accountServices.UpdateWordle(guessedCorrectAtNumber, userId);
+        return RedirectToAction(nameof(Models.Wordle));
     }
 }
