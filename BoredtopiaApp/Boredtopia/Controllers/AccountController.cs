@@ -106,6 +106,6 @@ public class AccountController : Controller
     {
         string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
         _accountServices.UpdateWordle(guessedCorrectAtNumber, userId);
-        return RedirectToAction(nameof(Models.Wordle));
+        return Ok(guessedCorrectAtNumber);
     }
 }
