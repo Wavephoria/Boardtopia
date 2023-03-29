@@ -48,6 +48,13 @@ namespace Boredtopia.Controllers
             return View(); 
         }
 
+        [HttpPost("/Wordle")]
+        public IActionResult Wordle([FromBody] string numberOfGuesses)
+        {
+
+            return Ok();
+        }
+
         [HttpGet("/RockPaperScissors")]
         public IActionResult RockPaperScissors()
         {
@@ -59,5 +66,7 @@ namespace Boredtopia.Controllers
         {
             return View();
         }
+
+
     }
 }
