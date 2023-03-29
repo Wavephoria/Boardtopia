@@ -37,6 +37,12 @@ logo{
     width: 3px; 
 }
 
+.main-nav a:hover {
+    color: hotpink
+}
+
+/*  --- Wordtopia styles --- */
+
 .game-board {
     display: flex;
     flex-direction: column;
@@ -101,9 +107,9 @@ logo{
     padding: 0 1.5rem;
     box-shadow: var(--card-box-shadow);
 }
-.main-nav a:hover {
-    color: hotpink
-}
+
+
+/* --- Keyboard styles --- */
 
 #keyboard-cont {
     margin: 1rem 0;
@@ -128,3 +134,4 @@ logo{
     cursor: pointer;
     text-transform: uppercase;
 }
+
