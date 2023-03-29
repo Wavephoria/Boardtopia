@@ -99,4 +99,11 @@ public class AccountController : Controller
         viewModel.Email = await _accountServices.FetchData("email");
         return View(viewModel);
     }
+
+    [HttpPost("/Wordle")]
+    public IActionResult Wordle([FromBody] string numberOfGuesses)
+    {
+
+        return Ok();
+    }
 }

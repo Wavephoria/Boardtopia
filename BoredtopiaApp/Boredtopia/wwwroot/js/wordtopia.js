@@ -2,7 +2,7 @@
 import { WORDS_SWEDISH } from './words-swedish.js';
 
 // QuerySelectors
-const languageCheckBox = document.querySelector('.toggle-checkbox');
+const languageCheckBox = document.querySelector('.switch-button-checkbox');
 const gameBoard = document.querySelector('.game-board');
 const gameOverDiv = document.querySelector('.game-over-div');
 const gameOverMessage = document.querySelector('.game-over-message');
@@ -51,14 +51,17 @@ function createGameBoard() {
 }
 
 function checkIfGuessIsCorrect() {
-    if (currentGuess === correctWord) {
+    if (currentGuess === correctWord || currentNum === NUMBER_OF_GUESSES) {
         gameOver = true;
+        sendData();
+    }
+
+    if (currentGuess === correctWord) {
         gameOverMessage.textContent = 'You Win!';
         gameOverDiv.classList.remove('hidden');
     }
 
     if (currentNum === NUMBER_OF_GUESSES) {
-        gameOver = true;
         if (currentGuess === correctWord) {
             gameOverMessage.textContent = 'You Win!';
         } else {
@@ -134,3 +137,15 @@ playAgainBtn.addEventListener('click', () => {
 // Init game
 getRandomWord(wordArray);
 createGameBoard();
+
+async function sendData() {
+    await fetch('/Wordle',
+        {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(currentNum)
+        }
+    );
+};
