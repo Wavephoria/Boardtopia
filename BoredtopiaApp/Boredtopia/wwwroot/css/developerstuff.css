@@ -48,12 +48,17 @@
 }
 
 
-
 .rockpaperscissors {
     width: 500px;
     height: 300px;
-    
 }
+
+@media (max-width: 1200px) {
+    .rockpaperscissors {
+        display: none;
+    }
+}
+
 
 
 
