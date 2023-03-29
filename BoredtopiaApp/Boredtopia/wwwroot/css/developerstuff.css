@@ -15,9 +15,15 @@
     position: relative;
 }
 
-    .waveHeading h1 {
+/*@media screen and (min-width: 900px) {
+    .waveHeading {
+        
+        font-size: 10px;
+    }*/
+
+        .waveHeading h1 {
         position: absolute;
-        font-size: 2em;
+        font-size: 6.3vmin;
         transform: translate(-50%, -50%);
     }
 
