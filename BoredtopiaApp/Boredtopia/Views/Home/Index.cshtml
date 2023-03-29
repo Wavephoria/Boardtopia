@@ -3,6 +3,7 @@
 }
 
 
+
 <div class="text-center">
 
     <h1>Welcome!</h1>
@@ -16,35 +17,34 @@
 </div>
 
 
-<div class="grid-container" >
+<div >
     <div class="grid" id="index_grid">
 
     <a asp-controller="Home" asp-action="Wordle">
         <picture>
 
-            <img src="/image/coverAI.png"
+            <img src="/image/coverAI.png" />
         </picture>
         <hgroup>
-            The O.G king
+            Wordtopia
             <p> Play our one and only wordtopia</p>
+        </hgroup>
+    </a>
+    <a asp-controller="Home" asp-action="RockPaperScissors">
+        <picture>
+
+            <img src="/image/CatMascot.png" />
+        </picture>
+        <hgroup>
+            Rock, Paper, Scissors
+            <p> Play the classic game rock, paper, scissors</p>
         </hgroup>
     </a>
 
     <a asp-controller="Home" asp-action="Wordle">
         <picture>
 
-            <img src="/image/CatMascot.png"
-        </picture>
-        <hgroup>
-            The O.G king
-            <p> Play our one and only wordtopia</p>
-        </hgroup>
-    </a>
-
-    <a asp-controller="Home" asp-action="Wordle">
-        <picture>
-
-            <img src="/image/AIJapnart.png"
+            <img src="/image/AIJapnart.png" />
         </picture>
         <hgroup>
             The O.G king
@@ -79,28 +79,16 @@
    </div>
 </div>
 
-@*<ul>
-    <li>
-        <a asp-action="Index" asp-controller="Home"><img src="image/Hotpot.png" alt="BoardTopia logo class= " logo" height="150px" width="150px" /></a>
-    </li>
-</ul>
-
-<ul>
-    <li><a asp-action="Index" asp-controller="Home"> <h1>BoardTopia</h1></a></li>
-</ul>*@
 <article>
-    <section id="developerfavorites" class="articlefordevfav">
-       
-        <div class="description">
-            <h2>Developer's Favorite</h2>
-            <p class="blockquote">Welcome to Wordtopia, the exciting new word game that's fun for all ages! Unlike other popular word games, there's no once-a-day limit to how much you can play. With simple and stimulating gameplay, Wordtopia is perfect for anyone who loves a good word challenge. Join us on our journey to bring the joy of words to the world, and experience the addictive fun of Wordtopia for yourself!</p>
+        <h2>Developer's Choice</h2>
+        <div class="grid">
+        <div class="image"> <a asp-controller="Home" asp-action="Wordle"> <img src="/image/coverAI.png" alt="Wordtopia game cover"> </a></div>
+            <div>
+            <p><strong>Wordtopia</strong></p>
+            <p class="text">Welcome to Wordtopia, the exciting new word game that's fun for all ages! Unlike other popular word games, there's no once-a-day limit to how much you can play. With simple and stimulating gameplay, Wordtopia is perfect for anyone who loves a good word challenge. Join us on our journey to bring the joy of words to the world, and experience the addictive fun of Wordtopia for yourself!</p>
+            <p><a asp-controller="Home" asp-action="Wordle" role="button">Play now</a></p>
+            </div>   
         </div>
-        <a asp-controller="Home" asp-action="Wordle" class="pictureofdevfav">
-            <picture>
-                <img src="/image/coverAI.png" alt="Wordtopia game cover" >
-            </picture>
-        </a>
-    </section>
 </article>
 
 

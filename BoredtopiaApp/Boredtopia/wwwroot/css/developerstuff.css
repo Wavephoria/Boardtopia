@@ -1,21 +1,48 @@
-﻿.articlefordevfav {
-    
-   
+.image {
+    width: 500px;
+    margin-left: 50px;
 }
 
-
-
-.pictureofdevfav {
-    align-content:left
-    width: 50%;
-    display:inline-block;
-    margin-right: 2rem;
+.text {
+    width: 500px;
+    float: none;
 }
 
+/* https://alvarotrigo.com/blog/css-text-animations/
+    Water Wave Heading
+*/
+.waveHeading {
+    position: relative;
+}
 
+/*@media screen and (min-width: 992px) {
+    .waveHeading {
+        
+        width: 700px;
+    }*/
 
-.blockquote {
-    float: right;
-    width: 50%;
-    vertical-align: top;
+    .waveHeading h1 {
+        position: absolute;
+        font-size: clamp(1rem, 5vw, 7rem);
+        transform: translate(-50%, -50%);
+    }
+
+        .waveHeading h1:nth-child(1) {
+            color: transparent;
+            -webkit-text-stroke: 1px var(--primary);
+        }
+
+        .waveHeading h1:nth-child(2) {
+            color: var(--primary);
+            animation: animate 4s ease-in-out infinite;
+        }
+
+@keyframes animate {
+    0%, 100% {
+        clip-path: polygon( 0% 45%, 16% 44%, 33% 50%, 54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100% );
+    }
+
+    50% {
+        clip-path: polygon( 0% 60%, 15% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100% );
+    }
 }

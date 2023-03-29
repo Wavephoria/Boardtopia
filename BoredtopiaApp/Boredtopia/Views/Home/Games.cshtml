@@ -1,5 +1,157 @@
+<head>
+    <link href="~/css/games.css" rel="stylesheet" asp-append-version="true" />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <script src="~/js/gamescarousel.js"></script>
+</head>
 <h1>Games!</h1>
 <h2>Scroll through and you will surely find a game that you will like!</h2>
+
+<section class="product">
+    <h2 class="product-category">New games</h2>
+    <button class="pre-btn"><img src="/image//lessthan.png" alt=""></button>
+    <button class="nxt-btn"><img src="/image//lessthan.png" alt=""></button>
+    <div class="product-container">
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/image/coverAI.png" class="product-thumb" alt="">
+                <button class="card-btn">Play now</button>
+            </div>
+            <div class="product-info">
+                <h7 class="product-brand">Game name</h7>
+                <p class="product-short-description">The latest game...</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/image/coverAI.png" class="product-thumb" alt="">
+                <button class="card-btn">Play now</button>
+            </div>
+            <div class="product-info">
+                <h7 class="product-brand">Game name</h7>
+                <p class="product-short-description">a short line about the cloth..</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/image/coverAI.png" class="product-thumb" alt="">
+                <button class="card-btn">Play now</button>
+
+            </div>
+            <div class="product-info">
+                <h7 class="product-brand">Game name</h7>
+
+                <p class="product-short-description">a short line about the cloth..</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/image/coverAI.png" class="product-thumb" alt="">
+                <button class="card-btn">Play now</button>
+
+            </div>
+            <div class="product-info">
+                <h7 class="product-brand">Game name</h7>
+
+                <p class="product-short-description">a short line about the cloth..</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/image/coverAI.png" class="product-thumb" alt="">
+                <button class="card-btn">Play now</button>
+
+            </div>
+            <div class="product-info">
+                <h7 class="product-brand">Game name</h7>
+
+                <p class="product-short-description">a short line about the cloth..</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/image/coverAI.png" class="product-thumb" alt="">
+                <button class="card-btn">Play now</button>
+
+            </div>
+            <div class="product-info">
+                <h7 class="product-brand">Game name</h7>
+
+                <p class="product-short-description">a short line about the cloth..</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/image/coverAI.png" class="product-thumb" alt="">
+                <button class="card-btn">Play now</button>
+
+            </div>
+            <div class="product-info">
+                <h7 class="product-brand">Game name</h7>
+
+                <p class="product-short-description">a short line about the cloth..</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/image/coverAI.png" class="product-thumb" alt="">
+                <button class="card-btn">Play now</button>
+
+            </div>
+            <div class="product-info">
+                <h7 class="product-brand">Game name</h7>
+
+                <p class="product-short-description">a short line about the cloth..</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/image/coverAI.png" class="product-thumb" alt="">
+                <button class="card-btn">Play now</button>
+
+            </div>
+            <div class="product-info">
+                <h7 class="product-brand">Game name</h7>
+
+                <p class="product-short-description">a short line about the cloth..</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/image/coverAI.png" class="product-thumb" alt="">
+                <button class="card-btn">Play now</button>
+
+            </div>
+            <div class="product-info">
+                <h7 class="product-brand">Game name</h7>
+
+                <p class="product-short-description">a short line about the cloth..</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script> 
+    const productContainers = [...document.querySelectorAll('.product-container')];
+    const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
+    const preBtn = [...document.querySelectorAll('.pre-btn')];
+
+    productContainers.forEach((item, i) => {
+        let containerDimensions = item.getBoundingClientRect();
+        let containerWidth = containerDimensions.width;
+
+        nxtBtn[i].addEventListener('click', () => {
+            item.scrollLeft += containerWidth;
+        })
+
+        preBtn[i].addEventListener('click', () => {
+            item.scrollLeft -= containerWidth;
+        })
+    })
+
+</script>
+
+
+@*
 
 <div class="grid-container">
     <div class="grid" id="index_grid">
@@ -7,7 +159,7 @@
         <a asp-controller="Home" asp-action="Wordle">
             <picture>
 
-                <img src="/image/coverAI.png"
+                <img src="/image/coverAI.png" />
             </picture>
             <hgroup>
                 The O.G king
@@ -18,7 +170,7 @@
         <a asp-controller="Home" asp-action="RockPaperScissors">
             <picture>
 
-                <img src="/image/CatMascot.png"
+                <img src="/image/CatMascot.png" />
             </picture>
             <hgroup>
                 The O.G king
@@ -26,10 +178,10 @@
             </hgroup>
         </a>
 
-        <a asp-controller="Home" asp-action="Wordle">
+        <a asp-controller="Home" asp-action="RockPaperScissors">
             <picture>
 
-                <img src="/image/AIJapnart.png"
+                <img src="/image/AIJapnart.png" />
             </picture>
             <hgroup>
                 The O.G king
@@ -49,17 +201,25 @@
             </hgroup>
         </a>
 
-        <a asp-controller="Home" asp-action="Wordle">
-            <picture>
-
-                <img src="/image/cats.png" />
-            </picture>
-            <hgroup>
-                The O.G king
-
-                <p> Play our one and only wordtopia</p>
-            </hgroup>
-        </a>
-
     </div>
 </div>
+<section>
+    <h3> Somethoing something </h3>
+</section>
+
+
+<main class=" container">
+    <article class="grid">
+        <div>
+            <h1>A special game</h1>
+            <blockquote>
+                Normally,
+
+                Both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me. Besides, I've already been through too much shit this morning over this case to hand it over to your dumb ass.
+            </blockquote>
+            <button> play now</button>
+        </div>
+        <div></div>
+    </article>
+</main>
+*@

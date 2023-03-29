@@ -5,6 +5,7 @@
     --letter-box-colored-font-color: #FFFFFF;
 }
 
+/* This will cause issues with responsive font sizing handled by Pico CSS.
 html {
   font-size: 14px;
 }
@@ -14,24 +15,33 @@ html {
     font-size: 16px;
   }
 }
+*/
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-html {
+/*
+  Why do we override/set these values? 
+  html {
   position: relative;
   min-height: 100%;
 }
 
 body {
   margin-bottom: 60px;
-}
+}*/
 
 logo{
     height:3px;
     width: 3px; 
 }
+
+.main-nav a:hover {
+    color: hotpink
+}
+
+/*  --- Wordtopia styles --- */
 
 .game-board {
     display: flex;
@@ -92,13 +102,14 @@ logo{
     color: var(--letter-box-colored-font-color);
 }
 
-.box {
-    border: dotted;
-    padding: 1em;
+.main-nav {
+    background-color: var(--card-background-color);
+    padding: 0 1.5rem;
+    box-shadow: var(--card-box-shadow);
 }
-.box a:hover {
-    color: hotpink
-}
+
+
+/* --- Keyboard styles --- */
 
 #keyboard-cont {
     margin: 1rem 0;
@@ -122,4 +133,72 @@ logo{
     margin: 0 2px;
     cursor: pointer;
     text-transform: uppercase;
+}
+
+/* --- Slider --- */
+
+.switch-button {
+    background: #00acc1;
+    border-radius: 30px;
+    overflow: hidden;
+    width: 240px;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+    position: relative;
+    padding-right: 120px;
+    position: relative;
+}
+
+.switch-button:before {
+    content: "English";
+    position: absolute;
+    color: #FFFFFF;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.switch-button-checkbox {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 2;
+}
+
+    .switch-button-checkbox:checked + .switch-button-label:before {
+        transform: translateX(130px);
+        transition: transform 300ms linear;
+    }
+
+.switch-button-label {
+    position: relative;
+    padding: 15px 10px;
+    display: block;
+    user-select: none;
+    pointer-events: none;
+}
+
+.switch-button-label:before {
+    content: "";
+    background: #ffffff;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 30px;
+    transform: translateX(0);
+    transition: transform 300ms;
 }

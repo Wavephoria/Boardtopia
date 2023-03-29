@@ -24,21 +24,31 @@
 <body>
     <main class="container">
         <header>
-            <nav aria-label = "logo and home">
+            <nav aria-label="logo and home">
                 <ul>
                     <li>
                         <a asp-action="Index" asp-controller="Home"><img src="image/Hotpot.png" alt="BoardTopia logo class= " logo" height="150px" width="150px" /></a>
-                        </li>
+                    </li>
                 </ul>
 
                 <ul>
-                    <li><a asp-action="Index" asp-controller="Home"> <h1>BoardTopia</h1></a></li>
+                    <li>
+                        <a asp-action="Index" asp-controller="Home">
+                            <div class="waveHeading">
+                                <h1>BoardTopia</h1>
+                                <h1>BoardTopia</h1>
+                            </div>
+                            
+                        </a>
+                    </li>
+
                 </ul>
 
                 <ul>
                     <li>
                         <details role="list" dir="rtl">
-                            <summary aria-haspopup="listbox" role="link" class="contrast">Select Themes
+                            <summary aria-haspopup="listbox" role="link" class="contrast">
+                                Select Themes
 
                             </summary>
                             <ul role="listbox">
@@ -54,7 +64,7 @@
 
             </nav>
         </header>
-        <nav class ="box" aria-label="primary navigation">
+        <nav class="main-nav" aria-label="primary navigation">
             <ul>
                 <li><a asp-controller="Home" asp-action="Index">Home</a></li>
             </ul>
@@ -65,7 +75,7 @@
                 <li><a asp-controller="Account" asp-action="Profile">Profile</a></li>
             </ul>
             <ul>
-            <li><a asp-controller="Home" asp-action="About"> About </a></li>
+                <li><a asp-controller="Home" asp-action="About"> About </a></li>
             </ul>
             <nav aria-label="breadcrumb">
                 <ul>
@@ -82,9 +92,7 @@
                 </ul>
             </nav>
         </nav>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
-
-        <br/>
+        <br />
         <div role="main">
             @RenderBody()
         </div>
@@ -108,7 +116,7 @@
             <div class="row">
                 <ul>
                     <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-                 
+
                     <li><a asp-controller="Home" asp-action="Games">Games</a></li>
                     <li><a asp-controller="Account" asp-action="Profile">Profile</a></li>
                     <li><a asp-controller="Home" asp-action="About"> About </a></li>
@@ -124,6 +132,6 @@
             </div>
         </div>
     </footer>
-      
+
 </body>
 </html>

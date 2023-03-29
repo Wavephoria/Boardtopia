@@ -69,6 +69,8 @@ public class AccountServices
         ApplicationUser user = await GetUser();
         if (choice.ToLower() == "email")
             return await userManager.GetEmailAsync(user);
+        else if (choice.ToLower() == "userid")
+            return await userManager.GetUserIdAsync(user);
         return null;
     }
     public async Task<string> ChangeData(ChangeVM viewModel)
