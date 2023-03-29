@@ -147,6 +147,5 @@ async function sendData() {
             },
             body: JSON.stringify(currentGuessNumber)
         }
-    ).then(response => response.json())
-    .then(o => console.log(o));
+    );
 };
