@@ -2,7 +2,7 @@
 import { WORDS_SWEDISH } from './words-swedish.js';
 
 // QuerySelectors
-const languageCheckBox = document.querySelector('.toggle-checkbox');
+const languageCheckBox = document.querySelector('.switch-button-checkbox');
 const gameBoard = document.querySelector('.game-board');
 const gameOverDiv = document.querySelector('.game-over-div');
 const gameOverMessage = document.querySelector('.game-over-message');
