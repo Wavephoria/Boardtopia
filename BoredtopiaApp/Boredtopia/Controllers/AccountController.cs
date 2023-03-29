@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Boredtopia.Views.Home;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -103,7 +104,8 @@ public class AccountController : Controller
     [HttpPost("/Wordle")]
     public IActionResult Wordle([FromBody] string numberOfGuesses)
     {
-
+        string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        _accountServices.UpdateWordle(numberOfGuesses, userId);
         return Ok();
     }
 }

@@ -11,7 +11,7 @@ public class Wordle
     public double WordleAverage { get; set; }
     public int WordleBest { get; set; }
     public int WordleTotal { get; set; }
-    public int UserId { get; set; }
+    public string UserId { get; set; }
 
     public Wordle()
     {
@@ -20,7 +20,6 @@ public class Wordle
 
     private async void GetUserId()
     {
-        string? userId = await _accountServices.FetchData("userId");
-        UserId = Int32.Parse(userId);
+        UserId = await _accountServices.FetchData("userId");
     }
 }
