@@ -104,14 +104,13 @@ public class AccountServices
 
     public async Task<string> UpdateWordle(int guesses, string userId)
     {
-        // numberOfGuesses = 3;
         if (context._wordleStats.SingleOrDefault(a => a.UserId == userId) == null)
         {
             Wordle wordle = new();
             wordle.UserId = userId;
             wordle.WordleBest = guesses;
             wordle.WordlePlays = 1;
-            wordle.WordleTotal = 1;
+            wordle.WordleTotal = guesses;
             wordle.WordleAverage = wordle.WordlePlays / wordle.WordleTotal;
             context._wordleStats.Update(wordle);
         }
