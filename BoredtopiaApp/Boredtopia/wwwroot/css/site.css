@@ -177,10 +177,10 @@ logo{
     z-index: 2;
 }
 
-    .switch-button-checkbox:checked + .switch-button-label:before {
-        transform: translateX(130px);
-        transition: transform 300ms linear;
-    }
+.switch-button-checkbox:checked + .switch-button-label:before {
+    transform: translateX(130px);
+    transition: transform 300ms linear;
+}
 
 .switch-button-label {
     position: relative;
