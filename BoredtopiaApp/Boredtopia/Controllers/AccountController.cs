@@ -102,10 +102,10 @@ public class AccountController : Controller
     }
 
     [HttpPost("/Wordle")]
-    public IActionResult Wordle([FromBody] string numberOfGuesses)
+    public IActionResult Wordle([FromBody] int guessedCorrectAtNumber)
     {
         string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        _accountServices.UpdateWordle(numberOfGuesses, userId);
-        return Ok();
+        //_accountServices.UpdateWordle(guessedCorrectAtNumber, userId);
+        return Ok(guessedCorrectAtNumber);
     }
 }
