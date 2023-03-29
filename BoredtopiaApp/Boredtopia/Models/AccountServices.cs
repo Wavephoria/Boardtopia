@@ -1,5 +1,9 @@
+using Boredtopia.Models;
 using Boredtopia.Views.Home;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
 
 namespace Boredtopia.Controllers;
 
@@ -9,18 +13,22 @@ public class AccountServices
     private SignInManager<ApplicationUser> signInManager;
     private RoleManager<IdentityRole> roleManager;
     private IHttpContextAccessor accessor;
+    private ApplicationContext context;
 
     public AccountServices(
         UserManager<ApplicationUser> userManager,
         SignInManager<ApplicationUser> signInManager,
         RoleManager<IdentityRole> roleManager,
-        IHttpContextAccessor accessor
+        IHttpContextAccessor accessor,
+        ApplicationContext context
+        
         )
     {
         this.userManager = userManager;
         this.signInManager = signInManager;
         this.roleManager = roleManager;
         this.accessor = accessor;
+        this.context = context;
     }
     
     public async Task<string> TryRegister(RegisterVM viewModel)
@@ -86,5 +94,26 @@ public class AccountServices
             return null;
         }
         return "Failed to change details";
+    }
+
+    public async void UpdateWordle(string numberOfGuesses, string userId)
+    {
+
+        // if (userId == null)
+        // {
+        //     
+        // }
+        var wordleData = context._wordleStats.FirstOrDefault(a => a.UserId == userId);
+        int guesses = int.Parse(numberOfGuesses);
+        
+        if (wordleData.WordleBest > guesses)
+            wordleData.WordleBest = guesses;
+        wordleData.WordleTotal += guesses;
+        wordleData.WordlePlays += 1;
+        wordleData.WordleAverage = wordleData.WordleTotal / wordleData.WordlePlays;
+        if (wordleData.UserId == null)
+            wordleData.UserId = userId;
+        context._wordleStats.UpdateRange(wordleData);
+        var result = await context.SaveChangesAsync();
     }
 }
