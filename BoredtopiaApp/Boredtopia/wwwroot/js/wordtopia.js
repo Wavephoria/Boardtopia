@@ -147,9 +147,5 @@ async function sendData() {
             },
             body: JSON.stringify(currentNum)
         }
-    ).then(response => {
-        if (response.ok) {
-            console.log(response);
-        }
-    });
+    );
 };
