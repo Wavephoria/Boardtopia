@@ -11,9 +11,6 @@ function createBoard() {
         tile.addEventListener('click', moveTile);
         gameBoard.appendChild(tile);
     }
-
-
-    // - add eventlistener to each tile (move on click)
 }
 
 
