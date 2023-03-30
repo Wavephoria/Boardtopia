@@ -6,7 +6,7 @@
 
 <section class="product">
     <h2 class="product-category">New games</h2>
-    <button class="pre-btn"><img src="/image/lessthan.png" alt=""></button>
+    <button type="button" class="pre-btn"><img src="/image/lessthan.png" alt=""></button>
     <button class="nxt-btn"><img src="/image/lessthan.png" alt=""></button>
     <div class="product-container">
         <div class="product-card">
@@ -112,7 +112,7 @@
     </div>
 </section>
 
-<script> 
+<script > 
     const productContainers = [...document.querySelectorAll('.product-container')];
     const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
     const preBtn = [...document.querySelectorAll('.pre-btn')];
@@ -129,7 +129,6 @@
             item.scrollLeft -= containerWidth;
         })
     })
-
 </script>
 
 <article class="info about games">
