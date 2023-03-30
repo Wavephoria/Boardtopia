@@ -15,7 +15,6 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = computerSelection.toLowerCase();
 
     if (playerSelection === computerSelection) {
-        currentWins = 0;
         return "It's a tie!";
     } else if (
         (playerSelection === "rock" && computerSelection === "scissors") ||
