@@ -3,29 +3,31 @@
     display: grid;
     grid-template-columns: 200px 200px 200px;
     grid-template-rows: 200px 200px 200px;
+    gap: 3px;
 }
 
-.tile1, .tile2, .tile3, .tile4, .tile5, .tile6, .tile7, .tile8, .tile9 {
+.picture-component1, .picture-component2, .picture-component3, .picture-component4, .picture-component5, .picture-component6, .picture-component7, .picture-component8, .picture-component9 {
     width: 200px;
     height: 200px;
     background: url('../image/cat.jpg');
+    cursor: pointer;
 }
 
-.tile1 {background-position: left top;}
+.picture-component1 {background-position: left top;}
 
-.tile2 {background-position: center top;}
+.picture-component2 {background-position: center top;}
 
-.tile3 {background-position: right top;}
+.picture-component3 {background-position: right top;}
 
-.tile4 {background-position: left center;}
+.picture-component4 {background-position: left center;}
 
-.tile5 {background-position: center center;}
+.picture-component5 {background-position: center center;}
 
-.tile6 {background-position: right center;}
+.picture-component6 {background-position: right center;}
 
-.tile7 {background-position: left bottom;}
+.picture-component7 {background-position: left bottom;}
 
-.tile8 {background-position: center bottom;}
+.picture-component8 {background-position: center bottom;}
 
-.tile9 {background: white;}
+.picture-component9 {background: white; cursor: default;}
 
