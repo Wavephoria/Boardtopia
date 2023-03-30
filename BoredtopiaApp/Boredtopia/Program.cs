@@ -20,7 +20,15 @@ builder.Services.AddDbContext<ApplicationContext>(a => a.UseSqlServer(connection
 builder.Services.AddTransient<AccountServices>();
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>()
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+    {
+        options.Password.RequireNonAlphanumeric = false;
+        options.Password.RequireDigit = true;
+        options.Password.RequireUppercase = true;
+        options.Password.RequireLowercase = true;
+        options.Password.RequiredLength = 5;
+    })
+        .AddEntityFrameworkStores<ApplicationContext>()
     .AddDefaultTokenProviders();
 builder.Services.ConfigureApplicationCookie(a => a.LoginPath = "/login");
 

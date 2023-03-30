@@ -45,7 +45,7 @@ public class AccountServices
             return null;
         }
 
-        return "Failed to create user";
+        return "Password needs to be at least 5 characters including a number and both an uppercase and lowercase letter";
     }
 
     public async Task<string> TryLogin(LoginVM viewModel)
