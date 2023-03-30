@@ -8,11 +8,17 @@
     float: none;
 }
 
+.logo2 {
+    max-width: 100px;
+    height: auto;
+}   
+
 /* https://alvarotrigo.com/blog/css-text-animations/
     Water Wave Heading
 */
 .waveHeading {
     position: relative;
+    margin-bottom: 1em;
 }
 
 
@@ -60,6 +66,12 @@
 }
 
 
+.welcome-text {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--primary);
+}
+
+
 .wordle {
     width: 500px;
     height: 300px;
@@ -70,6 +82,10 @@
         display: none;
     }
 }
+
+
+
+
 
 
 
