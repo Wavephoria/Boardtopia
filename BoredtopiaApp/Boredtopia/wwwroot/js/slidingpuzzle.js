@@ -3,17 +3,17 @@ const gameBoard = document.querySelector('.puzzle-board');
 const rowSize = 3;
 const numberOfTiles = rowSize ** 2;
 
-// create board
-// - add tiles
-// - add class to tile (tile1, tile2, etc.)
-// - add eventlistener to each tile (move on click)
 
 function createBoard() {
     for (let i = 1; i <= numberOfTiles; i++) {
         const tile = document.createElement('div');
         tile.classList.add(`tile${i}`);
+        tile.addEventListener('click', moveTile);
         gameBoard.appendChild(tile);
     }
+
+
+    // - add eventlistener to each tile (move on click)
 }
 
 
@@ -28,7 +28,9 @@ function createBoard() {
 // - check for empty spot
 // - move tile if it is next to empty spot
 // - call check if player has won function
-
+function moveTile() {
+    console.log("hello");
+}
 
 
 // start game
