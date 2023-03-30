@@ -99,20 +99,20 @@
     .our-team .title {
         font-size: 20px;
         font-weight: 600;
-        color: #464646;
+        color: #00acc1;
         margin: 0 0 5px 0;
         transition: all 0.5s ease 0s;
     }
 
     .our-team:hover .title {
-        color: #00adae;
+        color: #00bcd4;
     }
 
     .our-team .post {
         display: block;
         font-size: 14px;
-        color: #464646;
+        color: #00acc1;
     }
     .our-team:hover .post {
-        color: #00adae;
+        color: #00bcd4;
     }
