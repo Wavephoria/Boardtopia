@@ -4,7 +4,7 @@ const rowSize = 3;
 const numberOfTiles = rowSize ** 2;
 
 // Empty tile starts at the last tile
-let emptyTile = numberOfTiles;
+let emptyTileNumber = numberOfTiles;
 
 function createBoard() {
     for (let i = 1; i <= numberOfTiles; i++) {
@@ -29,18 +29,37 @@ function createBoard() {
 // - move tile if it is next to empty spot
 // - call check if player has won function
 function moveTile(tile) {
+    const emptyTile = document.querySelector(`[data-tile-number="${emptyTileNumber}"]`);
     const tileNumber = parseInt(tile.dataset.tileNumber);
-    if (tileNumber !== emptyTile) {
+
+    if (tileNumber !== emptyTileNumber) {
         // Move right
-        if ((tileNumber + 1) === emptyTile) {
+        if ((tileNumber + 1) === emptyTileNumber) {
+
+            swapPictureClass(tileNumber);
+
+            emptyTileNumber = tileNumber;
             console.log("tile to the right");
         // Move left
-        } else if (tileNumber - 1 === emptyTile) {
+        } else if (tileNumber - 1 === emptyTileNumber) {
             console.log("tile to the left");
+        // Move up
+        } else if (tileNumber + 3 === emptyTileNumber) {
+            console.log("tile above");
+        // Move down
+        } else if (tileNumber - 3 === emptyTileNumber) {
+            console.log("tile below");
         }
     }
 }
 
+function swapPictureClass(tileNumber) {
+    emptyTile.classList.remove(`picture-component9`);
+    emptyTile.classList.add(`picture-component${tileNumber}`);
+
+    tile.classList.remove(`picture-component${tileNumber}`);
+    tile.classList.add(`picture-component9`);
+} 
 
 // start game
 // - call create board function
