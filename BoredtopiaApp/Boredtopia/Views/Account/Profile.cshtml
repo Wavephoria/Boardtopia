@@ -13,8 +13,8 @@
         Which game do you want to look at
     </summary>
     <ul role="listbox">
-        <li class="wordtopia"><a>Wordtopia</a></li> 
-        <li><a>Rock Paper Scissors</a></li>
+        <li data-game="wordtopia"><a>Wordtopia</a></li> 
+        <li data-game="rockpaperscissor"><a>Rock Paper Scissors</a></li>
     </ul>
 </details>
 
@@ -22,12 +22,28 @@
 
 @section scripts {
     <script>
-        document.querySelector('.wordtopia').addEventListener('click', () => {
-            document.querySelector('.game-stats').textContent = 
-            `Wordtopia stats
-            Games played: @Model.WordlePlays
-            Personal best: @Model.WordleBest
-            Average score: @Model.WordleAverage`
+        document.querySelector('[data-game="wordtopia"]').addEventListener('click', () => {
+            setText("Wordtopia");  
         });
+
+        document.querySelector('[data-game="rockpaperscissor"]').addEventListener('click', () => {
+            setText("Rock Paper Scissor");
+        });
+
+        function setText(gameName) {
+            if (gameName === "Wordtopia") {
+                document.querySelector('.game-stats').innerHTML = 
+                    `<b>${gameName}</b> <br />
+                    Games played: @Model.WordlePlays <br />
+                    Personal best: @Model.WordleBest <br />
+                    Average score: @Model.WordleAverage <br />`
+            } else if (gameName == "Rock Paper Scissor") {
+                document.querySelector('.game-stats').innerHTML =
+                    `<b>${gameName}</b> <br />
+                    Games played: 1 <br />
+                    Personal best: 1 <br />
+                    Average score: 1 <br />`
+            }
+        }
     </script>
 }
