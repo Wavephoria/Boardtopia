@@ -77,18 +77,26 @@
 
    </div>
 </div>
+<br />
+<br />
 
-<article>
-        <h2>Developer's Choice</h2>
-        <div class="grid">
-        <div class="image"> <a asp-controller="Home" asp-action="Wordle"> <img src="/image/coverAI.png" alt="Wordtopia game cover"> </a></div>
-            <div>
-            <p><strong>Wordtopia</strong></p>
-            <p class="text">Welcome to Wordtopia, the exciting new word game that's fun for all ages! Unlike other popular word games, there's no once-a-day limit to how much you can play. With simple and stimulating gameplay, Wordtopia is perfect for anyone who loves a good word challenge. Join us on our journey to bring the joy of words to the world, and experience the addictive fun of Wordtopia for yourself!</p>
-            <p><a asp-controller="Home" asp-action="Wordle" role="button">Play now</a></p>
-            </div>   
+<main class=" container">
+    <h2>Developer's Choice</h2>
+    <article class="grid">
+        <div class="wordle">
+            <a asp-action="RockPaperScissors" asp-controller="Home"> <img src="/image/CatComp.png" alt="picture of rock paper sissors = " logo" /></a>
         </div>
-</article>
+        <div class="description">
+            <h6>Wordtopia</h6>
+            <blockquote>
+                Welcome to Wordtopia, the exciting new word game that's fun for all ages! Unlike other popular word games, there's no once-a-day limit to how much you can play. 
+                Join us on our journey to bring the joy of words to the world, and experience the addictive fun of Wordtopia for yourself!
+            </blockquote>
+            <a asp-controller="Home" role="button" asp-action="Wordle" class="outline"> Play Wordtopia Now!</a>
+        </div>
+    </article>
+    <br />
+</main>
 
 
 

@@ -6,8 +6,8 @@
 
 <section class="product">
     <h2 class="product-category">New games</h2>
-    <button type="button" class="pre-btn"><img src="/image/lessthan.png" alt=""></button>
-    <button class="nxt-btn"><img src="/image/lessthan.png" alt=""></button>
+    <button type="button" class="pre-btn"><img src="/image/icons8-double-left-96.png" alt=""></button>
+    <button class="nxt-btn"><img src="/image/icons8-double-left-96.png" alt=""></button>
     <div class="product-container">
         <div class="product-card">
             <div class="product-image">
@@ -152,6 +152,19 @@
 
 <main class=" container">
     <article class="grid">
+        <div id="wordtopiaJUMP">
+            <p>Wordtopia </p>
+            <blockquote>
+                Welcome to Wordtopia, the exciting new word game that's fun for all ages! Unlike other popular word games, there's no once-a-day limit to how much you can play. Join us on our journey to bring the joy of words to the world, and experience the addictive fun of Wordtopia for yourself!
+            </blockquote>
+            <a asp-controller="Home" role="button" asp-action="Wordle" class="outline"> Play Wordtopia Now!</a>
+        </div>
+        <div class="wordle">
+        <a asp-action="RockPaperScissors" asp-controller="Home"> <img src="/image/cat.jpg" alt="picture of wordle = " logo" /></a>
+        </div>
+    </article>
+    <br />
+    <article class="grid">
         <div id="rockpaperscissorsJUMP">
             <p>A special game - Rasmus Nilsson</p>
             <blockquote>
@@ -166,33 +179,19 @@
         </div>
     </article>
     <br />
+    
+    <article class="grid">
+        <div id="meowJUMP">
+            <p>Sliding Puzzle </p>
+            <blockquote>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in venenatis elit. Aliquam erat volutpat. Maecenas faucibus, mi vel mollis efficitur, nisl elit cursus lorem, pellentesque ultrices justo ligula sed odio. Proin ut dolor nec urna mollis aliquet. Mauris ut nisl consectetur, finibus augue id, vehicula arcu. Pellentesque euismod ex quis semper posuere. Sed molestie condimentum turpis, ac elementum sem tincidunt et. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus felis neque, congue vitae dignissim eget, aliquet et libero. Curabitur sed velit sit amet turpis tincidunt accumsan. Sed pulvinar in ipsum in cursus. Aliquam venenatis augue in arcu lacinia, sit amet varius arcu viverra. Nullam vestibulum non dolor nec vehicula.
+            </blockquote>
+            <a asp-controller="Home" role="button" asp-action="SlidingPuzzle" class="outline"> Play Sliding Puzzle Now!</a>
+        </div>
+        <div class="SlidingPuzzle">
+        <a asp-action="SlidingPuzzle" asp-controller="Home"> <img src="/image/cat.jpg" alt="sliding puzzle" logo" /></a>
+        </div>
+    </article>
 </main>
-<article class="grid">
-    <div id="wordtopiaJUMP">
-        <p>Tes test </p>
-        <blockquote>
-            I am so tired someone inject some speed into me
-        </blockquote>
-        <a asp-controller="Home" role="button" asp-action="wordtopia" class="outline"> Play Wordtopia Now!</a>
-    </div>
-    @*<div class="rockpaperscissors">
-        <a asp-action="RockPaperScissors" asp-controller="Home"> <img src="/image/rock-paper-scissors.png" alt="picture of rock paper sissors = " logo" /></a>
-    </div>*@
-</article>
-<br />
-<article class="grid">
-    <div id="meowJUMP">
-        <p>Meow meow </p>
-        <blockquote>
-            Meow Meow 
-            Meow Meow 
-            Meow Meow 
-            Meow Meow 
-            Meow Meow 
-        </blockquote>
-        <a asp-controller="Home" role="button" asp-action="meowmeow" class="outline"> Play Rock Paper Scissors Now!</a>
-    </div>
-    @*<div class="rockpaperscissors">
-        <a asp-action="RockPaperScissors" asp-controller="Home"> <img src="/image/rock-paper-scissors.png" alt="picture of rock paper sissors = " logo" /></a>
-    </div>*@
-</article>
+
+

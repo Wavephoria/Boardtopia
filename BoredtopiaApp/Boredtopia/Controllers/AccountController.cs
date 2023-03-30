@@ -1,4 +1,3 @@
-using System.Security.Claims;
 using Boredtopia.Views.Home;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,8 +7,6 @@ namespace Boredtopia.Controllers;
 public class AccountController : Controller
 {
     private readonly AccountServices _accountServices;
-    
-
     public AccountController(AccountServices accountServices)
     {
         _accountServices = accountServices;
@@ -33,7 +30,6 @@ public class AccountController : Controller
             ModelState.AddModelError(string.Empty, errorMessage);
             return View();
         }
-
         return RedirectToAction(nameof(Profile));
     }
 
@@ -109,7 +105,7 @@ public class AccountController : Controller
     [HttpPost("/Wordle")]
     public async Task<IActionResult> Wordle([FromBody] int guessedCorrectAtNumber)
     {
-        _accountServices.UpdateWordle(guessedCorrectAtNumber);
-        return Ok(guessedCorrectAtNumber);
+        string result = await _accountServices.UpdateWordle(guessedCorrectAtNumber);
+        return Ok(result);
     }
 }

@@ -45,7 +45,7 @@ public class AccountServices
             return null;
         }
 
-        return "Failed to create user";
+        return "Password needs to be at least 5 characters including a number and both an uppercase and lowercase letter";
     }
 
     public async Task<string> TryLogin(LoginVM viewModel)
@@ -69,26 +69,23 @@ public class AccountServices
 
     private async Task<ApplicationUser?> GetUser()
     {
-        string userId = userManager.GetUserId(accessor.HttpContext.User);
+        // string userId = userManager.GetUserId(accessor.HttpContext.User);
+        string userId = FetchUserId();
         ApplicationUser user = await userManager.FindByIdAsync(userId);
         return user;
     }
-    
     private string? FetchUserId()
     {
         return accessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
     }
-
     public async Task<string?> FetchData(string choice)
     {
         ApplicationUser user = await GetUser();
         if (choice.ToLower() == "email")
             return await userManager.GetEmailAsync(user);
-        else if (choice.ToLower() == "userid")
-            return await userManager.GetUserIdAsync(user);
         return null;
     }
-
+    
     public async Task<string> ChangeData(ChangeVM viewModel)
     {
         ApplicationUser user = await GetUser();
@@ -102,14 +99,14 @@ public class AccountServices
             await userManager.UpdateAsync(user);
             return null;
         }
-
         return "Failed to change details";
     }
 
     public async Task<string> UpdateWordle(int guesses)
     {
         string? userId = FetchUserId();
-        if (context._wordleStats.SingleOrDefault(a => a.UserId == userId) == null)
+        var user = CheckForUser(userId);
+        if (user == null)
         {
             Wordle wordle = new();
             wordle.UserId = userId;
@@ -119,8 +116,7 @@ public class AccountServices
             wordle.WordleAverage = (double)wordle.WordleTotal / wordle.WordlePlays;
             context._wordleStats.Update(wordle);
         }
-        
-        else if (context._wordleStats.SingleOrDefault(a => a.UserId == userId) != null)
+        else if (user != null)
         {
             var wordleData = context._wordleStats.FirstOrDefault(a => a.UserId == userId);
             if (wordleData.WordleBest > guesses)
@@ -138,11 +134,17 @@ public class AccountServices
     public Tuple<int, int, double> FetchWordleStats()
     {
         string? userId = FetchUserId();
-        if (context._wordleStats.SingleOrDefault(a => a.UserId == userId) == null)
+        var user = CheckForUser(userId);
+        if (user == null)
         {
             return new Tuple<int, int, double>(0, 0, 0);
         }
-        var wordleData = context._wordleStats.FirstOrDefault(a => a.UserId == userId);
-        return new Tuple<int, int, double>(wordleData.WordlePlays, wordleData.WordleBest, wordleData.WordleAverage);
+        // var wordleData = user;
+        return new Tuple<int, int, double>(user.WordlePlays, user.WordleBest, user.WordleAverage);
+    }
+
+    public Wordle? CheckForUser(string userId)
+    {
+        return context._wordleStats.SingleOrDefault(a => a.UserId == userId);
     }
 }
