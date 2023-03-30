@@ -1,10 +1,9 @@
-using System.Data;
+using System.Security.Claims;
 using Boredtopia.Models;
 using Boredtopia.Views.Home;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
+using Microsoft.AspNetCore.Mvc;
+using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace Boredtopia.Controllers;
 
@@ -74,6 +73,11 @@ public class AccountServices
         ApplicationUser user = await userManager.FindByIdAsync(userId);
         return user;
     }
+    
+    private string? FetchUserId()
+    {
+        return accessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+    }
 
     public async Task<string?> FetchData(string choice)
     {
@@ -102,8 +106,9 @@ public class AccountServices
         return "Failed to change details";
     }
 
-    public async Task<string> UpdateWordle(int guesses, string userId)
+    public async Task<string> UpdateWordle(int guesses)
     {
+        string? userId = FetchUserId();
         if (context._wordleStats.SingleOrDefault(a => a.UserId == userId) == null)
         {
             Wordle wordle = new();
@@ -111,7 +116,7 @@ public class AccountServices
             wordle.WordleBest = guesses;
             wordle.WordlePlays = 1;
             wordle.WordleTotal = guesses;
-            wordle.WordleAverage = wordle.WordlePlays / wordle.WordleTotal;
+            wordle.WordleAverage = (double)wordle.WordleTotal / wordle.WordlePlays;
             context._wordleStats.Update(wordle);
         }
         
@@ -122,12 +127,22 @@ public class AccountServices
                 wordleData.WordleBest = guesses;
             wordleData.WordleTotal += guesses;
             wordleData.WordlePlays += 1;
-            wordleData.WordleAverage = wordleData.WordleTotal / wordleData.WordlePlays;
-            
+            wordleData.WordleAverage = Math.Round((double)wordleData.WordleTotal / wordleData.WordlePlays, 3);
             context._wordleStats.Update(wordleData);
         }
         
         await context.SaveChangesAsync();
         return "Done";
+    }
+    
+    public Tuple<int, int, double> FetchWordleStats()
+    {
+        string? userId = FetchUserId();
+        if (context._wordleStats.SingleOrDefault(a => a.UserId == userId) == null)
+        {
+            return new Tuple<int, int, double>(0, 0, 0);
+        }
+        var wordleData = context._wordleStats.FirstOrDefault(a => a.UserId == userId);
+        return new Tuple<int, int, double>(wordleData.WordlePlays, wordleData.WordleBest, wordleData.WordleAverage);
     }
 }
