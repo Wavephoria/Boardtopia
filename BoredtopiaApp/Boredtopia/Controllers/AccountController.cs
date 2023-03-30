@@ -8,6 +8,7 @@ namespace Boredtopia.Controllers;
 public class AccountController : Controller
 {
     private readonly AccountServices _accountServices;
+    
 
     public AccountController(AccountServices accountServices)
     {
@@ -98,14 +99,17 @@ public class AccountController : Controller
         ProfileVM viewModel = new();
         viewModel.Name = User.Identity.Name;
         viewModel.Email = await _accountServices.FetchData("email");
+        var wordleStats = _accountServices.FetchWordleStats();
+        viewModel.WordlePlays = wordleStats.Item1;
+        viewModel.WordleBest = wordleStats.Item2;
+        viewModel.WordleAverage = wordleStats.Item3;
         return View(viewModel);
     }
 
     [HttpPost("/Wordle")]
-    public IActionResult Wordle([FromBody] int guessedCorrectAtNumber)
+    public async Task<IActionResult> Wordle([FromBody] int guessedCorrectAtNumber)
     {
-        string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        _accountServices.UpdateWordle(guessedCorrectAtNumber, userId);
+        _accountServices.UpdateWordle(guessedCorrectAtNumber);
         return Ok(guessedCorrectAtNumber);
     }
 }

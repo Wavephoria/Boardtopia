@@ -1,9 +1,6 @@
 ﻿using Boredtopia.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using System.Security.Claims;
-using Boredtopia.Views.Home;
-using Microsoft.AspNetCore.Authorization;
 
 namespace Boredtopia.Controllers
 {

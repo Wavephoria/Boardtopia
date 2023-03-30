@@ -13,15 +13,14 @@
         Which game do you want to look at
     </summary>
     <ul role="listbox">
-        <li><a>Wordle</a></li>
-        <li><a>Adoptle</a></li>
-        <li><a>Musicle</a></li>
+        <li><a>Wordle</a></li> 
+        <li><a>Rock Paper Scissors</a></li>
     </ul>
 </details>
 
 <article>
-    @* @Model.GameName stats: *@
-    @* Games played: @Model.GamesPlayed *@
-    @* Personal best: @Model.PersonalBest *@
-    @* Average score: @Model.AvgScore *@
+    Wordle stats <br/>
+    Games played: @Model.WordlePlays <br/>
+    Personal best: @Model.WordleBest <br/>
+    Average score: @Model.WordleAverage <br/>
 </article>
