@@ -32,7 +32,7 @@ public class AccountController : Controller
         }
         return RedirectToAction(nameof(Profile));
     }
-
+    
     [HttpGet("/Change")]
     public async Task<IActionResult> Change()
     {
