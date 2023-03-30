@@ -31,7 +31,13 @@ function createBoard() {
 function moveTile(tile) {
     const tileNumber = parseInt(tile.dataset.tileNumber);
     if (tileNumber !== emptyTile) {
-        console.log(tile);
+        // Move right
+        if ((tileNumber + 1) === emptyTile) {
+            console.log("tile to the right");
+        // Move left
+        } else if (tileNumber - 1 === emptyTile) {
+            console.log("tile to the left");
+        }
     }
 }
 
