@@ -109,7 +109,7 @@ public class AccountController : Controller
     [HttpPost("/Wordle")]
     public async Task<IActionResult> Wordle([FromBody] int guessedCorrectAtNumber)
     {
-        _accountServices.UpdateWordle(guessedCorrectAtNumber);
-        return Ok(guessedCorrectAtNumber);
+        string result = await _accountServices.UpdateWordle(guessedCorrectAtNumber);
+        return Ok(result);
     }
 }
