@@ -32,7 +32,7 @@
         <div class="product-card">
             <div class="product-image">
                 <img src="/image/CatMascot.png" class="product-thumb" alt="">
-                <a asp-controller="Home" asp-action="Wordle"><button class="card-btn">Play now</button></a>
+                <a asp-controller="Home" asp-action="Wordle" ><button class="card-btn">Play now</button></a>
             </div>
             <div class="product-info">
                 <h7 class="product-brand">Game name</h7>
@@ -131,6 +131,20 @@
     })
 </script>
 
+<article class="info about games">
+    <p>
+        intrested in knowing more about the differnt games at wordtopia ? 
+        <br />read the developer stories and get to know more about the love behind the games !
+        <dialog open>
+            <p>Greetings, one and all!</p>
+            <form method="dialog">
+                <button>OK</button>
+            </form>
+        </dialog>
+
+    </p>
+</article>
+
    
 
 <main class=" container">
@@ -142,7 +156,7 @@
                  It’s a game that everyone knows, and it doesn’t require any special skills or equipment. It’s just you and your opponent, face-to-face, ready to do battle.
                 It’s a simple game, yet it brings so much joy, competition, and excitement.
             </blockquote>
-            <a asp-controller="Home" asp-action="RockPaperScissors"><button>Play Rock Paper scissors Now!</button></a>
+            <a asp-controller="Home" role="button" asp-action="RockPaperScissors" class="outline"> Play Rock Paper Scissors Now!</a>
         </div>
         <div class="rockpaperscissors">
             <a asp-action="RockPaperScissors" asp-controller="Home"> <img src="/image/rock-paper-scissors.png" alt="picture of rock paper sissors = " logo" /></a>
