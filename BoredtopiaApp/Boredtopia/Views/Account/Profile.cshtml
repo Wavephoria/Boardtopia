@@ -23,10 +23,11 @@
 @section scripts {
     <script>
         document.querySelector('.wordtopia').addEventListener('click', () => {
-            document.querySelector('.game-stats').textContent = `Wordtopia stats <br/>
-            Games played: @Model.WordlePlays <br/>
-            Personal best: @Model.WordleBest <br/>
-            Average score: @Model.WordleAverage <br/>`;
+            document.querySelector('.game-stats').textContent = 
+            `Wordtopia stats
+            Games played: @Model.WordlePlays
+            Personal best: @Model.WordleBest
+            Average score: @Model.WordleAverage`
         });
     </script>
 }
