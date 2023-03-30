@@ -33,33 +33,50 @@ function moveTile(tile) {
     const tileNumber = parseInt(tile.dataset.tileNumber);
 
     if (tileNumber !== emptyTileNumber) {
+
         // Move right
         if ((tileNumber + 1) === emptyTileNumber) {
 
-            swapPictureClass(tileNumber);
+            if (emptyTileNumber % 3 !== 1) {
+
+                swapPicture(emptyTile, tile);
+
+                emptyTileNumber = tileNumber;
+            }
+            
+        // Move left
+        } else if ((tileNumber - 1) === emptyTileNumber) {
+            if (emptyTileNumber % 3 !== 0) {
+
+                swapPicture(emptyTile, tile);
+
+                emptyTileNumber = tileNumber;
+            }
+
+        // Move up
+        } else if ((tileNumber + 3) === emptyTileNumber) {
+
+            swapPicture(emptyTile, tile);
 
             emptyTileNumber = tileNumber;
-            console.log("tile to the right");
-        // Move left
-        } else if (tileNumber - 1 === emptyTileNumber) {
-            console.log("tile to the left");
-        // Move up
-        } else if (tileNumber + 3 === emptyTileNumber) {
-            console.log("tile above");
+
         // Move down
-        } else if (tileNumber - 3 === emptyTileNumber) {
-            console.log("tile below");
-        }
+        } else if ((tileNumber - 3) === emptyTileNumber) {
+
+            swapPicture(emptyTile, tile);
+
+            emptyTileNumber = tileNumber;
+
+        } 
     }
 }
 
-function swapPictureClass(tileNumber) {
-    emptyTile.classList.remove(`picture-component9`);
-    emptyTile.classList.add(`picture-component${tileNumber}`);
 
-    tile.classList.remove(`picture-component${tileNumber}`);
-    tile.classList.add(`picture-component9`);
-} 
+function swapPicture(emptyTile, tile) {
+    emptyTile.className = tile.className;
+    tile.className = `picture-component9`;
+}
+
 
 // start game
 // - call create board function
