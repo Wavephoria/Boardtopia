@@ -6,7 +6,7 @@
 
 <section class="product">
     <h2 class="product-category">New games</h2>
-    <button class="pre-btn"><img src="/image/lessthan.png" alt=""></button>
+    <button type="button" class="pre-btn"><img src="/image/lessthan.png" alt=""></button>
     <button class="nxt-btn"><img src="/image/lessthan.png" alt=""></button>
     <div class="product-container">
         <div class="product-card">
@@ -112,7 +112,7 @@
     </div>
 </section>
 
-<script> 
+<script > 
     const productContainers = [...document.querySelectorAll('.product-container')];
     const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
     const preBtn = [...document.querySelectorAll('.pre-btn')];
@@ -129,7 +129,6 @@
             item.scrollLeft -= containerWidth;
         })
     })
-
 </script>
 
 
@@ -147,7 +146,7 @@
                  It’s a game that everyone knows, and it doesn’t require any special skills or equipment. It’s just you and your opponent, face-to-face, ready to do battle.
                 It’s a simple game, yet it brings so much joy, competition, and excitement.
             </blockquote>
-            <a asp-controller="Home" asp-action="RockPaperScissors"></a><button>PLay Rock Paper scissors Now!</button>
+            <a asp-controller="Home" asp-action="RockPaperScissors"><button>Play Rock Paper scissors Now!</button></a>
         </div>
         <div class="rockpaperscissors">
             <a asp-action="RockPaperScissors" asp-controller="Home"> <img src="/image/rock-paper-scissors.png" alt="picture of rock paper sissors = " logo" /></a>

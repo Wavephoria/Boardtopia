@@ -103,15 +103,16 @@ button:hover {
 
 .pre-btn,
 .nxt-btn {
-    border: none;
+    border-color:transparent;
     width: 5vw;
     height: 52%;
     position: absolute;
     top: 5;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+    /*    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);*/
+    background-color:transparent;
     cursor: pointer;
     z-index: 8;
 }
