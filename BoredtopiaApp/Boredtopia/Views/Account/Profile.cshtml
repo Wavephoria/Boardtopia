@@ -13,14 +13,20 @@
         Which game do you want to look at
     </summary>
     <ul role="listbox">
-        <li><a>Wordle</a></li> 
+        <li class="wordtopia"><a>Wordtopia</a></li> 
         <li><a>Rock Paper Scissors</a></li>
     </ul>
 </details>
 
-<article>
-    Wordle stats <br/>
-    Games played: @Model.WordlePlays <br/>
-    Personal best: @Model.WordleBest <br/>
-    Average score: @Model.WordleAverage <br/>
-</article>
+<article class="game-stats"></article>
+
+@section scripts {
+    <script>
+        document.querySelector('.wordtopia').addEventListener('click', () => {
+            document.querySelector('.game-stats').textContent = `Wordtopia stats <br/>
+            Games played: @Model.WordlePlays <br/>
+            Personal best: @Model.WordleBest <br/>
+            Average score: @Model.WordleAverage <br/>`;
+        });
+    </script>
+}
