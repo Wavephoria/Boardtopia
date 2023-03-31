@@ -69,12 +69,12 @@
                 <li><a asp-controller="Home" asp-action="Games">Games</a></li>
             </ul>
             <ul>
-                <li><a asp-controller="Account" asp-action="Profile">Profile</a></li>
+                <li><a asp-controller="Account" asp-action="Profile" >Profile</a></li>
             </ul>
             <ul>
                 <li><a asp-controller="Home" asp-action="About"> About </a></li>
             </ul>
-            <nav aria-label="breadcrumb">
+            <nav aria-label="breadcrumb" class="nav2">
                 <ul>
                     @if (User.Identity.IsAuthenticated)
                     {

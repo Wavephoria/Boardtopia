@@ -189,3 +189,9 @@ logo {
     cursor: pointer;
     text-transform: uppercase;
 }
+
+@media (max-width: 1200px) {
+    .nav2 {
+        display: none;
+    }
+}
