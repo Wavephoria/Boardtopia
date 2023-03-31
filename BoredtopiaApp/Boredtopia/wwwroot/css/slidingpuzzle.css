@@ -15,7 +15,7 @@
 .picture-component1, .picture-component2, .picture-component3, .picture-component4, .picture-component5, .picture-component6, .picture-component7, .picture-component8, .empty {
     width: 200px;
     height: 200px;
-    background: url('../image/cat.jpg');
+    background: url('../image/puzzle/cat2.png');
     cursor: pointer;
 }
 
