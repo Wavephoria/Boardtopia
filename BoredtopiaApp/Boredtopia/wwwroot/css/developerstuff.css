@@ -64,11 +64,14 @@
     }
 }
 
-
+.gameswelcome{
+    position:center;
+}
+/*
 .welcome-text {
     color: transparent;
     -webkit-text-stroke: 1px var(--primary);
-}
+}*/
 
 
 .wordle {
