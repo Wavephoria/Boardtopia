@@ -56,43 +56,34 @@ function moveTile(tile) {
         if ((tileNumber + 1) === emptyTileNumber) {
 
             if (emptyTileNumber % 3 !== 1) {
-
-                swapPicture(emptyTile, tile);
-
-                emptyTileNumber = tileNumber;
+                swapPicture(emptyTile, tile, tileNumber);
             }
             
         // Move left
         } else if ((tileNumber - 1) === emptyTileNumber) {
+
             if (emptyTileNumber % 3 !== 0) {
-
-                swapPicture(emptyTile, tile);
-
-                emptyTileNumber = tileNumber;
+                swapPicture(emptyTile, tile, tileNumber);               
             }
 
         // Move up
         } else if ((tileNumber + 3) === emptyTileNumber) {
-
-            swapPicture(emptyTile, tile);
-
-            emptyTileNumber = tileNumber;
+            swapPicture(emptyTile, tile, tileNumber);
 
         // Move down
         } else if ((tileNumber - 3) === emptyTileNumber) {
+            swapPicture(emptyTile, tile, tileNumber);
 
-            swapPicture(emptyTile, tile);
-
-            emptyTileNumber = tileNumber;
 
         } 
     }
 }
 
 
-function swapPicture(emptyTile, tile) {
+function swapPicture(emptyTile, tile, tileNumber) {
     emptyTile.className = tile.className;
     tile.className = `picture-component9`;
+    emptyTileNumber = tileNumber;
 }
 
 
