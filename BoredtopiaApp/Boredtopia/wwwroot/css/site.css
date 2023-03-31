@@ -64,10 +64,11 @@ logo {
 .game-over-message {
     display: flex;
     justify-content: center;
+    align-items: center;
     font-size: 1.5rem;
     color: black;
     height: 5rem;
-    padding: 2.5rem;
+    padding: 2.5rem 0;
 }
 
 .btn-play-again {
