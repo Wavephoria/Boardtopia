@@ -21,7 +21,25 @@ function createBoard() {
 // shuffle tiles
 // - create random function
 // - shuffle tiles to random locations
+function shuffleTiles() {
 
+    const set = new Set();
+
+    while (set.size !== 8) {
+        set.add( Math.floor(Math.random() * 8) + 1)
+    }
+
+    const numbers = [...set];
+    const tiles = gameBoard.children;
+
+    console.log(numbers);
+
+    for (let i = 0; i < tiles.length - 1; i++) {
+        console.log(numbers[i]);
+
+        tiles[i].className = `picture-component${numbers[i]}`;
+    }
+}
 
 
 // move tile to empty spot
@@ -85,6 +103,7 @@ function swapPicture(emptyTile, tile) {
 
 function startGame() {
     createBoard();
+    shuffleTiles();
 }
 
 
