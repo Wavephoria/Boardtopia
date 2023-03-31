@@ -2,6 +2,7 @@
 const gameBoard = document.querySelector('.puzzle-board');
 const rowSize = 3;
 const numberOfTiles = rowSize ** 2;
+let hasWon = false;
 
 // Empty tile starts at the last tile
 let emptyTileNumber = numberOfTiles;
@@ -21,10 +22,6 @@ function createBoard() {
 }
 
 
-
-// shuffle tiles
-// - create random function
-// - shuffle tiles to random locations
 function shuffleTiles() {
 
     const set = new Set();
@@ -40,10 +37,6 @@ function shuffleTiles() {
 }
 
 
-// move tile to empty spot
-// - check for empty spot
-// - move tile if it is next to empty spot
-// - call check if player has won function
 function moveTile(tile) {
     const emptyTile = document.querySelector(`[data-tile-number="${emptyTileNumber}"]`);
     const tileNumber = parseInt(tile.dataset.tileNumber);
@@ -73,6 +66,12 @@ function moveTile(tile) {
             swapPicture(emptyTile, tile, tileNumber);
         } 
     }
+
+    // - call check if player has won function
+    if (checkWinConditions()) {
+        hasWon = true;
+        console.log(hasWon);
+    }
 }
 
 
@@ -83,21 +82,33 @@ function swapPicture(emptyTile, tile, tileNumber) {
 }
 
 
+// check if player has won (puzzle completed)
+// - check if puzzle board is in win state
+// - if won end game with win message
+function checkWinConditions() {
+    const tiles = gameBoard.children
+    let allInRightPlace = true;
+
+    for (let i = 0; i < tiles.length - 1; i++) {
+        if (tiles[i].className !== `picture-component${tiles[i].dataset.tileNumber}`) {
+            allInRightPlace = false;
+        }
+    }
+
+    return allInRightPlace;
+}
+
+
+
+
 // start game
 // - call create board function
 // - call shuffle tiles function
 // - check that it's not in win state
-
 function startGame() {
     createBoard();
-    shuffleTiles();
+    //shuffleTiles();
 }
-
-
-// check if player has won (puzzle completed)
-// - check if puzzle board is in win state
-// - if won end game with win message
-
 
 
 startGame();
