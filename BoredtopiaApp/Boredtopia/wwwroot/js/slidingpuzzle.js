@@ -22,12 +22,11 @@ function createBoard() {
 // - create random function
 // - shuffle tiles to random locations
 function shuffleTiles() {
-    // Random number 1 - 9
 
     const set = new Set();
 
-    while (set.size !== 9) {
-        set.add( Math.floor(Math.random() * 9) + 1)
+    while (set.size !== 8) {
+        set.add( Math.floor(Math.random() * 8) + 1)
     }
 
     const numbers = [...set];
@@ -35,7 +34,7 @@ function shuffleTiles() {
 
     console.log(numbers);
 
-    for (let i = 0; i < tiles.length; i++) {
+    for (let i = 0; i < tiles.length - 1; i++) {
         console.log(numbers[i]);
 
         tiles[i].className = `picture-component${numbers[i]}`;
