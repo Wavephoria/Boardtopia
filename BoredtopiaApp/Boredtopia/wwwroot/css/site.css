@@ -192,7 +192,14 @@ logo {
 }
 
 @media (max-width: 1200px) {
-    .nav2 {
+    .home {
         display: none;
     }
 }
+
+@media (max-width: 1200px) {
+    .about {
+        display: none;
+    }
+}
+

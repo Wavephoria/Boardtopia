@@ -64,7 +64,7 @@
         <br />
         <nav class="main-nav" aria-label="primary navigation" >
             <ul>
-                <li><a asp-controller="Home" asp-action="Index"> Home</a></li>
+                <li><a asp-controller="Home" asp-action="Index" class="home"> Home</a></li>
             </ul>
             <ul>
                 <li><a asp-controller="Home" asp-action="Games">Games</a></li>
@@ -73,9 +73,9 @@
                 <li><a asp-controller="Account" asp-action="Profile" >Profile</a></li>
             </ul>
             <ul>
-                <li><a asp-controller="Home" asp-action="About"> About </a></li>
+                <li><a asp-controller="Home" asp-action="About" class="about"> About </a></li>
             </ul>
-            <nav aria-label="breadcrumb" class="nav2">
+            <nav aria-label="breadcrumb">
                 <ul>
                     @if (User.Identity.IsAuthenticated)
                     {
