@@ -73,8 +73,6 @@ function moveTile(tile) {
         // Move down
         } else if ((tileNumber - 3) === emptyTileNumber) {
             swapPicture(emptyTile, tile, tileNumber);
-
-
         } 
     }
 }
