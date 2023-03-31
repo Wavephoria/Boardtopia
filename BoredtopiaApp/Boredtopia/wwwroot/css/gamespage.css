@@ -144,3 +144,10 @@ button:hover {
     height: 90%;
     overflow: hidden;
 }
+
+.SlidingPuzzle {
+    position: relative;
+    width: 80%;
+    height: 90%;
+    overflow: hidden;
+}
