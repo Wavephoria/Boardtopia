@@ -9,7 +9,7 @@
     display: grid;
     grid-template-columns: 200px 200px 200px;
     grid-template-rows: 200px 200px 200px;
-    gap: 3px;
+    gap: 0.3rem;
 }
 
 .picture-component1, .picture-component2, .picture-component3, .picture-component4, .picture-component5, .picture-component6, .picture-component7, .picture-component8, .picture-component9 {

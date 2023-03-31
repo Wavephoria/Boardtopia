@@ -18,7 +18,6 @@ function createBoard() {
         tile.addEventListener('click', () => { moveTile(tile) });
         gameBoard.appendChild(tile);
     }
-
 }
 
 
@@ -109,10 +108,6 @@ function replaceWithPicture() {
 }
 
 
-// start game
-// - call create board function
-// - call shuffle tiles function
-// - check that it's not in win state
 function startGame() {
     createBoard();
 
