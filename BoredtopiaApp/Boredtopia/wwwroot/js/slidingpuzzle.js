@@ -29,7 +29,7 @@ function shuffleTiles() {
 
     const set = new Set();
     while (set.size !== 8) {
-        set.add( Math.floor(Math.random() * 8) + 1)
+        set.add(Math.floor(Math.random() * 8) + 1);
     }
     const numbers = [...set];
     const tiles = gameBoard.children;

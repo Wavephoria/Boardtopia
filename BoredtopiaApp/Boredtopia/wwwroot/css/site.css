@@ -88,9 +88,15 @@ logo {
     box-shadow: 0 5px 20px -20px gray;
 }
 
-    .main-nav a {
-        color: var(--secondary)
-    }
+.main-nav a {
+    color: var(--secondary)
+}
+
+.game-header {
+    text-align: center;
+    margin: 0;
+    padding: 2rem 0;
+}
 
 
 /* --- Keyboard styles --- */
