@@ -1,5 +1,7 @@
 ﻿const options = ["rock", "paper", "scissors"];
 
+const playAgainBtn = document.querySelector('save-btn');
+
 let rockWins = 0;
 let paperWins = 0;
 let scissorsWins = 0;
@@ -57,3 +59,21 @@ images.forEach((image) => {
         document.getElementById("high-score-count").textContent = highScore;
     });
 });
+
+const saveButton = document.getElementById("save-btn");
+saveButton.addEventListener('click', () => {
+    sendData();
+});
+
+async function sendData() {
+    const data = [rockWins, paperWins, scissorsWins, highScore];
+    await fetch('/RockPaperScissors',
+        {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }
+    );
+};

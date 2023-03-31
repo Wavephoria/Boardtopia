@@ -108,4 +108,11 @@ public class AccountController : Controller
         string result = await _accountServices.UpdateWordle(guessedCorrectAtNumber);
         return Ok(result);
     }
+
+    [HttpPost("/RockPaperScissors")]
+    public async Task<IActionResult> RockPaperScissors([FromBody] int[] data)
+    {
+        
+        return Ok(data[3]);
+    }
 }
