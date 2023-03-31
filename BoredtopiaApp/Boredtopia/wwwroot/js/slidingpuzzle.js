@@ -82,15 +82,15 @@ function swapPicture(emptyTile, tile, tileNumber) {
 
 function checkWinConditions() {
     const tiles = gameBoard.children
-    let allInRightPlace = true;
+    let allTilesInRightPlace = true;
 
     for (let i = 0; i < tiles.length - 1; i++) {
         if (tiles[i].className !== `picture-component${tiles[i].dataset.tileNumber}`) {
-            allInRightPlace = false;
+            allTilesInRightPlace = false;
         }
     }
 
-    return allInRightPlace;
+    return allTilesInRightPlace;
 }
 
 
@@ -108,14 +108,13 @@ function replaceWithPicture() {
 }
 
 
-// start game
-// - call create board function
-// - call shuffle tiles function
-// - check that it's not in win state
 function startGame() {
     createBoard();
-    //shuffleTiles();
-}
 
+    // Check that it doesn't start in winning state
+    while (checkWinConditions()) {
+        shuffleTiles();
+    }
+}
 
 startGame();
