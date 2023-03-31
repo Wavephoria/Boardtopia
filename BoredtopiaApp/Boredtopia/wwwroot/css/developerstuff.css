@@ -8,24 +8,25 @@
     float: none;
 }
 
-.logo2 {
+/*.logo2 {
     max-width: 100px;
     height: auto;
-}   
+}   */
 
 /* https://alvarotrigo.com/blog/css-text-animations/
     Water Wave Heading
 */
+
 .waveHeading {
     position: relative;
-    margin-bottom: 1em;
+    margin-bottom: 1.25em;
 }
 
 
     .waveHeading h1 {
         position: absolute;
-        font-size: clamp(1rem, 5vw, 7rem);
-        transform: translate(-50%, -50%);
+        font-size: clamp(1rem, 6vw, 8rem);
+        transform: translate(0%, -50%);
     }
 
         .waveHeading h1:nth-child(1) {
@@ -49,6 +50,7 @@
     }
 }
 
+/*adds spacing stop stop header*/
 .article div {
     padding: 1rem;
 }
@@ -82,11 +84,3 @@
         display: none;
     }
 }
-
-
-
-
-
-
-
-
