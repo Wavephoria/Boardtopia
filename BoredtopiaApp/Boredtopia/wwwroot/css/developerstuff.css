@@ -19,7 +19,7 @@
 
 .waveHeading {
     position: relative;
-    margin-bottom: 1.25em;
+    margin-bottom: clamp(1.25em, 1.25em. 1.5em)
 }
 
 
