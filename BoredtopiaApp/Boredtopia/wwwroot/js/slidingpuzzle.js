@@ -95,14 +95,16 @@ function checkWinConditions() {
 
 
 function replaceWithPicture() {
+    // Remove all children and eventlisteners etc.
     while (gameBoard.firstChild) {
         gameBoard.removeChild(gameBoard.firstChild);
     }
 
+    gameBoard.classList.remove('game-grid');
+
     const img = new Image(600, 600);
     img.src = '../image/cat.jpg';   
     gameBoard.appendChild(img);
-    gameBoard.classList.remove('game-grid');
 }
 
 
