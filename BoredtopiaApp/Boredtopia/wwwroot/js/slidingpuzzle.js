@@ -10,7 +10,11 @@ function createBoard() {
     for (let i = 1; i <= numberOfTiles; i++) {
         const tile = document.createElement('div');
         tile.dataset.tileNumber = i;
-        tile.classList.add(`picture-component${i}`);
+        if (i === 9) {
+            tile.classList.add('.empty')
+        } else {
+            tile.classList.add(`picture-component${i}`);
+        }
         tile.addEventListener('click', () => { moveTile(tile) });
         gameBoard.appendChild(tile);
     }
@@ -74,7 +78,7 @@ function moveTile(tile) {
 
 function swapPicture(emptyTile, tile, tileNumber) {
     emptyTile.className = tile.className;
-    tile.className = `picture-component9`;
+    tile.className = `empty`;
     emptyTileNumber = tileNumber;
 }
 
