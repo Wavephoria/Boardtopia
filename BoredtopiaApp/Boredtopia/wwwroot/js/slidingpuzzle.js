@@ -2,7 +2,6 @@
 const gameBoard = document.querySelector('.puzzle-board');
 const rowSize = 3;
 const numberOfTiles = rowSize ** 2;
-let hasWon = false;
 
 // Empty tile starts at the last tile
 let emptyTileNumber = numberOfTiles;
@@ -69,8 +68,7 @@ function moveTile(tile) {
 
     // - call check if player has won function
     if (checkWinConditions()) {
-        hasWon = true;
-        console.log(hasWon);
+        replaceWithPicture();
     }
 }
 
@@ -82,9 +80,6 @@ function swapPicture(emptyTile, tile, tileNumber) {
 }
 
 
-// check if player has won (puzzle completed)
-// - check if puzzle board is in win state
-// - if won end game with win message
 function checkWinConditions() {
     const tiles = gameBoard.children
     let allInRightPlace = true;
@@ -99,6 +94,16 @@ function checkWinConditions() {
 }
 
 
+function replaceWithPicture() {
+    while (gameBoard.firstChild) {
+        gameBoard.removeChild(gameBoard.firstChild);
+    }
+
+    const img = new Image(600, 600);
+    img.src = '../image/cat.jpg';   
+    gameBoard.appendChild(img);
+    gameBoard.classList.remove('game-grid');
+}
 
 
 // start game

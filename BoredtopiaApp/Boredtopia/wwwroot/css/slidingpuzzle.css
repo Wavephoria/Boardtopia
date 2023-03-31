@@ -1,9 +1,14 @@
 ﻿
+
 .puzzle-board {
+    display: flex;
+    justify-content: center;
+}
+
+.game-grid {
     display: grid;
     grid-template-columns: 200px 200px 200px;
     grid-template-rows: 200px 200px 200px;
-    justify-content: center;
     gap: 3px;
 }
 
