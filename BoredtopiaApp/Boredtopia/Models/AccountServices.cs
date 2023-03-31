@@ -139,7 +139,6 @@ public class AccountServices
         {
             return new Tuple<int, int, double>(0, 0, 0);
         }
-        // var wordleData = user;
         return new Tuple<int, int, double>(user.WordlePlays, user.WordleBest, user.WordleAverage);
     }
 
