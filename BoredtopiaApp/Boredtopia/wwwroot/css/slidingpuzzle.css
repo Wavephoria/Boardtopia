@@ -1,16 +1,21 @@
 ﻿
+
 .puzzle-board {
+    display: flex;
+    justify-content: center;
+}
+
+.game-grid {
     display: grid;
     grid-template-columns: 200px 200px 200px;
     grid-template-rows: 200px 200px 200px;
-    justify-content: center;
-    gap: 3px;
+    gap: 0.3rem;
 }
 
-.picture-component1, .picture-component2, .picture-component3, .picture-component4, .picture-component5, .picture-component6, .picture-component7, .picture-component8, .picture-component9 {
+.picture-component1, .picture-component2, .picture-component3, .picture-component4, .picture-component5, .picture-component6, .picture-component7, .picture-component8, .empty {
     width: 200px;
     height: 200px;
-    background: url('../image/cat.jpg');
+    background: url('../image/puzzle/cat2.png');
     cursor: pointer;
 }
 

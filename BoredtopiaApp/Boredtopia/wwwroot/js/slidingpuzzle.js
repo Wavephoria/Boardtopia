@@ -21,10 +21,6 @@ function createBoard() {
 }
 
 
-
-// shuffle tiles
-// - create random function
-// - shuffle tiles to random locations
 function shuffleTiles() {
 
     const set = new Set();
@@ -40,10 +36,6 @@ function shuffleTiles() {
 }
 
 
-// move tile to empty spot
-// - check for empty spot
-// - move tile if it is next to empty spot
-// - call check if player has won function
 function moveTile(tile) {
     const emptyTile = document.querySelector(`[data-tile-number="${emptyTileNumber}"]`);
     const tileNumber = parseInt(tile.dataset.tileNumber);
@@ -73,6 +65,11 @@ function moveTile(tile) {
             swapPicture(emptyTile, tile, tileNumber);
         } 
     }
+
+    // - call check if player has won function
+    if (checkWinConditions()) {
+        replaceWithPicture();
+    }
 }
 
 
@@ -83,21 +80,41 @@ function swapPicture(emptyTile, tile, tileNumber) {
 }
 
 
-// start game
-// - call create board function
-// - call shuffle tiles function
-// - check that it's not in win state
+function checkWinConditions() {
+    const tiles = gameBoard.children
+    let allTilesInRightPlace = true;
 
-function startGame() {
-    createBoard();
-    shuffleTiles();
+    for (let i = 0; i < tiles.length - 1; i++) {
+        if (tiles[i].className !== `picture-component${tiles[i].dataset.tileNumber}`) {
+            allTilesInRightPlace = false;
+        }
+    }
+
+    return allTilesInRightPlace;
 }
 
 
-// check if player has won (puzzle completed)
-// - check if puzzle board is in win state
-// - if won end game with win message
+function replaceWithPicture() {
+    // Remove all children and eventlisteners etc.
+    while (gameBoard.firstChild) {
+        gameBoard.removeChild(gameBoard.firstChild);
+    }
+
+    gameBoard.classList.remove('game-grid');
+
+    const img = new Image(600, 600);
+    img.src = '../image/cat.jpg';   
+    gameBoard.appendChild(img);
+}
 
 
+function startGame() {
+    createBoard();
+
+    // Check that it doesn't start in winning state
+    while (checkWinConditions()) {
+        shuffleTiles();
+    }
+}
 
 startGame();

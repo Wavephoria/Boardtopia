@@ -4,7 +4,7 @@
     --primary-hover: #0097a7;
     --primary-focus: rgba(0, 172, 193, 0.125);
     --primary-inverse: #fff;
-    --font-size: 13px;
+    --font-size: 17px;
 }
 
 @media only screen and (prefers-color-scheme: dark) {
@@ -14,7 +14,7 @@
         --primary-focus: rgba(0, 172, 193, 0.25);
         --primary-inverse: #fff;
         --card-sectionning-background-color: #4b7676;
-        --font-size: 13px;
+        --font-size: 17px;
     }
 }
 
@@ -25,7 +25,7 @@
     --primary-inverse: #fff;
     --card-sectionning-background-color: #4b7676;
     --card-background-color: #20272d;
-    --font-size: 13px;
+    --font-size: 17px;
 }
 
 :root {
@@ -33,5 +33,5 @@
     --form-element-focus-color: var(--primary-focus);
     --switch-color: var(--primary-inverse);
     --switch-checked-background-color: var(--primary);
-    --font-size: 13px;
+    --font-size: 17px;
 }
