@@ -81,3 +81,14 @@
         display: none;
     }
 }
+
+.SlidingPuzzle {
+    width: 500px;
+    height: 300px;
+}
+
+@media (max-width: 1200px) {
+    .SlidingPuzzle {
+        display: none;
+    }
+}
