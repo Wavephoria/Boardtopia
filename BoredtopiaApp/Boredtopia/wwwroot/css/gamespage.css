@@ -138,3 +138,16 @@ button:hover {
         opacity: 1;
     }
 
+.wordle {
+    position: relative;
+    width: 80%;
+    height: 90%;
+    overflow: hidden;
+}
+
+.SlidingPuzzle {
+    position: relative;
+    width: 80%;
+    height: 90%;
+    overflow: hidden;
+}

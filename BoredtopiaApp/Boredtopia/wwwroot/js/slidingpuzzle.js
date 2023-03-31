@@ -10,7 +10,11 @@ function createBoard() {
     for (let i = 1; i <= numberOfTiles; i++) {
         const tile = document.createElement('div');
         tile.dataset.tileNumber = i;
-        tile.classList.add(`picture-component${i}`);
+        if (i === 9) {
+            tile.classList.add('.empty')
+        } else {
+            tile.classList.add(`picture-component${i}`);
+        }
         tile.addEventListener('click', () => { moveTile(tile) });
         gameBoard.appendChild(tile);
     }
@@ -24,19 +28,13 @@ function createBoard() {
 function shuffleTiles() {
 
     const set = new Set();
-
     while (set.size !== 8) {
         set.add( Math.floor(Math.random() * 8) + 1)
     }
-
     const numbers = [...set];
     const tiles = gameBoard.children;
 
-    console.log(numbers);
-
     for (let i = 0; i < tiles.length - 1; i++) {
-        console.log(numbers[i]);
-
         tiles[i].className = `picture-component${numbers[i]}`;
     }
 }
@@ -56,43 +54,32 @@ function moveTile(tile) {
         if ((tileNumber + 1) === emptyTileNumber) {
 
             if (emptyTileNumber % 3 !== 1) {
-
-                swapPicture(emptyTile, tile);
-
-                emptyTileNumber = tileNumber;
+                swapPicture(emptyTile, tile, tileNumber);
             }
             
         // Move left
         } else if ((tileNumber - 1) === emptyTileNumber) {
+
             if (emptyTileNumber % 3 !== 0) {
-
-                swapPicture(emptyTile, tile);
-
-                emptyTileNumber = tileNumber;
+                swapPicture(emptyTile, tile, tileNumber);               
             }
 
         // Move up
         } else if ((tileNumber + 3) === emptyTileNumber) {
-
-            swapPicture(emptyTile, tile);
-
-            emptyTileNumber = tileNumber;
+            swapPicture(emptyTile, tile, tileNumber);
 
         // Move down
         } else if ((tileNumber - 3) === emptyTileNumber) {
-
-            swapPicture(emptyTile, tile);
-
-            emptyTileNumber = tileNumber;
-
+            swapPicture(emptyTile, tile, tileNumber);
         } 
     }
 }
 
 
-function swapPicture(emptyTile, tile) {
+function swapPicture(emptyTile, tile, tileNumber) {
     emptyTile.className = tile.className;
-    tile.className = `picture-component9`;
+    tile.className = `empty`;
+    emptyTileNumber = tileNumber;
 }
 
 
