@@ -90,7 +90,7 @@ function checkWinConditions() {
         }
     }
 
-    return allInRightPlace;
+    return allTilesInRightPlace;
 }
 
 
