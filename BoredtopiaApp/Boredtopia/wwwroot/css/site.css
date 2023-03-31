@@ -190,3 +190,16 @@ logo {
     cursor: pointer;
     text-transform: uppercase;
 }
+
+@media (max-width: 1200px) {
+    .home {
+        display: none;
+    }
+}
+
+@media (max-width: 1200px) {
+    .about {
+        display: none;
+    }
+}
+
