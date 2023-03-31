@@ -82,11 +82,11 @@ function swapPicture(emptyTile, tile, tileNumber) {
 
 function checkWinConditions() {
     const tiles = gameBoard.children
-    let allInRightPlace = true;
+    let allTilesInRightPlace = true;
 
     for (let i = 0; i < tiles.length - 1; i++) {
         if (tiles[i].className !== `picture-component${tiles[i].dataset.tileNumber}`) {
-            allInRightPlace = false;
+            allTilesInRightPlace = false;
         }
     }
 
