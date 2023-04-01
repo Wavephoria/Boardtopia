@@ -208,3 +208,11 @@ logo {
     height: 350px;
 }
 
+.save {
+    height: 200px;
+
+  display:grid;
+}
+button {
+   margin:auto;
+}
