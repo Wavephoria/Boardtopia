@@ -139,7 +139,7 @@ logo {
 }
 
 .switch-button-checkbox:checked + .switch-button-label:before {
-    transform: translateX(80px);
+    transform: translateX(82px);
     transition: transform 300ms linear;
 }
 
