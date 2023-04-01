@@ -52,5 +52,10 @@ namespace Boredtopia.Controllers
         {
             return View();
         }
+        [HttpGet("/TicTacToe")]
+        public IActionResult TicTacToe()
+        {
+            return View();
+        }
     }
 }
