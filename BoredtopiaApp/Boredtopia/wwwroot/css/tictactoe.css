@@ -1,23 +1,9 @@
-﻿* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-::selection {
-    color: #fff;
-    background: #56baed;
-}
-
-body {
-    background: #56baed;
-}
-
+﻿
 .select-box, .play-board, .result-box {
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
+ 
     transform: translate(-50%, -50%);
     transition: all 0.3s ease;
 }
