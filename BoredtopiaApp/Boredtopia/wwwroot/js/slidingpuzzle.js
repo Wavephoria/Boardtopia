@@ -10,10 +10,13 @@ function createBoard() {
     for (let i = 1; i <= numberOfTiles; i++) {
         const tile = document.createElement('div');
         tile.dataset.tileNumber = i;
+        tile.classList.add('picture-component');
         if (i === 9) {
-            tile.classList.add('.empty')
+            tile.classList.add('empty')
+            tile.dataset.imgNumber = -1;
         } else {
-            tile.classList.add(`picture-component${i}`);
+            tile.dataset.imgNumber = i;
+            tile.style.background = `url('../image/puzzle/cat-parts/cat-part${i}.jpg')`;
         }
         tile.addEventListener('click', () => { moveTile(tile) });
         gameBoard.appendChild(tile);
@@ -30,8 +33,9 @@ function shuffleTiles() {
     const numbers = [...set];
     const tiles = gameBoard.children;
 
-    for (let i = 0; i < tiles.length - 1; i++) {
-        tiles[i].className = `picture-component${numbers[i]}`;
+    for (let i = 0; i < numberOfTiles - 1; i++) {
+        tiles[i].dataset.imgNumber = i;
+        tiles[i].style.background = `url('../image/puzzle/cat-parts/cat-part${numbers[i]}.jpg')`;
     }
 }
 
@@ -74,18 +78,25 @@ function moveTile(tile) {
 
 
 function swapPicture(emptyTile, tile, tileNumber) {
-    emptyTile.className = tile.className;
+
+    emptyTile.style.background = tile.style.background;
+    tile.style.removeProperty(`background`);
     tile.className = `empty`;
+
+    emptyTile.dataset.imgNumber = tile.dataset.imgNumber;
+    tile.dataset.imgNumber = -1;
+
     emptyTileNumber = tileNumber;
 }
 
 
 function checkWinConditions() {
+
     const tiles = gameBoard.children
     let allTilesInRightPlace = true;
 
-    for (let i = 0; i < tiles.length - 1; i++) {
-        if (tiles[i].className !== `picture-component${tiles[i].dataset.tileNumber}`) {
+    for (let i = 0; i < numberOfTiles - 1; i++) {
+        if (tiles[i].dataset.tileNumber !== tiles[i].dataset.imgNumber) {
             allTilesInRightPlace = false;
         }
     }
@@ -95,6 +106,7 @@ function checkWinConditions() {
 
 
 function replaceWithPicture() {
+
     // Remove all children and eventlisteners etc.
     while (gameBoard.firstChild) {
         gameBoard.removeChild(gameBoard.firstChild);
@@ -103,7 +115,7 @@ function replaceWithPicture() {
     gameBoard.classList.remove('game-grid');
 
     const img = new Image(600, 600);
-    img.src = '../image/cat.jpg';   
+    img.src = '../image/puzzle/cat-parts/cat.jpg';   
     gameBoard.appendChild(img);
 }
 
