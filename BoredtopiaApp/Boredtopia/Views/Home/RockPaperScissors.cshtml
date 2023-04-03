@@ -18,13 +18,18 @@
     </style>
 </head>
 <body>
-
+    <div>
+        <img src="/image/RPSbanner.png" alt="Wordtopia banner" />
+    </div>
+    <br />
     <div id="container">
-        <h1>Rock Paper Scissors</h1>
-        <p>Click an image to make your choice:</p>
-        <img id="rock" src="image/Rock.png" alt="Rock" width="100" height="100">
-        <img id="paper" src="image/Paper.png" alt="Paper" width="100" height="100">
-        <img id="scissors" src="image/Scissor.png" alt="Scissors" width="100" height="100">
+        <h5>Click an image below to make your choice:</h5>
+        <img id="rock" src="image/Rock.png" alt="Rock" width="300">
+        <br />
+        <img id="paper" src="image/Papper.png" alt="Paper" width="300">
+        <br />
+        <img id="scissors" src="image/Scissors.png" alt="Scissors" width="300">
+        <br />
         <p id="result"></p>
 
         <p id="wins">Wins:</p>
@@ -37,7 +42,10 @@
         <p id="high-score">Highscore for wins in a row: <span id="high-score-count">0</span></p>
     </div>
 
-    <button id="save-btn">Save</button>
+    <div class="save">
+            <button type="button" id="save-btn" >Save</button>
+    </div>
+   
 
 
     @section scripts

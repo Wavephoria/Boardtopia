@@ -99,32 +99,32 @@ logo {
 /*  --- Slider styles ---  */
 
 .switch-button {
-    background: #00acc1;
+    background:/* #00acc1*/ #A543DF;
     border-radius: 30px;
     overflow: hidden;
-    width: 240px;
-    text-align: center;
+    width: 160px;
+    text-align:start;
     letter-spacing: 1px;
     color: #FFFFFF;
     position: relative;
-    padding-right: 120px;
+/*    padding-right: 100px;*/
     position: relative;
 }
 
-.switch-button:before {
-    content: "English";
-    position: absolute;
-    color: #FFFFFF;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
-    pointer-events: none;
-}
+    .switch-button:before {
+        content: "English";
+        position:absolute;
+        color: #FFFFFF;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 100px;
+        display:flex;
+        align-items:center;
+        justify-content: center;
+        z-index: 3;
+        pointer-events: none;
+    }
 
 .switch-button-checkbox {
     cursor: pointer;
@@ -139,7 +139,7 @@ logo {
 }
 
 .switch-button-checkbox:checked + .switch-button-label:before {
-    transform: translateX(130px);
+    transform: translateX(82px);
     transition: transform 300ms linear;
 }
 
@@ -155,7 +155,7 @@ logo {
     content: "";
     background: #ffffff;
     height: 100%;
-    width: 100%;
+    width: 78px;
     position: absolute;
     left: 0;
     top: 0;
@@ -203,3 +203,16 @@ logo {
     }
 }
 
+.wordlelife {
+    width: 350px;
+    height: 350px;
+}
+
+.save {
+    height: 200px;
+
+  display:grid;
+}
+button {
+   margin:auto;
+}
