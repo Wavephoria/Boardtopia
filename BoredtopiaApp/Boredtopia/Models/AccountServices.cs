@@ -141,9 +141,71 @@ public class AccountServices
         }
         return new Tuple<int, int, double>(user.WordlePlays, user.WordleBest, user.WordleAverage);
     }
+    public Tuple<int, int, int, int, int, double> FetchRpsStats()
+    {
+        string? userId = FetchUserId();
+        var user = CheckForUserRps(userId);
+        if (user == null)
+        {
+            return new Tuple<int, int,int,int,int, double>(0, 0, 0, 0, 0, 0);
+        }
+        return new Tuple<int, int, int, int, int, double>(user.RockWins, user.PaperWins, user.ScissorWins, user.Highscore, user.TotalGames, user.WinPercentDecimal);
+    }
 
     public Wordle? CheckForUser(string userId)
     {
+
         return context._wordleStats.SingleOrDefault(a => a.UserId == userId);
+    }
+    public RockPaperScissor? CheckForUserRps(string userId)
+    {
+
+        return context._rpsStats.SingleOrDefault(a => a.UserId == userId);
+    }
+
+    public async Task<string> UpdateRPS(int[] data)
+    {
+        int rockWins = data[0];
+        int paperWins = data[1];
+        int scissorWins = data[2];
+        int highScore = data[3];
+        int totalGames = data[4];
+        string? userId = FetchUserId();
+        var user = CheckForUserRPS(userId);
+        if (user == null)
+        {
+            RockPaperScissor rps = new();
+            rps.UserId = userId;
+            rps.RockWins = rockWins;
+            rps.PaperWins = paperWins;
+            rps.ScissorWins = scissorWins;
+            rps.Highscore = highScore;
+            rps.TotalGames = totalGames;
+            rps.WinPercentDecimal = (rockWins + paperWins + scissorWins) / (double)totalGames; 
+
+            context._rpsStats.Update(rps);
+        }
+        else if (user != null)
+        {
+            var rps = user;
+            if (rps.Highscore < highScore)
+                rps.Highscore = highScore;
+
+            rps.RockWins += rockWins;
+            rps.PaperWins += paperWins;
+            rps.ScissorWins += scissorWins;
+            rps.TotalGames += totalGames;
+            rps.WinPercentDecimal = (rps.RockWins + rps.PaperWins + rps.ScissorWins) / (double)rps.TotalGames;
+
+            context._rpsStats.Update(rps);
+        }
+
+        await context.SaveChangesAsync();
+        return "Done";
+    }
+
+    public RockPaperScissor? CheckForUserRPS(string userId)
+    {
+        return context._rpsStats.SingleOrDefault(a => a.UserId == userId);
     }
 }

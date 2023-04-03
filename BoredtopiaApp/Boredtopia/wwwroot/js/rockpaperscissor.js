@@ -7,6 +7,7 @@ let paperWins = 0;
 let scissorsWins = 0;
 let currentWins = 0;
 let highScore = 0;
+let totalGames = 0;
 
 function computerPlay() {
     return options[Math.floor(Math.random() * options.length)];
@@ -17,6 +18,7 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = computerSelection.toLowerCase();
 
     if (playerSelection === computerSelection) {
+        totalGames++;
         return "It's a tie!";
     } else if (
         (playerSelection === "rock" && computerSelection === "scissors") ||
@@ -26,11 +28,14 @@ function playRound(playerSelection, computerSelection) {
         switch (playerSelection) {
             case "rock":
                 rockWins++;
+                totalGames++;
                 break;
             case "paper":
                 paperWins++;
+                totalGames++;
                 break;
             case "scissors":
+                totalGames++;
                 scissorsWins++;
                 break;
         }
@@ -38,9 +43,10 @@ function playRound(playerSelection, computerSelection) {
         if (currentWins > highScore) {
             highScore = currentWins;
         }
-        return "You win! " + playerSelection + " beats " + computerSelection;
+        return "You win! " + playerSelection + " beats " + computerSelection ;
     } else {
         currentWins = 0;
+        totalGames++;
         return "You lose! " + computerSelection + " beats " + playerSelection;
     }
 }
@@ -57,6 +63,7 @@ images.forEach((image) => {
         document.getElementById("scissors-wins").textContent = scissorsWins;
         document.getElementById("current-wins-count").textContent = currentWins;
         document.getElementById("high-score-count").textContent = highScore;
+        document.getElementById("total-games").textContent = totalGames;
     });
 });
 
@@ -66,7 +73,7 @@ saveButton.addEventListener('click', () => {
 });
 
 async function sendData() {
-    const data = [rockWins, paperWins, scissorsWins, highScore];
+    const data = [rockWins, paperWins, scissorsWins, highScore, totalGames];
     await fetch('/RockPaperScissors',
         {
             method: 'POST',

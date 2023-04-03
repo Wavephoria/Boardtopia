@@ -12,28 +12,11 @@
     gap: 0.3rem;
 }
 
-.picture-component1, .picture-component2, .picture-component3, .picture-component4, .picture-component5, .picture-component6, .picture-component7, .picture-component8, .empty {
+.picture-component, .empty {
     width: 200px;
     height: 200px;
-    background: url('../image/puzzle/cat2.png');
     cursor: pointer;
 }
-
-.picture-component1 {background-position: left top;}
-
-.picture-component2 {background-position: center top;}
-
-.picture-component3 {background-position: right top;}
-
-.picture-component4 {background-position: left center;}
-
-.picture-component5 {background-position: center center;}
-
-.picture-component6 {background-position: right center;}
-
-.picture-component7 {background-position: left bottom;}
-
-.picture-component8 {background-position: center bottom;}
 
 .empty {background: white; cursor: default;}
 

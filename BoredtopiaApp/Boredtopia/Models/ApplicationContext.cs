@@ -9,5 +9,7 @@ public class ApplicationContext : IdentityDbContext<ApplicationUser, IdentityRol
 {
     public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options){}
 
+    public DbSet<RockPaperScissor> _rpsStats { get; set; }
     public DbSet<Wordle> _wordleStats { get; set; }
+
 }
