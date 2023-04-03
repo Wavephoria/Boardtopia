@@ -1,33 +1,37 @@
 ﻿[data-theme="light"],
 :root:not([data-theme="dark"]) {
-  --primary: #00acc1;
-  --primary-hover: #0097a7;
-  --primary-focus: rgba(0, 172, 193, 0.125);
-  --primary-inverse: #fff;
+    --primary: /*#00acc1;*/ #A543DF;
+    --primary-hover: #0097a7;
+    --primary-focus: rgba(0, 172, 193, 0.125);
+    --primary-inverse: #fff;
+    --font-size: 17px;
 }
 
 @media only screen and (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-    --primary: #00acc1;
+    :root:not([data-theme]) {
+        --primary: /*#00acc1;*/ #A543DF;
+        --primary-hover: #00bcd4;
+        --primary-focus: rgba(0, 172, 193, 0.25);
+        --primary-inverse: #fff;
+        --card-sectionning-background-color: #4b7676;
+        --font-size: 17px;
+    }
+}
+
+[data-theme="dark"] {
+    --primary: /*#00acc1;*/ #A543DF;
     --primary-hover: #00bcd4;
     --primary-focus: rgba(0, 172, 193, 0.25);
     --primary-inverse: #fff;
     --card-sectionning-background-color: #4b7676;
-  }
-}
-
-[data-theme="dark"] {
-  --primary: #00acc1;
-  --primary-hover: #00bcd4;
-  --primary-focus: rgba(0, 172, 193, 0.25);
-  --primary-inverse: #fff;
-  --card-sectionning-background-color: #4b7676;
-  --card-background-color: #20272d;
+    --card-background-color: #20272d;
+    --font-size: 17px;
 }
 
 :root {
-  --form-element-active-border-color: var(--primary);
-  --form-element-focus-color: var(--primary-focus);
-  --switch-color: var(--primary-inverse);
-  --switch-checked-background-color: var(--primary);
+    --form-element-active-border-color: var(--primary);
+    --form-element-focus-color: var(--primary-focus);
+    --switch-color: var(--primary-inverse);
+    --switch-checked-background-color: var(--primary);
+    --font-size: 17px;
 }

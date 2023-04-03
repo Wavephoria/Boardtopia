@@ -1,8 +1,14 @@
 ﻿@model WordleVM;
 
+<div>
+    <img src="/image/Wordtopia banner.png" alt="Wordtopia banner"/>
+</div>
+<br />
+<br />
+
 <div class="row">
 <details>
-    <summary>How to Play </summary><ul>
+        <summary><h5>How to Play</h5> </summary><ul>
         <li>
             You're given six attempts to guess a 5-letter word
         </li>
@@ -28,14 +34,19 @@
 </details>
 </div>
 
+
+@*<h2 class="game-header">Wordtopia</h2>*@
+<div class="game-board"></div>
+
 <div class="switch-button">
     <input class="switch-button-checkbox" type="checkbox" />
     <label class="switch-button-label" for="">
         <span class="switch-button-label-span">Swedish</span>
     </label>
 </div>
+    <p id="change-language">Change language here </p>
+</span>
 
-<div class="game-board"></div>
 <div class="game-over-div hidden">
     <div class="game-over-message"></div>
     <button class="btn-play-again">Play again</button>

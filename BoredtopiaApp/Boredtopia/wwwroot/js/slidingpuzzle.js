@@ -10,10 +10,13 @@ function createBoard() {
     for (let i = 1; i <= numberOfTiles; i++) {
         const tile = document.createElement('div');
         tile.dataset.tileNumber = i;
+        tile.classList.add('picture-component');
         if (i === 9) {
-            tile.classList.add('.empty')
+            tile.classList.add('empty')
+            tile.dataset.imgNumber = -1;
         } else {
-            tile.classList.add(`picture-component${i}`);
+            tile.dataset.imgNumber = i;
+            tile.style.background = `url('../image/puzzle/cat-parts/cat-part${i}.jpg')`;
         }
         tile.addEventListener('click', () => { moveTile(tile) });
         gameBoard.appendChild(tile);
@@ -21,29 +24,22 @@ function createBoard() {
 }
 
 
-
-// shuffle tiles
-// - create random function
-// - shuffle tiles to random locations
 function shuffleTiles() {
 
     const set = new Set();
     while (set.size !== 8) {
-        set.add( Math.floor(Math.random() * 8) + 1)
+        set.add(Math.floor(Math.random() * 8) + 1);
     }
     const numbers = [...set];
     const tiles = gameBoard.children;
 
-    for (let i = 0; i < tiles.length - 1; i++) {
-        tiles[i].className = `picture-component${numbers[i]}`;
+    for (let i = 0; i < numberOfTiles - 1; i++) {
+        tiles[i].dataset.imgNumber = i;
+        tiles[i].style.background = `url('../image/puzzle/cat-parts/cat-part${numbers[i]}.jpg')`;
     }
 }
 
 
-// move tile to empty spot
-// - check for empty spot
-// - move tile if it is next to empty spot
-// - call check if player has won function
 function moveTile(tile) {
     const emptyTile = document.querySelector(`[data-tile-number="${emptyTileNumber}"]`);
     const tileNumber = parseInt(tile.dataset.tileNumber);
@@ -73,31 +69,64 @@ function moveTile(tile) {
             swapPicture(emptyTile, tile, tileNumber);
         } 
     }
+
+    // - call check if player has won function
+    if (checkWinConditions()) {
+        replaceWithPicture();
+    }
 }
 
 
 function swapPicture(emptyTile, tile, tileNumber) {
-    emptyTile.className = tile.className;
+
+    emptyTile.style.background = tile.style.background;
+    tile.style.removeProperty(`background`);
     tile.className = `empty`;
+
+    emptyTile.dataset.imgNumber = tile.dataset.imgNumber;
+    tile.dataset.imgNumber = -1;
+
     emptyTileNumber = tileNumber;
 }
 
 
-// start game
-// - call create board function
-// - call shuffle tiles function
-// - check that it's not in win state
+function checkWinConditions() {
 
-function startGame() {
-    createBoard();
-    shuffleTiles();
+    const tiles = gameBoard.children
+    let allTilesInRightPlace = true;
+
+    for (let i = 0; i < numberOfTiles - 1; i++) {
+        if (tiles[i].dataset.tileNumber !== tiles[i].dataset.imgNumber) {
+            allTilesInRightPlace = false;
+        }
+    }
+
+    return allTilesInRightPlace;
 }
 
 
-// check if player has won (puzzle completed)
-// - check if puzzle board is in win state
-// - if won end game with win message
+function replaceWithPicture() {
+
+    // Remove all children and eventlisteners etc.
+    while (gameBoard.firstChild) {
+        gameBoard.removeChild(gameBoard.firstChild);
+    }
+
+    gameBoard.classList.remove('game-grid');
+
+    const img = new Image(600, 600);
+    img.src = '../image/puzzle/cat-parts/cat.jpg';   
+    gameBoard.appendChild(img);
+}
 
 
+function startGame() {
+    createBoard();
+
+    // Check that it doesn't start in winning state
+    while (checkWinConditions()) {
+        shuffleTiles();
+    }
+}
 
 startGame();
