@@ -128,8 +128,6 @@ public class AccountController : Controller
     public async Task<IActionResult> RockPaperScissors([FromBody] int[] data)
     {
         string result = await _accountServices.UpdateRPS(data);
-
-
-        return Ok(data[3]);
+        return Ok(result);
     }
 }
