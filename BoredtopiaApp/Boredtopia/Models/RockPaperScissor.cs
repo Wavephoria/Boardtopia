@@ -4,14 +4,14 @@ namespace Boredtopia.Models
 {
     public class RockPaperScissor
     {
-        private AccountServices _accountServices;
-
         public string UserId { get; set; }
         public int Id { get; set; }
         public int ScissorWins { get; set; }
         public int RockWins { get; set; }
         public int PaperWins { get; set; }
         public int Highscore { get; set; }
+        public int TotalGames { get; set; }
+        public double WinPercentDecimal { get; set; }
 
         public RockPaperScissor()
         {
