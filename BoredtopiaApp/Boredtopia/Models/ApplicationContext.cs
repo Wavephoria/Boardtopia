@@ -10,4 +10,6 @@ public class ApplicationContext : IdentityDbContext<ApplicationUser, IdentityRol
     public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options){}
 
     public DbSet<Wordle> _wordleStats { get; set; }
+
+    public DbSet<RockPaperScissor> _rpsStats { get; set; }
 }

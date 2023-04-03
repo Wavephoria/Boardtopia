@@ -146,4 +146,44 @@ public class AccountServices
     {
         return context._wordleStats.SingleOrDefault(a => a.UserId == userId);
     }
+
+    //public async Task<string> UpdateRPS(int[] data)
+    //{
+    //    int rockWins = data[0];
+    //    int paperWins = data[1];
+    //    int scissorWins = data[2];
+    //    int highScore = data[3];
+    //    string? userId = FetchUserId();
+    //    var user = CheckForUserRPS(userId);
+    //    if (user == null)
+    //    {
+    //        RockPaperScissor rps = new();
+    //        rps.UserId = userId;
+    //        rps.RockWins = rockWins;
+    //        rps.PaperWins = paperWins;
+    //        rps.ScissorWins = scissorWins;
+    //        rps.Highscore = highScore;
+    //        rps.TotalGames = t
+
+    //        context._rpsStats.Update(rps);
+    //    }
+    //    else if (user != null)
+    //    {
+    //        var rpscheck = user;
+    //        if (rpscheck.Highscore > data[3])
+    //            wordleData.WordleBest = guesses;
+    //        wordleData.WordleTotal += guesses;
+    //        wordleData.WordlePlays += 1;
+    //        wordleData.WordleAverage = Math.Round((double)wordleData.WordleTotal / wordleData.WordlePlays, 3);
+    //        context._wordleStats.Update(wordleData);
+    //    }
+
+    //    await context.SaveChangesAsync();
+    //    return "Done";
+    //}
+
+    //public RockPaperScissor? CheckForUserRPS(string userId)
+    //{
+    //    return context._rpsStats.SingleOrDefault(a => a.UserId == userId);
+    //}
 }

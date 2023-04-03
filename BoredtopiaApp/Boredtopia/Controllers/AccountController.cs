@@ -109,6 +109,14 @@ public class AccountController : Controller
         return Ok(result);
     }
 
+    [HttpGet("/RockPaperScissors")]
+    public IActionResult RockPaperScissors()
+    {
+        var viewModel = new RockPaperScissorsVM();
+
+        return View(viewModel);
+    }
+
     [HttpPost("/RockPaperScissors")]
     public async Task<IActionResult> RockPaperScissors([FromBody] int[] data)
     {

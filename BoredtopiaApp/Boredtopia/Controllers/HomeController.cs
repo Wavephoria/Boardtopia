@@ -1,4 +1,5 @@
 ﻿using Boredtopia.Models;
+using Boredtopia.Views.Home;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -42,11 +43,7 @@ namespace Boredtopia.Controllers
         { 
             return View(); 
         }
-        [HttpGet("/RockPaperScissors")]
-        public IActionResult RockPaperScissors()
-        {
-            return View();
-        }
+        
         [HttpGet("/SlidingPuzzle")]
         public IActionResult SlidingPuzzle()
         {
