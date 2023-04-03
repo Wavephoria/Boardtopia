@@ -120,6 +120,9 @@ namespace Boredtopia.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("WinPercentDecimal")
+                        .HasColumnType("float");
+
                     b.HasKey("Id");
 
                     b.ToTable("_rpsStats");

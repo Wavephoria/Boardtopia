@@ -5,7 +5,7 @@
 namespace Boredtopia.Migrations
 {
     /// <inheritdoc />
-    public partial class RPS : Migration
+    public partial class rps : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -21,7 +21,8 @@ namespace Boredtopia.Migrations
                     RockWins = table.Column<int>(type: "int", nullable: false),
                     PaperWins = table.Column<int>(type: "int", nullable: false),
                     Highscore = table.Column<int>(type: "int", nullable: false),
-                    TotalGames = table.Column<int>(type: "int", nullable: false)
+                    TotalGames = table.Column<int>(type: "int", nullable: false),
+                    WinPercentDecimal = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {

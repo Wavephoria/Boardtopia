@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Boredtopia.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230403131607_RPS")]
-    partial class RPS
+    [Migration("20230403140434_rps")]
+    partial class rps
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -122,6 +122,9 @@ namespace Boredtopia.Migrations
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("WinPercentDecimal")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
