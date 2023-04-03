@@ -34,13 +34,43 @@ logo {
     padding: 2rem 0;
 }
 
-/*  --- Wordtopia styles --- */
 
+
+/*  --- Rock, paper, scissor Styles ---  */
+.game-choice {
+    cursor: pointer;
+}
+
+.rockpaperscissors-game-board {
+    display: flex;
+    align-items: center;
+}
+
+.game-stats {
+    max-width: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#result {
+    align-self: center;
+    padding-top: 1rem;
+    font-size: 1.5rem;
+}
+
+#wins {
+    margin: 0;
+    font-weight: 700;
+}
+
+
+/*  --- Wordtopia styles --- */
 .game-board {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    align-content: center;
+    align-items: center;
 }
 
 .board-row {
