@@ -11,6 +11,7 @@ namespace Boredtopia.Models
         public int PaperWins { get; set; }
         public int Highscore { get; set; }
         public int TotalGames { get; set; }
+        public double WinPercentDecimal { get; set; }
 
         public RockPaperScissor()
         {

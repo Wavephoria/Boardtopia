@@ -63,7 +63,7 @@ images.forEach((image) => {
         document.getElementById("scissors-wins").textContent = scissorsWins;
         document.getElementById("current-wins-count").textContent = currentWins;
         document.getElementById("high-score-count").textContent = highScore;
-        document.getElementById("Total-Games").textContent = totalGames;
+        document.getElementById("total-games").textContent = totalGames;
     });
 });
 
@@ -73,7 +73,7 @@ saveButton.addEventListener('click', () => {
 });
 
 async function sendData() {
-    const data = [rockWins, paperWins, scissorsWins, highScore];
+    const data = [rockWins, paperWins, scissorsWins, highScore, totalGames];
     await fetch('/RockPaperScissors',
         {
             method: 'POST',
