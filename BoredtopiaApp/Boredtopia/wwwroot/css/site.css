@@ -184,6 +184,8 @@ logo {
 
 .language-selection p {
     margin: 0;
+    padding-bottom: 0.3rem;
+    font-size: 0.9rem;
 }
 
 .switch-button {
