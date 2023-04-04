@@ -119,29 +119,33 @@ public class AccountController : Controller
     [HttpPost("/Wordle")]
     public async Task<IActionResult> Wordle([FromBody] int guessedCorrectAtNumber)
     {
-        string result = await _accountServices.UpdateWordle(guessedCorrectAtNumber);
+        string result = "Done";
+        if (User.Identity.IsAuthenticated)
+            result = await _accountServices.UpdateWordle(guessedCorrectAtNumber);
         return Ok(result);
     }
 
     [HttpGet("/RockPaperScissors")]
     public IActionResult RockPaperScissors()
     {
-        var viewModel = new RockPaperScissorsVM();
-
-        return View(viewModel);
+        return View();
     }
 
     [HttpPost("/RockPaperScissors")]
     public async Task<IActionResult> RockPaperScissors([FromBody] int[] data)
     {
-        string result = await _accountServices.UpdateRPS(data);
+        string result = "Done";
+        if (User.Identity.IsAuthenticated)
+            result = await _accountServices.UpdateRPS(data);
         return Ok(result);
     }
     
     [HttpPost("/TicTacToe")]
     public async Task<IActionResult> TicTacToe([FromBody] string result)
     {
-        string completion = await _accountServices.UpdateTicTac(result);
+        string completion = "Done";
+        if (User.Identity.IsAuthenticated)
+            completion = await _accountServices.UpdateTicTac(result);
         return Ok(completion);
     }
 }
