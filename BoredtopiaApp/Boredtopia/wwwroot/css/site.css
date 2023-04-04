@@ -28,22 +28,27 @@ logo {
     color: hotpink
 }
 
-.game-header {
+
+/*  --- Rock, paper, scissor Styles ---  */
+
+.game-instruction-header {
     text-align: center;
     margin: 0;
     padding: 2rem 0;
 }
 
+.center {
+    text-align: center;
+}
 
-
-/*  --- Rock, paper, scissor Styles ---  */
 .game-choice {
     cursor: pointer;
 }
 
 .rockpaperscissors-game-board {
     display: flex;
-    align-items: center;
+    justify-content: center;
+    gap: 0.33rem;
 }
 
 .game-stats {
@@ -96,7 +101,7 @@ logo {
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
-    color: black;
+    color: hotpink;
     height: 5rem;
     padding: 2.5rem 0;
 }
@@ -141,20 +146,20 @@ logo {
     position: relative;
 }
 
-    .switch-button:before {
-        content: "English";
-        position:absolute;
-        color: #FFFFFF;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        width: 100px;
-        display:flex;
-        align-items:center;
-        justify-content: center;
-        z-index: 3;
-        pointer-events: none;
-    }
+.switch-button:before {
+    content: "English";
+    position:absolute;
+    color: #FFFFFF;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100px;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    z-index: 3;
+    pointer-events: none;
+}
 
 .switch-button-checkbox {
     cursor: pointer;
@@ -204,9 +209,9 @@ logo {
     align-items: center;
 }
 
-    #keyboard-cont div {
-        display: flex;
-    }
+#keyboard-cont div {
+    display: flex;
+}
 
 .second-row {
     margin: 0.5rem 0;
