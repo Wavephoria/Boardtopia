@@ -5,6 +5,18 @@
     --letter-box-colored-font-color: #FFFFFF;
 }
 
+@media (max-width: 1200px) {
+    .home {
+        display: none;
+    }
+}
+
+@media (max-width: 1200px) {
+    .about {
+        display: none;
+    }
+}
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
@@ -28,13 +40,12 @@ logo {
     color: hotpink
 }
 
-
 /*  --- Rock, paper, scissor Styles ---  */
 
 .game-instruction-header {
     text-align: center;
     margin: 0;
-    padding: 2rem 0;
+    padding: 2rem 0 1rem 0;
 }
 
 .center {
@@ -67,6 +78,14 @@ logo {
 #wins {
     margin: 0;
     font-weight: 700;
+}
+
+#current-wins, #total-games, #high-score {
+    margin: 0;
+}
+
+.save {
+    padding: 1rem 0;
 }
 
 
@@ -128,6 +147,11 @@ logo {
 .letter-box__grey {
     background-color: var(--letter-box-bg-grey);
     color: var(--letter-box-colored-font-color);
+}
+
+.wordlelife {
+    width: 350px;
+    height: 350px;
 }
 
 
@@ -226,28 +250,3 @@ logo {
     text-transform: uppercase;
 }
 
-@media (max-width: 1200px) {
-    .home {
-        display: none;
-    }
-}
-
-@media (max-width: 1200px) {
-    .about {
-        display: none;
-    }
-}
-
-.wordlelife {
-    width: 350px;
-    height: 350px;
-}
-
-.save {
-    height: 200px;
-
-  display:grid;
-}
-button {
-   margin:auto;
-}
