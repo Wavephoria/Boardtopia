@@ -101,11 +101,17 @@ public class AccountServices
         }
         return "Failed to change details";
     }
-
+    
+    
+    
+    public Wordle? CheckForUserWordle(string userId)
+    {
+        return context._wordleStats.SingleOrDefault(a => a.UserId == userId);
+    }
     public async Task<string> UpdateWordle(int guesses)
     {
         string? userId = FetchUserId();
-        var user = CheckForUser(userId);
+        var user = CheckForUserWordle(userId);
         if (user == null)
         {
             Wordle wordle = new();
@@ -118,7 +124,7 @@ public class AccountServices
         }
         else if (user != null)
         {
-            var wordleData = context._wordleStats.FirstOrDefault(a => a.UserId == userId);
+            var wordleData = user;
             if (wordleData.WordleBest > guesses)
                 wordleData.WordleBest = guesses;
             wordleData.WordleTotal += guesses;
@@ -126,43 +132,26 @@ public class AccountServices
             wordleData.WordleAverage = Math.Round((double)wordleData.WordleTotal / wordleData.WordlePlays, 3);
             context._wordleStats.Update(wordleData);
         }
-        
         await context.SaveChangesAsync();
         return "Done";
     }
-    
     public Tuple<int, int, double> FetchWordleStats()
     {
         string? userId = FetchUserId();
-        var user = CheckForUser(userId);
+        var user = CheckForUserWordle(userId);
         if (user == null)
         {
             return new Tuple<int, int, double>(0, 0, 0);
         }
         return new Tuple<int, int, double>(user.WordlePlays, user.WordleBest, user.WordleAverage);
     }
-    public Tuple<int, int, int, int, int, double> FetchRpsStats()
-    {
-        string? userId = FetchUserId();
-        var user = CheckForUserRps(userId);
-        if (user == null)
-        {
-            return new Tuple<int, int,int,int,int, double>(0, 0, 0, 0, 0, 0);
-        }
-        return new Tuple<int, int, int, int, int, double>(user.RockWins, user.PaperWins, user.ScissorWins, user.Highscore, user.TotalGames, user.WinPercentDecimal);
-    }
 
-    public Wordle? CheckForUser(string userId)
-    {
 
-        return context._wordleStats.SingleOrDefault(a => a.UserId == userId);
-    }
+
     public RockPaperScissor? CheckForUserRps(string userId)
     {
-
         return context._rpsStats.SingleOrDefault(a => a.UserId == userId);
     }
-
     public async Task<string> UpdateRPS(int[] data)
     {
         int rockWins = data[0];
@@ -171,7 +160,7 @@ public class AccountServices
         int highScore = data[3];
         int totalGames = data[4];
         string? userId = FetchUserId();
-        var user = CheckForUserRPS(userId);
+        var user = CheckForUserRps(userId);
         if (user == null)
         {
             RockPaperScissor rps = new();
@@ -199,13 +188,83 @@ public class AccountServices
 
             context._rpsStats.Update(rps);
         }
-
         await context.SaveChangesAsync();
         return "Done";
     }
-
-    public RockPaperScissor? CheckForUserRPS(string userId)
+    public Tuple<int, int, int, int, int, double> FetchRpsStats()
     {
-        return context._rpsStats.SingleOrDefault(a => a.UserId == userId);
+        string? userId = FetchUserId();
+        var user = CheckForUserRps(userId);
+        if (user == null)
+        {
+            return new Tuple<int, int,int,int,int, double>(0, 0, 0, 0, 0, 0);
+        }
+        return new Tuple<int, int, int, int, int, double>(user.RockWins, user.PaperWins, user.ScissorWins, user.Highscore, user.TotalGames, user.WinPercentDecimal);
     }
+
+    
+    public async Task<string> UpdateTicTac(string result)
+    {
+        string? userId = FetchUserId();
+        var user = CheckForUserTicTac(userId);
+        if (user == null)
+        {
+            TicTacToe ttt = new();
+            ttt.UserId = userId;
+            if (result.ToLower() == "win")
+                ttt.Wins++;
+            else if (result.ToLower() == "tie")
+                ttt.Ties++;
+            else
+                ttt.Losses++;
+
+            ttt.TotalGames++;
+            ttt.WinPercentDecimal = ttt.Wins/ (double)ttt.TotalGames;
+            if (result.ToLower() == "win")
+                ttt.WinStreak = 1;
+            else
+                ttt.WinStreak = 0;
+            
+            context._tttStats.Update(ttt);
+            
+        }
+        else if (user != null)
+        {
+            var ttt = user;
+            if (result.ToLower() == "win")
+                ttt.Wins++;
+            else if (result.ToLower() == "tie")
+                ttt.Ties++;
+            else
+                ttt.Losses++;
+
+            ttt.TotalGames++;
+            ttt.WinPercentDecimal = ttt.Wins /(double)ttt.TotalGames;
+            if (result.ToLower() == "win")
+                ttt.WinStreak++;
+            else
+                ttt.WinStreak = 0;
+            
+            context._tttStats.Update(ttt);
+        }
+        
+        await context.SaveChangesAsync();
+        return "Done";
+    }
+    public TicTacToe? CheckForUserTicTac(string userId)
+    {
+        return context._tttStats.SingleOrDefault(a => a.UserId == userId);
+    }
+    public Tuple<int, int, int, int, int, double> FetchTicTacStats()
+    {
+        string? userId = FetchUserId();
+        var user = CheckForUserTicTac(userId);
+        if (user == null)
+        {
+            return new Tuple<int, int, int, int, int, double>(0, 0, 0, 0, 0, 0);
+        }
+        return new Tuple<int, int, int, int, int, double>(user.TotalGames, user.Wins, user.Ties, user.Losses, user.WinStreak, user.WinPercentDecimal);
+    }
+    
+    
 }

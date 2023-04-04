@@ -43,7 +43,6 @@ namespace Boredtopia.Controllers
         { 
             return View(); 
         }
-        
         [HttpGet("/SlidingPuzzle")]
         public IActionResult SlidingPuzzle()
         {
