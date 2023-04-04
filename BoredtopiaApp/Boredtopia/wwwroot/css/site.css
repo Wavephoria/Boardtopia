@@ -175,6 +175,19 @@ logo {
 
 /*  --- Slider styles ---  */
 
+.language-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+.language-selection p {
+    margin: 0;
+    padding-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
 .switch-button {
     background: #A543DF;
     /*border-radius: 5px;*/
@@ -187,12 +200,6 @@ logo {
     position: relative;
 }
 
-.language-selection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 1rem;
-}
 
 .switch-button:before {
     content: "English";
