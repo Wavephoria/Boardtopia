@@ -80,7 +80,6 @@ images.forEach((image) => {
         // Adds countdown before showing what computer chose
         counter = 3;
         startCountDown(result, computerSelection);
-
     });
 });
 
