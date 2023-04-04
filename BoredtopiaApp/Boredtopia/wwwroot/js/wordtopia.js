@@ -17,7 +17,7 @@ let gameOver = false;
 let correctWord;
 let wordArray = WORDS_ENGLISH;
 
-const regEx = /^[A-Za-zåäöÅÄÖ]$/;
+let regEx = /^[A-Za-z]$/;
 
 function getRandomWord(wordArray) {
     let random = Math.floor(Math.random() * wordArray.length);
@@ -27,8 +27,10 @@ function getRandomWord(wordArray) {
 languageCheckBox.addEventListener('change', () => {
     if (languageCheckBox.checked === true) {
         wordArray = WORDS_SWEDISH;
+        regEx = /^[A-Za-zåäöÅÄÖ]$/;
     } else {
         wordArray = WORDS_ENGLISH;
+        regEx = /^[A-Za-z]$/;
     }
 
     playAgain();
