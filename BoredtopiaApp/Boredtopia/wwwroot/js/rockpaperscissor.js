@@ -1,6 +1,18 @@
 ﻿const options = ["rock", "paper", "scissors"];
 
+// Element selectors
 const playAgainBtn = document.querySelector('save-btn');
+const images = document.querySelectorAll("img");
+const gameTopMessage = document.getElementById('top-message');
+const gameBottomMessage = document.getElementById("bottom-message");
+const saveButton = document.getElementById("save-btn");
+const rockWinStats = document.getElementById("rock-wins");
+const paperWinStats = document.getElementById("paper-wins");
+const scissorWinStats = document.getElementById("scissors-wins"); 
+const currentWinStats = document.getElementById("current-wins-count");
+const highScoreCount = document.getElementById("high-score-count");
+const totalGamesStats = document.getElementById("total-games");
+
 
 let rockWins = 0;
 let paperWins = 0;
@@ -52,16 +64,15 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const images = document.querySelectorAll("img");
+
 images.forEach((image) => {
     image.addEventListener("click", () => {
 
         const playerSelection = image.id;
         const computerSelection = computerPlay();
         const result = playRound(playerSelection, computerSelection);
-        document.getElementById('top-message').textContent = ``;
 
-        document.getElementById("top-message").textContent = `Weapon locked!`;
+        gameTopMessage.textContent = `Weapon locked!`;
 
         removeSelected();
         image.classList.add('weapon-selected');
@@ -73,7 +84,7 @@ images.forEach((image) => {
     });
 });
 
-const saveButton = document.getElementById("save-btn");
+
 saveButton.addEventListener('click', () => {
     sendData();
     resetStats();
@@ -85,10 +96,10 @@ function startCountDown(result, computerSelection) {
     const interval = setInterval(function countDown() {
             disableClick();
             if (counter > 0) {
-                document.getElementById("bottom-message").textContent = counter;
+                gameBottomMessage.textContent = counter;
             } else {
-                document.getElementById('top-message').textContent = `Your opponent chose ${computerSelection}`;
-                document.getElementById("bottom-message").textContent = result;
+                gameTopMessage.textContent = `Your opponent chose ${computerSelection}`;
+                gameBottomMessage.textContent = result;
                 updateGameStats();
                 clearInterval(interval);
                 enableClick();
@@ -100,12 +111,12 @@ function startCountDown(result, computerSelection) {
 }
 
 function updateGameStats() {
-    document.getElementById("rock-wins").textContent = rockWins;
-    document.getElementById("paper-wins").textContent = paperWins;
-    document.getElementById("scissors-wins").textContent = scissorsWins;
-    document.getElementById("current-wins-count").textContent = currentWins;
-    document.getElementById("high-score-count").textContent = highScore;
-    document.getElementById("total-games").textContent = totalGames;
+    rockWinStats.textContent = rockWins;
+    paperWinStats.textContent = paperWins;
+    scissorWinStats.textContent = scissorsWins;
+    currentWinStats.textContent = currentWins;
+    highScoreCount.textContent = highScore;
+    totalGamesStats.textContent = totalGames;
 }
 
 function disableClick() {
@@ -113,7 +124,6 @@ function disableClick() {
 }
 
 function enableClick() {
-    console.log("herllo");
     images.forEach(image => image.classList.remove('disable-clicks'));
 }
 
@@ -141,10 +151,5 @@ function resetStats() {
     currentWins = 0;
     highScore = 0;
     totalGames = 0;
-    document.getElementById("rock-wins").textContent = rockWins;
-    document.getElementById("paper-wins").textContent = paperWins;
-    document.getElementById("scissors-wins").textContent = scissorsWins;
-    document.getElementById("current-wins-count").textContent = currentWins;
-    document.getElementById("high-score-count").textContent = highScore;
-    document.getElementById("total-games").textContent = totalGames;
+    updateGameStats();
 }
