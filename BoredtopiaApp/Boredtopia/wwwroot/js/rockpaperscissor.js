@@ -59,9 +59,9 @@ images.forEach((image) => {
         const playerSelection = image.id;
         const computerSelection = computerPlay();
         const result = playRound(playerSelection, computerSelection);
-        document.getElementById('opponent-message').textContent = ``;
+        document.getElementById('top-message').textContent = ``;
 
-        document.getElementById("result").textContent = `Weapon locked!`;
+        document.getElementById("top-message").textContent = `Weapon locked!`;
 
         removeSelected();
         image.classList.add('weapon-selected');
@@ -84,17 +84,18 @@ function startCountDown(result, computerSelection) {
     const interval = setInterval(function countDown() {
             disableClick();
             if (counter > 0) {
-                document.getElementById("result").textContent = counter;
+                document.getElementById("bottom-message").textContent = counter;
             } else {
-                document.getElementById('opponent-message').textContent = `Your opponent chose ${computerSelection}`;
-                document.getElementById("result").textContent = result;
+                document.getElementById('top-message').textContent = `Your opponent chose ${computerSelection}`;
+                document.getElementById("bottom-message").textContent = result;
                 updateGameStats();
                 clearInterval(interval);
                 enableClick();
             }
 
-            counter--;
-    }, 1000);
+        counter--;
+        return countDown;
+    }(), 1000);
 }
 
 function updateGameStats() {
