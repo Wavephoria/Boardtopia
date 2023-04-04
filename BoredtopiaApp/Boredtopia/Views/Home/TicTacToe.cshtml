@@ -2,8 +2,13 @@
     <link href="~/css/tictactoe.css" rel="stylesheet" asp-append-version="true" />
 </head>
 
+<div>
+    <img src="/image/tttbanner.png" alt="Tictactoe" />
+</div>
+<br />
+<br />
+
 <body onload="initialize()">
-    <h1>Tic-Tac-Toe</h1>
     <table id="table_game">
         <tr><td class="td_game"><div id="cell0" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="td_game"><div id="cell1" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="td_game"><div id="cell2" onclick="cellClicked(this.id)" class="fixed"></div></td></tr>
         <tr><td class="td_game"><div id="cell3" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="td_game"><div id="cell4" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="td_game"><div id="cell5" onclick="cellClicked(this.id)" class="fixed"></div></td></tr>
@@ -644,6 +649,18 @@
         }
         setTimeout(restartGame, 800);
     }
+
+    async function sendData() {
+        await fetch('/TicTacToe',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(score.player)
+            }
+        );
+    };
 
 </script>
 
