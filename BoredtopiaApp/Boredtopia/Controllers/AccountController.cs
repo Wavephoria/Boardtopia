@@ -96,6 +96,13 @@ public class AccountController : Controller
         viewModel.Name = User.Identity.Name;
         viewModel.Email = await _accountServices.FetchData("email");
         var wordleStats = _accountServices.FetchWordleStats();
+        var rpsStats = _accountServices.FetchRpsStats();
+        viewModel.RockWins = rpsStats.Item1;
+        viewModel.PaperWins = rpsStats.Item2;
+        viewModel.ScissorWins = rpsStats.Item3;
+        viewModel.Highscore = rpsStats.Item4;
+        viewModel.TotalGames = rpsStats.Item5;
+        viewModel.WinPercentRpsDecimal = rpsStats.Item6;
         viewModel.WordlePlays = wordleStats.Item1;
         viewModel.WordleBest = wordleStats.Item2;
         viewModel.WordleAverage = wordleStats.Item3;
@@ -120,7 +127,7 @@ public class AccountController : Controller
     [HttpPost("/RockPaperScissors")]
     public async Task<IActionResult> RockPaperScissors([FromBody] int[] data)
     {
-        
-        return Ok(data[3]);
+        string result = await _accountServices.UpdateRPS(data);
+        return Ok(result);
     }
 }

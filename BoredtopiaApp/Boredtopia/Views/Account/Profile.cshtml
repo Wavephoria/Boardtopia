@@ -40,9 +40,12 @@
             } else if (gameName == "Rock Paper Scissor") {
                 document.querySelector('.game-stats').innerHTML =
                     `<b>${gameName}</b> <br />
-                    Games played: 1 <br />
-                    Personal best: 1 <br />
-                    Average score: 1 <br />`
+                    Rock wins: @Model.RockWins <br />
+                    Paper wins: @Model.PaperWins <br />
+                    Scissor wins: @Model.ScissorWins <br />
+                    Highscore in a row wins: @Model.Highscore <br />
+                    Total amount of games: @Model.TotalGames <br />
+                    Win percent: @(Model.WinPercentRpsDecimal * 100)% <br />`
             }
         }
     </script>
