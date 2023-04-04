@@ -49,17 +49,23 @@ logo {
 }
 
 .center {
-    text-align: center;
+    text-align: center;  
 }
 
-.game-choice {
+.weapon-choice {
     cursor: pointer;
+    max-width: 300px;
+    height: auto;
 }
 
 .rockpaperscissors-game-board {
     display: flex;
     justify-content: center;
     gap: 0.33rem;
+}
+
+.weapon-selected {
+    border: 5px solid #FFFFFF;
 }
 
 .game-stats {
