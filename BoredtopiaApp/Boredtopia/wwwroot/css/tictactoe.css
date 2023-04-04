@@ -144,3 +144,10 @@ table {
 .win-color {
     background-color: rgb(240, 240, 240);
 }
+.option {
+    color:blueviolet;
+}
+
+.restart {
+    vertical-align:top;position:relative;top:-10px;
+}
