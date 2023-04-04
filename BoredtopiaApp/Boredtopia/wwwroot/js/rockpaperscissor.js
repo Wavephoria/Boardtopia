@@ -77,6 +77,7 @@ const saveButton = document.getElementById("save-btn");
 saveButton.addEventListener('click', () => {
     sendData();
     resetStats();
+    saveButton.blur();
 });
 
 
@@ -112,6 +113,7 @@ function disableClick() {
 }
 
 function enableClick() {
+    console.log("herllo");
     images.forEach(image => image.classList.remove('disable-clicks'));
 }
 
