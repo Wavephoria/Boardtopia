@@ -43,9 +43,9 @@
 
                 <ul>
                     <li>
-                        <details role="list" dir="rtl">
+                       @* <details role="list" dir="rtl">
                             <summary aria-haspopup="listbox" role="link" class="contrast">
-                                <i class="fa-solid fa-circle-half-stroke "></i>
+                                <i class="fa-solid fa-circle-half-stroke"></i>
 
                             </summary>
                             <ul role="listbox">
@@ -53,7 +53,19 @@
                                 <li><a href="#" data-theme-switcher="light">Light</a></li>
                                 <li><a href="#" data-theme-switcher="dark">Dark</a></li>
                             </ul>
+                        </details>*@
+                        <label for="theme-dropdown">Select a theme:</label>
+                        <details id="theme-dropdown" role="button" aria-haspopup="true" aria-controls="theme-options">
+                            <summary class="contrast" tabindex="0">
+                                <i class="fa-solid fa-circle-half-stroke"></i>
+                            </summary>
+                            <ul id="theme-options" role="listbox">
+                                <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+                                <li><a href="#" data-theme-switcher="light">Light</a></li>
+                                <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+                            </ul>
                         </details>
+
                     </li>
 
 
@@ -104,10 +116,10 @@
     <footer>
         <div class="footer">
             <div class="row">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-youtube"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="https://boredtopia.azurewebsites.net/"><i class="fa fa-facebook"></i></a>
+                <a href="https://boredtopia.azurewebsites.net/"><i class="fa fa-instagram"></i></a>
+                <a href="https://boredtopia.azurewebsites.net/"><i class="fa fa-youtube"></i></a>
+                <a href="https://boredtopia.azurewebsites.net/"><i class="fa fa-twitter"></i></a>
             </div>
 
             <div class="row">
