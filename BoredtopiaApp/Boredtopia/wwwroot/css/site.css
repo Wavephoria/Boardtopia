@@ -28,22 +28,27 @@ logo {
     color: hotpink
 }
 
-.game-header {
+
+/*  --- Rock, paper, scissor Styles ---  */
+
+.game-instruction-header {
     text-align: center;
     margin: 0;
     padding: 2rem 0;
 }
 
+.center {
+    text-align: center;
+}
 
-
-/*  --- Rock, paper, scissor Styles ---  */
 .game-choice {
     cursor: pointer;
 }
 
 .rockpaperscissors-game-board {
     display: flex;
-    align-items: center;
+    justify-content: center;
+    gap: 0.33rem;
 }
 
 .game-stats {

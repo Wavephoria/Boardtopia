@@ -1,7 +1,7 @@
 ﻿<div>
     <img src="/image/RPSbanner.png" alt="Wordtopia banner" />
 </div>
-<h5>Click an image below to make your choice:</h5>
+<h5 class="game-instruction-header">Click an image below to make your choice:</h5>
 <div class="rockpaperscissors-game-board">
     <img id="scissors" src="image/Scissors.png" alt="Scissors" width="300">
     <img id="rock" class="game-choice" src="image/Rock.png" alt="Rock" width="300">
@@ -18,10 +18,11 @@
     <p id="current-wins">Current wins in a row: <span id="current-wins-count">0</span></p>
     <p id="high-score">Highscore for wins in a row: <span id="high-score-count">0</span></p>
     <p id="high-score">Total games: <span id="total-games">0</span></p>
+    <div class="save">
+        <button type="button" id="save-btn">Save</button>
+    </div>
 </div>
-<div class="save">
-    <button type="button" id="save-btn" >Save</button>
-</div>
+
 
 
 @section scripts
