@@ -44,32 +44,13 @@ function playRound(playerSelection, computerSelection) {
         if (currentWins > highScore) {
             highScore = currentWins;
         }
-        return "You win! " + playerSelection + " beats " + computerSelection ;
+        return "You win!";
     } else {
         currentWins = 0;
         totalGames++;
-        return "You lose! " + computerSelection + " beats " + playerSelection;
+        return "You lose!";
     }
 }
-
-function startCountDown(result) {
-    const interval = setInterval(function countDown() {
-            disableClick();
-            if (counter > 0) {
-                document.getElementById("result").textContent = counter;
-            } else {
-                document.getElementById("result").textContent = result;
-                clearInterval(interval);
-                enableClick();
-            }
-
-            counter--;
-
-            return countDown;
-    }(), 1000);
-}
-
-
 
 const images = document.querySelectorAll("img");
 images.forEach((image) => {
@@ -78,21 +59,17 @@ images.forEach((image) => {
         const playerSelection = image.id;
         const computerSelection = computerPlay();
         const result = playRound(playerSelection, computerSelection);
+        document.getElementById('opponent-message').textContent = ``;
 
-
-        // Adds countdown before showing what computer chose
-        counter = 3;
-        startCountDown(result);
+        document.getElementById("result").textContent = `Weapon locked!`;
 
         removeSelected();
         image.classList.add('weapon-selected');
-        
-        document.getElementById("rock-wins").textContent = rockWins;
-        document.getElementById("paper-wins").textContent = paperWins;
-        document.getElementById("scissors-wins").textContent = scissorsWins;
-        document.getElementById("current-wins-count").textContent = currentWins;
-        document.getElementById("high-score-count").textContent = highScore;
-        document.getElementById("total-games").textContent = totalGames;
+
+        // Adds countdown before showing what computer chose
+        counter = 3;
+        startCountDown(result, computerSelection);
+
     });
 });
 
@@ -101,6 +78,33 @@ saveButton.addEventListener('click', () => {
     sendData();
     resetStats();
 });
+
+
+function startCountDown(result, computerSelection) {
+    const interval = setInterval(function countDown() {
+            disableClick();
+            if (counter > 0) {
+                document.getElementById("result").textContent = counter;
+            } else {
+                document.getElementById('opponent-message').textContent = `Your opponent chose ${computerSelection}`;
+                document.getElementById("result").textContent = result;
+                updateGameStats();
+                clearInterval(interval);
+                enableClick();
+            }
+
+            counter--;
+    }, 1000);
+}
+
+function updateGameStats() {
+    document.getElementById("rock-wins").textContent = rockWins;
+    document.getElementById("paper-wins").textContent = paperWins;
+    document.getElementById("scissors-wins").textContent = scissorsWins;
+    document.getElementById("current-wins-count").textContent = currentWins;
+    document.getElementById("high-score-count").textContent = highScore;
+    document.getElementById("total-games").textContent = totalGames;
+}
 
 function disableClick() {
     images.forEach(image => image.classList.add('disable-clicks'));
@@ -139,5 +143,5 @@ function resetStats() {
     document.getElementById("scissors-wins").textContent = scissorsWins;
     document.getElementById("current-wins-count").textContent = currentWins;
     document.getElementById("high-score-count").textContent = highScore;
-    document.getElementById("total-games").textContent = total
+    document.getElementById("total-games").textContent = totalGames;
 }
