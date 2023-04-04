@@ -52,6 +52,24 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+function startCountDown(result) {
+    const interval = setInterval(function countDown() {
+            disableClick();
+            if (counter > 0) {
+                document.getElementById("result").textContent = counter;
+            } else {
+                document.getElementById("result").textContent = result;
+                clearInterval(interval);
+                enableClick();
+            }
+
+            counter--;
+
+            return countDown;
+    }(), 1000);
+}
+
+
 
 const images = document.querySelectorAll("img");
 images.forEach((image) => {
@@ -61,20 +79,10 @@ images.forEach((image) => {
         const computerSelection = computerPlay();
         const result = playRound(playerSelection, computerSelection);
 
+
         // Adds countdown before showing what computer chose
         counter = 3;
-        const interval = setInterval(function countDown() {
-            if (counter > 0) {
-                document.getElementById("result").textContent = counter;
-            } else {
-                document.getElementById("result").textContent = result;
-                clearInterval(interval);
-            }
-
-            counter--;
-
-            return countDown;
-        }(), 1000);
+        startCountDown(result);
 
         removeSelected();
         image.classList.add('weapon-selected');
@@ -94,6 +102,13 @@ saveButton.addEventListener('click', () => {
     resetStats();
 });
 
+function disableClick() {
+    images.forEach(image => image.classList.add('disable-clicks'));
+}
+
+function enableClick() {
+    images.forEach(image => image.classList.remove('disable-clicks'));
+}
 
 function removeSelected() {
     images.forEach(image => image.classList.remove('weapon-selected'));
