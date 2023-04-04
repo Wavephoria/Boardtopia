@@ -1,11 +1,13 @@
 ﻿[data-theme="light"],
 :root:not([data-theme="dark"]) {
-     /*   --muted-color: hsl(205, 30%, 11%);*/
+    /*   --muted-color: hsl(205, 30%, 11%);*/
     --primary: /*#00acc1;*/ #A543DF; /*purple*/
     --primary-hover: #0097a7; /*teal or torquise*/
     --primary-focus: rgba(0, 172, 193, 0.125); /*transparent?*/
     --primary-inverse: #fff; /*white*/
     --font-size: 17px;
+    --color: black;
+    --muted-color: hsl(205, 30%, 11%);
 }
 
 @media only screen and (prefers-color-scheme: dark) {
