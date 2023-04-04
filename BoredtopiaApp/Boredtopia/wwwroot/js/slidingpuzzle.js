@@ -34,7 +34,7 @@ function shuffleTiles() {
     const tiles = gameBoard.children;
 
     for (let i = 0; i < numberOfTiles - 1; i++) {
-        tiles[i].dataset.imgNumber = i;
+        tiles[i].dataset.imgNumber = numbers[i];
         tiles[i].style.background = `url('../image/puzzle/cat-parts/cat-part${numbers[i]}.jpg')`;
     }
 }
@@ -78,12 +78,12 @@ function moveTile(tile) {
 
 
 function swapPicture(emptyTile, tile, tileNumber) {
-
+    emptyTile.classList.remove('empty');
     emptyTile.style.background = tile.style.background;
+    emptyTile.dataset.imgNumber = tile.dataset.imgNumber;
+
     tile.style.removeProperty(`background`);
     tile.className = `empty`;
-
-    emptyTile.dataset.imgNumber = tile.dataset.imgNumber;
     tile.dataset.imgNumber = -1;
 
     emptyTileNumber = tileNumber;
