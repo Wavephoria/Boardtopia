@@ -632,10 +632,13 @@
     function endGame(who) {
         if (who == player) {
             announceWinner("Congratulations, you won!");
+            sendData("win");
         } else if (who == computer) {
             announceWinner("Computer wins!");
+            sendData("loss");
         } else {
             announceWinner("It's a tie!");
+            sendData("tie");
         }
         gameOver = true;
         whoseTurn = 0;
@@ -651,14 +654,14 @@
         setTimeout(restartGame, 800);
     }
 
-    async function sendData() {
+    async function sendData(result) {
         await fetch('/TicTacToe',
             {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json'
                 },
-                body: JSON.stringify(score.player)
+                body: JSON.stringify(result)
             }
         );
     };
