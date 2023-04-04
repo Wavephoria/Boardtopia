@@ -45,7 +45,7 @@
                     Scissor wins: @Model.ScissorWins <br />
                     Highscore in a row wins: @Model.Highscore <br />
                     Total amount of games: @Model.TotalGames <br />
-                    Win percent: @(Model.WinPercentRpsDecimal * 100)% <br />`
+                    Win percent: @Math.Round((Model.WinPercentRpsDecimal * 100), 2)% <br />`
             }
         }
     </script>
