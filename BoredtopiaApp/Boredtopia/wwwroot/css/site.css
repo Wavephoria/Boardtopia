@@ -87,7 +87,6 @@ logo {
 
 #wins {
     margin: 0;
-    font-weight: 700;
 }
 
 .win-stats {
@@ -100,6 +99,10 @@ logo {
 
 .disable-clicks {
     pointer-events: none;
+}
+
+.text-bold {
+    font-weight: 700;
 }
 
 
