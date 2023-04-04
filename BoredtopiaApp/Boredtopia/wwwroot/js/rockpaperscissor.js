@@ -143,5 +143,5 @@ function resetStats() {
     document.getElementById("scissors-wins").textContent = scissorsWins;
     document.getElementById("current-wins-count").textContent = currentWins;
     document.getElementById("high-score-count").textContent = highScore;
-    document.getElementById("total-games").textContent = total
+    document.getElementById("total-games").textContent = totalGames;
 }
