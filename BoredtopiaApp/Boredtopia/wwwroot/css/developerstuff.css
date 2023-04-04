@@ -28,8 +28,6 @@
 
         .waveHeading h1:nth-child(1) {
             color: transparent;
-            /* text-shadow : 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #696BBF, 0 0 20px #CC76E7, 0 0 25px #00ade6, 0 0 30px #00ade6, 0 0 35px #00ade6;*/
-            
             -webkit-text-stroke: 1px var(--primary);
         }
 

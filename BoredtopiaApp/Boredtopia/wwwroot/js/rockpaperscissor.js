@@ -70,6 +70,7 @@ images.forEach((image) => {
 const saveButton = document.getElementById("save-btn");
 saveButton.addEventListener('click', () => {
     sendData();
+    resetStats();
 });
 
 async function sendData() {
@@ -84,3 +85,18 @@ async function sendData() {
         }
     );
 };
+
+function resetStats() {
+    rockWins = 0;
+    paperWins = 0;
+    scissorsWins = 0;
+    currentWins = 0;
+    highScore = 0;
+    totalGames = 0;
+    document.getElementById("rock-wins").textContent = rockWins;
+    document.getElementById("paper-wins").textContent = paperWins;
+    document.getElementById("scissors-wins").textContent = scissorsWins;
+    document.getElementById("current-wins-count").textContent = currentWins;
+    document.getElementById("high-score-count").textContent = highScore;
+    document.getElementById("total-games").textContent = total
+}
