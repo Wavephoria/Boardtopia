@@ -43,7 +43,7 @@
                     Personal best: @Model.WordleBest <br />
                     Average score: @Model.WordleAverage <br />`
             } 
-            else if (gameName == "Rock Paper Scissor") {
+            else if (gameName === "Rock Paper Scissor") {
                 document.querySelector('.game-stats').innerHTML =
                     `<b>${gameName}</b> <br />
                     Rock wins: @Model.RockWins <br />
@@ -53,7 +53,7 @@
                     Total amount of games: @Model.TotalGames <br />
                     Win percent: @Math.Round((Model.WinPercentRpsDecimal * 100), 2)% <br />`
             }
-            else if (gameName == "TicTacToe"){
+            else if (gameName === "TicTacToe"){
                 document.querySelector('.game-stats').innerHTML =
                 `<b>${gameName}</b> <br />
                 Total games: @Model.tttGames <br />

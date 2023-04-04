@@ -1,5 +1,7 @@
+
 <head>
-    <link href="~/css/gamespage.css" rel="stylesheet" asp-append-version="true" />
+    <title>@ViewData["Games"] - Boredtopia</title>
+    <link href="~/css/gamespage.css" rel="stylesheet" asp-append-version="true"/>
 </head>
 
 <section id=" games-welcome" class="games-welcome">
@@ -9,7 +11,6 @@
     </p>
 </section>
 
-
 <section class="product">
     <h2 class="product-category">New games</h2>
     <button type="button" class="pre-btn"><img src="/image/icons8-double-left-96.png" alt="left arrow"></button>
@@ -17,7 +18,7 @@
     <div class="product-container">
         <div class="product-card">
             <div class="product-image">
-               <img src="/image/wordtopiaFcopy.jpg" class="product-thumb" alt="Wordtopia thumbnail">
+               <img src="/image/wordtopiaFcopy.jpg" class="product-thumb" alt="Wordtopia">
                 <a asp-controller="Home" asp-action="Wordle"><button class="card-btn">Play now</button></a>
             </div>
             <div class="product-info">
@@ -27,7 +28,7 @@
         </div>
         <div class="product-card">
             <div class="product-image">
-                <img src="/image/RPSFcopy.jpg" class="product-thumb" alt="Rock Paper Scissors thumbnail">
+                <img src="/image/RPSFcopy.jpg" class="product-thumb" alt="Rock Paper Scissors">
                 <a asp-controller="Account" asp-action="RockPaperScissors"><button class="card-btn">Play now</button></a>
             </div>
             <div class="product-info">
@@ -37,7 +38,7 @@
         </div>
         <div class="product-card">
             <div class="product-image">
-                <img src="/image/puzzelcopy.jpg" class="product-thumb" alt="Sliding puzzle thumbnail">
+                <img src="/image/puzzelcopy.jpg" class="product-thumb" alt="Slidding Puzzle">
                 <a asp-controller="Home" asp-action="SlidingPuzzle" ><button class="card-btn">Play now</button></a>
             </div>
             <div class="product-info">
@@ -47,7 +48,7 @@
         </div>
         <div class="product-card">
             <div class="product-image">
-                <img src="/image/tttcopy.jpg" class="product-thumb" alt="Tictactoe thumbnail">
+                <img src="/image/tttcopy.jpg" class="product-thumb" alt="TicTacToe">
                 <a asp-controller="Home" asp-action="TicTacToe"><button class="card-btn">Play now</button></a>
             </div>
             <div class="product-info">
@@ -57,7 +58,7 @@
         </div>
         <div class="product-card">
             <div class="product-image">
-                <img src="/image/dummy1.png" class="product-thumb" alt="dummy thumbnail">
+                <img src="/image/dummy1.png" class="product-thumb" alt="Placeholder">
                 <a asp-controller="Home" asp-action="TicTacToe"><button class="card-btn">Play now</button></a>
             </div>
             <div class="product-info">
@@ -67,7 +68,7 @@
         </div>
         <div class="product-card">
             <div class="product-image">
-                <img src="/image/dummy3.png" class="product-thumb" alt="dummy thumbnail">
+                <img src="/image/dummy3.png" class="product-thumb" alt="Placeholder">
                 <button class="card-btn">Play now</button>
             </div>
             <div class="product-info">
@@ -77,7 +78,7 @@
         </div>
         <div class="product-card">
             <div class="product-image">
-                <img src="/image/boardgame thumbnail - Edited.png" class="product-thumb" alt="dummy thumbnail">
+                <img src="/image/boardgame thumbnail - Edited.png" class="product-thumb" alt="Placeholder">
                 <button class="card-btn">Play now</button>
             </div>
             <div class="product-info">
@@ -87,7 +88,7 @@
         </div>
         <div class="product-card">
             <div class="product-image">
-                <img src="/image/dummy5.png" class="product-thumb" alt="dummy thumbnail">
+                <img src="/image/dummy5.png" class="product-thumb" alt="Placeholder">
                 <button class="card-btn">Play now</button>
             </div>
             <div class="product-info">
@@ -97,7 +98,7 @@
         </div>
         <div class="product-card">
             <div class="product-image">
-                <img src="/image/dummy6.png" class="product-thumb" alt="dummy thumbnail">
+                <img src="/image/dummy6.png" class="product-thumb" alt="Placeholder">
                 <button class="card-btn">Play now</button>
             </div>
             <div class="product-info">
@@ -107,7 +108,7 @@
         </div>
         <div class="product-card">
             <div class="product-image">
-                <img src="/image/dummy7.png" class="product-thumb" alt="dummy thumbnail">
+                <img src="/image/dummy7.png" class="product-thumb" alt="Placeholder">
                 <button class="card-btn">Play now</button>
             </div>
             <div class="product-info">
@@ -124,7 +125,7 @@
         <br />Read the developer stories and get to know more about the love behind the games!
 
     <p>Jump to them! <a href ="#rockpaperscissorsJUMP">Rock Paper Scissors |</a> <a href="#wordtopiaJUMP"> Wordtopia |</a> <a href="#meowJUMP">Sliding Puzzle</a></p>
-    </p>
+    
 </article>
 
 <main class=" container">
@@ -137,7 +138,7 @@
             <a asp-controller="Home" role="button" asp-action="Wordle" class="outline"> Play Wordtopia Now!</a>
         </div>
         <div class="wordle">
-        <a asp-action="Wordle" asp-controller="Home"> <img src="/image/wordtopiaFcopy.jpg" alt="picture of wordle = " logo" /></a>
+        <a asp-action="Wordle" asp-controller="Home"> <img src="/image/wordtopiaFcopy.jpg" alt="WordleLogo" /></a>
         </div>
     </article>
     <br />
@@ -152,7 +153,7 @@
             <a asp-controller="Account" role="button" asp-action="RockPaperScissors" class="outline"> Play Rock Paper Scissors Now!</a>
         </div>
         <div class="rockpaperscissors">
-            <a asp-action="RockPaperScissors" asp-controller="Account"> <img src="/image/RPSFcopy.jpg" alt="picture of rock paper sissors = " logo" /></a>
+            <a asp-action="RockPaperScissors" asp-controller="Account"> <img src="/image/RPSFcopy.jpg" alt="Rock Paper Scissors" /></a>
         </div>
     </article>
     <br />
@@ -166,7 +167,7 @@
             <a asp-controller="Home" role="button" asp-action="SlidingPuzzle" class="outline"> Play Sliding Puzzle Now!</a>
         </div>
         <div class="SlidingPuzzle">
-        <a asp-action="SlidingPuzzle" asp-controller="Home"> <img src="/image/puzzelcopy.jpg" alt="sliding puzzle" logo" /></a>
+        <a asp-action="SlidingPuzzle" asp-controller="Home"> <img src="/image/puzzelcopy.jpg" alt="Sliding Puzzle" /></a>
         </div>
     </article>
 </main>
