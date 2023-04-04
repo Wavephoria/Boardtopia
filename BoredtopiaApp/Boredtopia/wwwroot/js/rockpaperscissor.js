@@ -8,6 +8,7 @@ let scissorsWins = 0;
 let currentWins = 0;
 let highScore = 0;
 let totalGames = 0;
+let counter;
 
 function computerPlay() {
     return options[Math.floor(Math.random() * options.length)];
@@ -51,13 +52,33 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+
 const images = document.querySelectorAll("img");
 images.forEach((image) => {
     image.addEventListener("click", () => {
+
         const playerSelection = image.id;
         const computerSelection = computerPlay();
         const result = playRound(playerSelection, computerSelection);
-        document.getElementById("result").textContent = result;
+
+        // Adds countdown before showing what computer chose
+        counter = 3;
+        const interval = setInterval(function countDown() {
+            if (counter > 0) {
+                document.getElementById("result").textContent = counter;
+            } else {
+                document.getElementById("result").textContent = result;
+                clearInterval(interval);
+            }
+
+            counter--;
+
+            return countDown;
+        }(), 1000);
+
+        removeSelected();
+        image.classList.add('weapon-selected');
+        
         document.getElementById("rock-wins").textContent = rockWins;
         document.getElementById("paper-wins").textContent = paperWins;
         document.getElementById("scissors-wins").textContent = scissorsWins;
@@ -72,6 +93,11 @@ saveButton.addEventListener('click', () => {
     sendData();
     resetStats();
 });
+
+
+function removeSelected() {
+    images.forEach(image => image.classList.remove('weapon-selected'));
+}
 
 async function sendData() {
     const data = [rockWins, paperWins, scissorsWins, highScore, totalGames];

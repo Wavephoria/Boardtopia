@@ -3,7 +3,7 @@
 </div>
 <h5 class="game-instruction-header">Click an image below to make your choice:</h5>
 <div class="rockpaperscissors-game-board">
-    <img id="scissors" class="weapon-choice weapon-selected" src="image/Scissors.png" alt="Scissors" width="300">
+    <img id="scissors" class="weapon-choice" src="image/Scissors.png" alt="Scissors" width="300">
     <img id="rock" class="weapon-choice" src="image/Rock.png" alt="Rock" width="300">
     <img id="paper" class="weapon-choice" src="image/Papper.png" alt="Paper" width="300">
 </div>
@@ -16,9 +16,9 @@
         <li>Paper: <span id="paper-wins">0</span></li>
         <li>Scissors: <span id="scissors-wins">0</span></li>
     </ul>
-    <p id="current-wins">Current wins in a row: <span id="current-wins-count">0</span></p>
-    <p id="high-score">Highscore for wins in a row: <span id="high-score-count">0</span></p>
-    <p id="total-games">Total games: <span id="total-games">0</span></p>
+    <p class="win-stats">Current wins in a row: <span id="current-wins-count">0</span></p>
+    <p class="win-stats">Highscore for wins in a row: <span id="high-score-count">0</span></p>
+    <p class="win-stats">Total games: <span id="total-games">0</span></p>
     <div class="save">
         <button type="button" id="save-btn">Save</button>
         <p id="save-msg" style="display:none">Your stats have been saved</p>
