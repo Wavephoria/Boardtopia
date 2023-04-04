@@ -9,22 +9,22 @@
 
 @media only screen and (prefers-color-scheme: dark) {
     :root:not([data-theme]) {
-        --primary: /*#00acc1;*/ #A543DF;
+        --primary: /*#00acc1;*/ #A543DF; /*purple*/
         --primary-hover: #00bcd4; /*teal*/
-        --primary-focus: rgba(0, 172, 193, 0.25); /*transparent?*/
-        --primary-inverse: #fff;
-        --card-sectionning-background-color: #4b7676;
+        --primary-focus: rgba(0, 172, 193, 0.25); /*transparent*/
+        --primary-inverse: #fff; /*white*/
+        --card-sectionning-background-color: #4b7676; /*dark teal*/
         --font-size: 17px;
     }
 }
 
 [data-theme="dark"] {
-    --primary: /*#00acc1;*/ #A543DF;
+    --primary: /*#00acc1;*/ #A543DF; /*purple*/
     --primary-hover: #00bcd4;
-    --primary-focus: rgba(0, 172, 193, 0.25);
-    --primary-inverse: #fff;
-    --card-sectionning-background-color: #4b7676;
-    --card-background-color: #20272d;
+    --primary-focus: rgba(0, 172, 193, 0.25); /*transparent*/
+    --primary-inverse: #fff; /*white*/
+    --card-sectionning-background-color: #4b7676; /*dark teal*/
+    --card-background-color: #20272d; /*black*/
     --font-size: 17px;
 }
 
