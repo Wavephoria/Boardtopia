@@ -11,5 +11,6 @@ public class ApplicationContext : IdentityDbContext<ApplicationUser, IdentityRol
 
     public DbSet<RockPaperScissor> _rpsStats { get; set; }
     public DbSet<Wordle> _wordleStats { get; set; }
+    public DbSet<TicTacToe> _tttStats { get; set; }
 
 }
