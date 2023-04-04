@@ -86,8 +86,17 @@ logo {
     font-size: 1.5rem;
 }
 
-#wins {
+.game-stats {
+    margin-top: 5rem;
+}
+
+.game-stats p {
     margin: 0;
+}
+
+#wins {
+    margin: 0;    
+    font-size: 1.25rem;
 }
 
 .win-stats {
