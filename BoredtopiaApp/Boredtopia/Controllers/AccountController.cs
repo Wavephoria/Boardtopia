@@ -97,6 +97,7 @@ public class AccountController : Controller
         viewModel.Email = await _accountServices.FetchData("email");
         var wordleStats = _accountServices.FetchWordleStats();
         var rpsStats = _accountServices.FetchRpsStats();
+        var tttStats = _accountServices.FetchTicTacStats();
         viewModel.RockWins = rpsStats.Item1;
         viewModel.PaperWins = rpsStats.Item2;
         viewModel.ScissorWins = rpsStats.Item3;
@@ -106,6 +107,12 @@ public class AccountController : Controller
         viewModel.WordlePlays = wordleStats.Item1;
         viewModel.WordleBest = wordleStats.Item2;
         viewModel.WordleAverage = wordleStats.Item3;
+        viewModel.tttGames = tttStats.Item1;
+        viewModel.tttWins = tttStats.Item2;
+        viewModel.tttTies = tttStats.Item3;
+        viewModel.tttLosses = tttStats.Item4;
+        viewModel.tttWinsRow = tttStats.Item5;
+        viewModel.tttWinPercentDecimal = tttStats.Item6;
         return View(viewModel);
     }
 
@@ -129,5 +136,12 @@ public class AccountController : Controller
     {
         string result = await _accountServices.UpdateRPS(data);
         return Ok(result);
+    }
+    
+    [HttpPost("/TicTacToe")]
+    public async Task<IActionResult> TicTacToe([FromBody] string result)
+    {
+        string completion = await _accountServices.UpdateTicTac(result);
+        return Ok(completion);
     }
 }

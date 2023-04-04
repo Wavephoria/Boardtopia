@@ -39,11 +39,11 @@
     <div id="optionsDlg" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
-            <h2>How would you like to play?</h2>
-            <h3>Difficulty:</h3>
+            <h2 class="option">How would you like to play?</h2>
+            <h3 class="option">Difficulty:</h3>
             <label><input type="radio" name="difficulty" id="r0" value="0">easy&nbsp;</label>
             <label><input type="radio" name="difficulty" id="r1" value="1" checked>hard</label><br>
-            <h3>Play as:</h3>
+            <h3 class="option">Play as:</h3>
             <label><input type="radio" name="player" id="rx" value="x" checked>X (go first)&nbsp;</label>
             <label><input type="radio" name="player" id="ro" value="o">O<br></label>
             <p><button id="okBtn" onclick="getOptions()">Play</button></p>
@@ -631,10 +631,13 @@
     function endGame(who) {
         if (who == player) {
             announceWinner("Congratulations, you won!");
+            sendData("win");
         } else if (who == computer) {
             announceWinner("Computer wins!");
+            sendData("loss");
         } else {
             announceWinner("It's a tie!");
+            sendData("tie");
         }
         gameOver = true;
         whoseTurn = 0;
@@ -650,14 +653,14 @@
         setTimeout(restartGame, 800);
     }
 
-    async function sendData() {
+    async function sendData(result) {
         await fetch('/TicTacToe',
             {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json'
                 },
-                body: JSON.stringify(score.player)
+                body: JSON.stringify(result)
             }
         );
     };

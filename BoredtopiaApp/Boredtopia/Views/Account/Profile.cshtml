@@ -15,6 +15,7 @@
     <ul role="listbox">
         <li data-game="wordtopia"><a>Wordtopia</a></li> 
         <li data-game="rockpaperscissor"><a>Rock Paper Scissors</a></li>
+        <li data-game="tictactoe"><a>TicTacToe</a></li>
     </ul>
 </details>
 
@@ -29,6 +30,10 @@
         document.querySelector('[data-game="rockpaperscissor"]').addEventListener('click', () => {
             setText("Rock Paper Scissor");
         });
+        
+        document.querySelector('[data-game="tictactoe"]').addEventListener('click', () => {
+            setText("TicTacToe");
+        });
 
         function setText(gameName) {
             if (gameName === "Wordtopia") {
@@ -37,15 +42,26 @@
                     Games played: @Model.WordlePlays <br />
                     Personal best: @Model.WordleBest <br />
                     Average score: @Model.WordleAverage <br />`
-            } else if (gameName == "Rock Paper Scissor") {
+            } 
+            else if (gameName == "Rock Paper Scissor") {
                 document.querySelector('.game-stats').innerHTML =
                     `<b>${gameName}</b> <br />
                     Rock wins: @Model.RockWins <br />
                     Paper wins: @Model.PaperWins <br />
                     Scissor wins: @Model.ScissorWins <br />
-                    Highscore in a row wins: @Model.Highscore <br />
+                    Most wins in a row: @Model.Highscore <br />
                     Total amount of games: @Model.TotalGames <br />
                     Win percent: @Math.Round((Model.WinPercentRpsDecimal * 100), 2)% <br />`
+            }
+            else if (gameName == "TicTacToe"){
+                document.querySelector('.game-stats').innerHTML =
+                `<b>${gameName}</b> <br />
+                Total games: @Model.tttGames <br />
+                Total wins: @Model.tttWins <br />
+                Total ties: @Model.tttTies <br />
+                Total losses: @Model.tttLosses <br />
+                Wins in a row: @Model.tttWinsRow <br />
+                Win Percentage: @Math.Round((Model.tttWinPercentDecimal * 100), 2)% <br />`
             }
         }
     </script>

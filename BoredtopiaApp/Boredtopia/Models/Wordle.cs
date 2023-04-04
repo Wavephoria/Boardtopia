@@ -4,8 +4,6 @@ namespace Boredtopia.Models;
 
 public class Wordle
 {
-    private AccountServices _accountServices;
-
     public int Id { get; set; }
     public int WordlePlays { get; set; }
     public double WordleAverage { get; set; } 
@@ -13,11 +11,11 @@ public class Wordle
     public int WordleTotal { get; set; }
     public string UserId { get; set; }
 
-    public Wordle()
-    {
-        WordleBest = 0;
-        WordleAverage = 0;
-        WordleBest = 0;
-        WordleTotal = 0;
-    }
+    // public Wordle()
+    // {
+    //     WordleBest = 0;
+    //     WordleAverage = 0;
+    //     WordleBest = 0;
+    //     WordleTotal = 0;
+    // }
 }
