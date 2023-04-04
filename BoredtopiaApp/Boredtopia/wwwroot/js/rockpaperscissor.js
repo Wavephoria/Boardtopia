@@ -53,9 +53,6 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
-
-
-
 const images = document.querySelectorAll("img");
 images.forEach((image) => {
     image.addEventListener("click", () => {
@@ -81,7 +78,6 @@ images.forEach((image) => {
 
         removeSelected();
         image.classList.add('weapon-selected');
-
         
         document.getElementById("rock-wins").textContent = rockWins;
         document.getElementById("paper-wins").textContent = paperWins;

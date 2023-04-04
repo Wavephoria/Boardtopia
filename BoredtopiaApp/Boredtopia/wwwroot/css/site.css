@@ -86,7 +86,7 @@ logo {
     font-weight: 700;
 }
 
-#current-wins, #total-games, #high-score {
+.win-stats {
     margin: 0;
 }
 
