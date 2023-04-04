@@ -32,12 +32,13 @@ logo {
     box-shadow: 0 5px 20px -20px gray;
 }
 
-.main-nav a {
-    color: var(--secondary)
-}
+    .main-nav a {
+        font-weight:700;
+    }
 
 .main-nav a:hover {
-    color: hotpink
+    color: aqua
+    
 }
 
 /*  --- Rock, paper, scissor Styles ---  */
