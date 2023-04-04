@@ -52,21 +52,21 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function startCountDown(result) {
+function startCountDown(result, computerSelection) {
     const interval = setInterval(function countDown() {
             disableClick();
             if (counter > 0) {
                 document.getElementById("result").textContent = counter;
             } else {
+                document.getElementById('opponent-message').textContent = `Your opponent chose ${computerSelection}`;
                 document.getElementById("result").textContent = result;
+                updateGameStats();
                 clearInterval(interval);
                 enableClick();
             }
 
             counter--;
-
-            return countDown;
-    }(), 1000);
+    }, 1000);
 }
 
 
@@ -79,20 +79,15 @@ images.forEach((image) => {
         const computerSelection = computerPlay();
         const result = playRound(playerSelection, computerSelection);
 
-
-        // Adds countdown before showing what computer chose
-        counter = 3;
-        startCountDown(result);
+        document.getElementById("result").textContent = `Weapon locked!`;
 
         removeSelected();
         image.classList.add('weapon-selected');
-        
-        document.getElementById("rock-wins").textContent = rockWins;
-        document.getElementById("paper-wins").textContent = paperWins;
-        document.getElementById("scissors-wins").textContent = scissorsWins;
-        document.getElementById("current-wins-count").textContent = currentWins;
-        document.getElementById("high-score-count").textContent = highScore;
-        document.getElementById("total-games").textContent = totalGames;
+
+        // Adds countdown before showing what computer chose
+        counter = 3;
+        startCountDown(result, computerSelection);
+
     });
 });
 
@@ -101,6 +96,15 @@ saveButton.addEventListener('click', () => {
     sendData();
     resetStats();
 });
+
+function updateGameStats() {
+    document.getElementById("rock-wins").textContent = rockWins;
+    document.getElementById("paper-wins").textContent = paperWins;
+    document.getElementById("scissors-wins").textContent = scissorsWins;
+    document.getElementById("current-wins-count").textContent = currentWins;
+    document.getElementById("high-score-count").textContent = highScore;
+    document.getElementById("total-games").textContent = totalGames;
+}
 
 function disableClick() {
     images.forEach(image => image.classList.add('disable-clicks'));
